@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var userDefaultsManager = UserDefaultsManager.shared
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        if userDefaultsManager.getIsLoggedIn() {
+                    // User is logged in, show HomeView
+                    HomeView()
+                } else {
+                    // User is not logged in, show LoginView
+                    LoginView()
+                }
     }
 }
 
