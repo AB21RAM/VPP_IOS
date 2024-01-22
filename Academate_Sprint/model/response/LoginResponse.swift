@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+
+struct LoginResponse: Decodable {
+    var message: String
+    var uid, userType: Int
+    var isLogin: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case message, uid
+        case userType = "user_type"
+        case isLogin
+    }
+}

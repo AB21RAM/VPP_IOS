@@ -63,9 +63,10 @@ import QuickLook
 
 struct csv_test: View {
     //    @State private var documentInteractionController: UIDocumentInteractionController?
+    var branch: Int
+    @State private var refreshView = false
     @ObservedObject var dashboardViewModel = DashBoardViewModel()
-    //    @State private var documentURL: URL?
-    @State private var branch: Int = 3
+    
     var body: some View {
         /*
          Button("Open CSV") {
@@ -101,20 +102,50 @@ struct csv_test: View {
          
          }
          */
+        Text("Test CSV")
+        
+        /*
         VStack {
             Button("Download and Open File") {
-                branch = 2
+                
                 dashboardViewModel.downloadCSVFile(brach: branch)
+                DispatchQueue.main.async {
+                    refreshView.toggle() // Trigger view update on the main thread
+                }
+            }
+            Button("Download and Open File2") {
+//                branch = 1
+                dashboardViewModel.downloadCSVFile(brach: branch)
+                DispatchQueue.main.async {
+                    refreshView.toggle() // Trigger view update on the main thread
+                }
             }
             
             if let documentURL = dashboardViewModel.documentURL {
                 DocumentViewer(url: documentURL)
+                    .id(refreshView) // Ensure DocumentViewer is recreated when refreshView changes
             } else if let downloadError = dashboardViewModel.downloadError {
                 Text("Download failed with error: \(downloadError.localizedDescription)")
             } else {
                 Text("Press the button to download and open the file.")
             }
         }
+         */
         
+        
+        //                Button("Download and Open File") {
+        //                    branch = 2
+        //                    dashboardViewModel.downloadCSVFile(brach: branch)
+        //                }
+        //
+        //                if let documentURL = dashboardViewModel.documentURL {
+        //                    DocumentViewer(url: documentURL)
+        //                } else if let downloadError = dashboardViewModel.downloadError {
+        //                    Text("Download failed with error: \(downloadError.localizedDescription)")
+        //                } else {
+        //                    Text("Press the button to download and open the file.")
+        //                }
     }
 }
+
+

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+ 
+struct AdmissionPendingResponseElement: Decodable {
+    var pcs, pit, paids, pextc: Int
+}
+
+typealias AdmissionPendingResponse = [AdmissionPendingResponseElement]
+

@@ -28,6 +28,23 @@
 		0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3382B55C02300D4BAD5 /* csv_test.swift */; };
 		0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D33B2B55CC4A00D4BAD5 /* DownloadCSVFile.swift */; };
 		0B04D33F2B57571B00D4BAD5 /* DocumentViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D33E2B57571B00D4BAD5 /* DocumentViewer.swift */; };
+		0B04D3422B57B9FA00D4BAD5 /* DepartmentWiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3412B57B9FA00D4BAD5 /* DepartmentWiseView.swift */; };
+		0B04D3442B57C13600D4BAD5 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3432B57C13600D4BAD5 /* CardModifier.swift */; };
+		0B04D3462B5C36AA00D4BAD5 /* UiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3452B5C36AA00D4BAD5 /* UiColor.swift */; };
+		0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3472B5C4FD800D4BAD5 /* DepartMentViewModel.swift */; };
+		0B04D34A2B5C50AA00D4BAD5 /* DepartmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3492B5C50AA00D4BAD5 /* DepartmentsView.swift */; };
+		0B04D34D2B5C518700D4BAD5 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B04D34C2B5C518700D4BAD5 /* SlidingTabView */; };
+		0B04D34F2B5C663100D4BAD5 /* PendingCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D34E2B5C663100D4BAD5 /* PendingCSVView.swift */; };
+		0B04D3512B5C728F00D4BAD5 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3502B5C728F00D4BAD5 /* CustomBackButton.swift */; };
+		0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3522B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift */; };
+		0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */; };
+		0B04D3572B5C965400D4BAD5 /* AdmissionPendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */; };
+		0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */; };
+		0B7D8B542B5E9E2500BDA317 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7D8B532B5E9E2500BDA317 /* LottieUI */; };
+		0B7D8B572B5E9F2200BDA317 /* line_loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B7D8B562B5E9F2200BDA317 /* line_loading_animation.json */; };
+		0B7D8B592B5EA2B000BDA317 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B7D8B582B5EA2B000BDA317 /* loading.json */; };
+		0B7D8B5B2B5EA35600BDA317 /* newLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B7D8B5A2B5EA35600BDA317 /* newLoading.json */; };
+		0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD950212B5F02630084736B /* RadioButtonSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +70,21 @@
 		0B04D3382B55C02300D4BAD5 /* csv_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = csv_test.swift; sourceTree = "<group>"; };
 		0B04D33B2B55CC4A00D4BAD5 /* DownloadCSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCSVFile.swift; sourceTree = "<group>"; };
 		0B04D33E2B57571B00D4BAD5 /* DocumentViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewer.swift; sourceTree = "<group>"; };
+		0B04D3412B57B9FA00D4BAD5 /* DepartmentWiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentWiseView.swift; sourceTree = "<group>"; };
+		0B04D3432B57C13600D4BAD5 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
+		0B04D3452B5C36AA00D4BAD5 /* UiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiColor.swift; sourceTree = "<group>"; };
+		0B04D3472B5C4FD800D4BAD5 /* DepartMentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartMentViewModel.swift; sourceTree = "<group>"; };
+		0B04D3492B5C50AA00D4BAD5 /* DepartmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsView.swift; sourceTree = "<group>"; };
+		0B04D34E2B5C663100D4BAD5 /* PendingCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingCSVView.swift; sourceTree = "<group>"; };
+		0B04D3502B5C728F00D4BAD5 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		0B04D3522B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInteractionControllerWrapper.swift; sourceTree = "<group>"; };
+		0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchYearCSVView.swift; sourceTree = "<group>"; };
+		0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionPendingResponse.swift; sourceTree = "<group>"; };
+		0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchCSVView.swift; sourceTree = "<group>"; };
+		0B7D8B562B5E9F2200BDA317 /* line_loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = line_loading_animation.json; path = ../../../../Downloads/line_loading_animation.json; sourceTree = "<group>"; };
+		0B7D8B582B5EA2B000BDA317 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../Downloads/loading.json; sourceTree = "<group>"; };
+		0B7D8B5A2B5EA35600BDA317 /* newLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = newLoading.json; path = ../../../../Downloads/newLoading.json; sourceTree = "<group>"; };
+		0BD950212B5F02630084736B /* RadioButtonSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B04D34D2B5C518700D4BAD5 /* SlidingTabView in Frameworks */,
+				0B7D8B542B5E9E2500BDA317 /* LottieUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +119,7 @@
 		0B04D3022B5537B300D4BAD5 /* Academate_Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				0B7D8B552B5E9EEB00BDA317 /* Resources */,
 				0B04D3152B5537F400D4BAD5 /* service */,
 				0B04D3142B5537EC00D4BAD5 /* util */,
 				0B04D3132B5537D300D4BAD5 /* model */,
@@ -109,6 +144,7 @@
 		0B04D3112B5537C300D4BAD5 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0B04D3402B57B9B900D4BAD5 /* departmentWise */,
 				0B04D3352B55B5D500D4BAD5 /* home */,
 				0B04D32C2B556F9900D4BAD5 /* LoginView.swift */,
 			);
@@ -120,6 +156,7 @@
 			children = (
 				0B04D3202B55392E00D4BAD5 /* LoginViewModel.swift */,
 				0B04D3302B5578E600D4BAD5 /* DashBoardViewModel.swift */,
+				0B04D3472B5C4FD800D4BAD5 /* DepartMentViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -141,6 +178,10 @@
 				0B04D3262B55693600D4BAD5 /* managers */,
 				0B04D3162B55382900D4BAD5 /* HttpUtility.swift */,
 				0B04D3222B55394F00D4BAD5 /* LoginValidation.swift */,
+				0B04D3432B57C13600D4BAD5 /* CardModifier.swift */,
+				0B04D3452B5C36AA00D4BAD5 /* UiColor.swift */,
+				0B04D3502B5C728F00D4BAD5 /* CustomBackButton.swift */,
+				0BD950212B5F02630084736B /* RadioButtonSource.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -166,6 +207,7 @@
 			children = (
 				0B04D31E2B5538E400D4BAD5 /* LoginResponse.swift */,
 				0B04D32E2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift */,
+				0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -194,8 +236,31 @@
 			children = (
 				0B04D33B2B55CC4A00D4BAD5 /* DownloadCSVFile.swift */,
 				0B04D33E2B57571B00D4BAD5 /* DocumentViewer.swift */,
+				0B04D3522B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift */,
 			);
 			path = documnet;
+			sourceTree = "<group>";
+		};
+		0B04D3402B57B9B900D4BAD5 /* departmentWise */ = {
+			isa = PBXGroup;
+			children = (
+				0B04D3412B57B9FA00D4BAD5 /* DepartmentWiseView.swift */,
+				0B04D3492B5C50AA00D4BAD5 /* DepartmentsView.swift */,
+				0B04D34E2B5C663100D4BAD5 /* PendingCSVView.swift */,
+				0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */,
+				0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */,
+			);
+			path = departmentWise;
+			sourceTree = "<group>";
+		};
+		0B7D8B552B5E9EEB00BDA317 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B7D8B5A2B5EA35600BDA317 /* newLoading.json */,
+				0B7D8B582B5EA2B000BDA317 /* loading.json */,
+				0B7D8B562B5E9F2200BDA317 /* line_loading_animation.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +279,10 @@
 			dependencies = (
 			);
 			name = Academate_Sprint;
+			packageProductDependencies = (
+				0B04D34C2B5C518700D4BAD5 /* SlidingTabView */,
+				0B7D8B532B5E9E2500BDA317 /* LottieUI */,
+			);
 			productName = Academate_Sprint;
 			productReference = 0B04D3002B5537B300D4BAD5 /* Academate_Sprint.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +311,10 @@
 				Base,
 			);
 			mainGroup = 0B04D2F72B5537B300D4BAD5;
+			packageReferences = (
+				0B04D34B2B5C518700D4BAD5 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
+				0B7D8B522B5E9E2500BDA317 /* XCRemoteSwiftPackageReference "LottieUI" */,
+			);
 			productRefGroup = 0B04D3012B5537B300D4BAD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,7 +329,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7D8B572B5E9F2200BDA317 /* line_loading_animation.json in Resources */,
 				0B04D30B2B5537B300D4BAD5 /* Preview Assets.xcassets in Resources */,
+				0B7D8B592B5EA2B000BDA317 /* loading.json in Resources */,
+				0B7D8B5B2B5EA35600BDA317 /* newLoading.json in Resources */,
 				0B04D3082B5537B300D4BAD5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,22 +346,34 @@
 			files = (
 				0B04D3252B553AD100D4BAD5 /* HomeView.swift in Sources */,
 				0B04D3172B55382900D4BAD5 /* HttpUtility.swift in Sources */,
+				0B04D34A2B5C50AA00D4BAD5 /* DepartmentsView.swift in Sources */,
+				0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */,
 				0B04D3062B5537B300D4BAD5 /* ContentView.swift in Sources */,
+				0B04D3572B5C965400D4BAD5 /* AdmissionPendingResponse.swift in Sources */,
 				0B04D3312B5578E600D4BAD5 /* DashBoardViewModel.swift in Sources */,
 				0B04D33F2B57571B00D4BAD5 /* DocumentViewer.swift in Sources */,
+				0B04D3442B57C13600D4BAD5 /* CardModifier.swift in Sources */,
+				0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */,
 				0B04D31F2B5538E400D4BAD5 /* LoginResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* ApiResource.swift in Sources */,
+				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
 				0B04D32B2B5569D900D4BAD5 /* Constants.swift in Sources */,
+				0B04D3512B5C728F00D4BAD5 /* CustomBackButton.swift in Sources */,
 				0B04D32F2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift in Sources */,
 				0B04D32D2B556F9900D4BAD5 /* LoginView.swift in Sources */,
+				0B04D3422B57B9FA00D4BAD5 /* DepartmentWiseView.swift in Sources */,
 				0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */,
 				0B04D3232B55394F00D4BAD5 /* LoginValidation.swift in Sources */,
 				0B04D3342B557EE400D4BAD5 /* year_data.swift in Sources */,
+				0B04D3462B5C36AA00D4BAD5 /* UiColor.swift in Sources */,
 				0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */,
+				0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */,
 				0B04D3282B55697B00D4BAD5 /* UserDefaultsManager.swift in Sources */,
 				0B04D31D2B5538AC00D4BAD5 /* LoginRequest.swift in Sources */,
 				0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */,
 				0B04D3212B55392E00D4BAD5 /* LoginViewModel.swift in Sources */,
+				0B04D34F2B5C663100D4BAD5 /* PendingCSVView.swift in Sources */,
+				0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */,
 				0B04D3372B55B5FF00D4BAD5 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +575,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B04D34B2B5C518700D4BAD5 /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		0B7D8B522B5E9E2500BDA317 /* XCRemoteSwiftPackageReference "LottieUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tfmart/LottieUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B04D34C2B5C518700D4BAD5 /* SlidingTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B04D34B2B5C518700D4BAD5 /* XCRemoteSwiftPackageReference "SlidingTabView" */;
+			productName = SlidingTabView;
+		};
+		0B7D8B532B5E9E2500BDA317 /* LottieUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B7D8B522B5E9E2500BDA317 /* XCRemoteSwiftPackageReference "LottieUI" */;
+			productName = LottieUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0B04D2F82B5537B300D4BAD5 /* Project object */;
 }

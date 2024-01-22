@@ -60,17 +60,16 @@ struct ApiResource {
             _ = completionHandler(response)
         }
     }
-
-    func fetchPendingBranchWiseData(
+    func fetchPendingCount(
 //        queryParameters: [String: String],
-        completionHandler: @escaping (_ result: String?) -> Void
+        completionHandler: @escaping (_ result: AdmissionPendingResponse?) -> Void
     ) {
         // Creating a base URL
         let baseURL = URL(string:
-                            String(parent_url + "/admission/pendingAppD"))!
+                            String(parent_url + "/admission/pendingApp"))!
         
         // set the uid over here
-        let queryItem = URLQueryItem(name: "brach", value:"1")
+        let queryItem = URLQueryItem(name: "uid", value: String(uid))
         // Adding query parameters to the base URL
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [queryItem]
@@ -87,11 +86,13 @@ struct ApiResource {
         urlRequest.httpMethod = "GET"
         
         // Making a GET request using HttpUtility with the specified result type (YourResponseType)
-        HttpUtility.shared.getData(request: urlRequest, resultType: String.self) { response in
+        HttpUtility.shared.getData(request: urlRequest, resultType: AdmissionPendingResponse.self) { response in
             // Calling the completion handler with the response
             _ = completionHandler(response)
         }
     }
+
+
     
     
 }

@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct CustomBackButton: View {
+    var action: () -> Void
+    var button_color : Color
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            self.action()
+        }) {
+            HStack {
+                Image(systemName: "arrow.left.circle.fill")
+                    .imageScale(.large)
+                    .foregroundColor(button_color)
+            }
+        }
     }
 }
 
-struct CustomBackButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomBackButton()
-    }
-}

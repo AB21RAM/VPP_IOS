@@ -15,6 +15,7 @@ struct DashboardDataModel {
     var thirdYear: String = String()
     var fourthYear: String = String()
     var isError: Bool = false
+    var isLoading : Bool = true
     var new_data : String = String()
 }
 class DashBoardViewModel: ObservableObject {
@@ -34,19 +35,17 @@ class DashBoardViewModel: ObservableObject {
         
     }
     func getDashBoardData(){
+        self.dashboardDataModel.isLoading = true
         apiResource.fetchDashBoardData() { response in
+            
             DispatchQueue.main.async {
+                self.dashboardDataModel.isLoading = false
                 if response?.count1 != 0 {
                     self.dashboardDataModel.firstYear = String(response?.count1 ?? 0)
                     self.dashboardDataModel.secondYear = String(response?.count3 ?? 0)
                     self.dashboardDataModel.dSecondYear = String(response?.count2 ?? 0)
                     self.dashboardDataModel.thirdYear = String(response?.count4 ?? 0)
                     self.dashboardDataModel.fourthYear = String(response?.count5 ?? 0)
-                    print(response?.count1 as Any)
-                    print(response?.count2 as Any)
-                    print(response?.count3 as Any)
-                    print(response?.count4 as Any)
-                    print(response?.count5 as Any)
                 }else{
                     self.dashboardDataModel.isError = true
                 }
@@ -54,7 +53,7 @@ class DashBoardViewModel: ObservableObject {
             }
         }
     }
-    
+    /*
     func getPendingBranchWise(){
         DownloadCSVFile(brach:1) { result in
             DispatchQueue.main.async {
@@ -101,4 +100,5 @@ class DashBoardViewModel: ObservableObject {
             }
         }
     }
+     */
 }

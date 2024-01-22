@@ -10,32 +10,34 @@ import SwiftUI
 struct year_data: View {
     var year : String
     var count : String
+    var width : CGFloat
+    var height : CGFloat
     var body : some View {
-        RoundedRectangle(cornerRadius: 10)
+        RoundedRectangle(cornerRadius: 20)
                    .fill(Color.white)
-                   .frame(width: 200, height: 150)
+                   .frame(width: width, height: height)
                    .overlay(
                        VStack {
                            Text(year)
-                               .font(.headline)
-                               .padding()
-
-                           Spacer()
-
-                           Text(count)
+                               .font(.title2)
                                .foregroundColor(Color.black)
-                               .padding()
-
-                           Spacer()
+                               .frame(maxWidth: CGFloat.infinity,alignment: .leading)
+                               .padding(.leading,20)
+                           Text(count)
+                               .font(.title)
+                               .foregroundColor(Color.black)
+                               .frame(maxWidth: CGFloat.infinity,alignment: .leading)
+                               .padding(.leading,20)
+                               .padding(.top,10)
                        }
                    )
-                   .shadow(radius: 5)
+                   .shadow(radius: 10)
 
     }
 }
 
 struct year_data_Previews: PreviewProvider {
     static var previews: some View {
-        year_data(year: "first",count: "20")
+        year_data(year: "first",count: "20",width: 50,height: 50)
     }
 }
