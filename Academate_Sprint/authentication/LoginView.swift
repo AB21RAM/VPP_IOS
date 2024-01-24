@@ -12,9 +12,11 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
                 TextField("useremail", text: $loginViewModel.loginDataModel.userEmail)
                     .keyboardType(.emailAddress).autocapitalization(.none)
                 SecureField("password", text: $loginViewModel.loginDataModel.userPassword)
+                
                 NavigationLink(
                     destination: HomeView(),
                     isActive: $loginViewModel.loginDataModel.navigate,

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct LoginResponse: Decodable {
+struct LoginResponseUID: Decodable {
     var message: String
     var uid, userType: Int
     var isLogin: Bool

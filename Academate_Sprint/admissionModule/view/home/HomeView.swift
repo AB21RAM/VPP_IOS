@@ -23,6 +23,8 @@ struct HomeView: View {
                     ErrorView()
                 }else if dashboardViewModel.dashboardDataModel.isLoading{
                     LottieView("newLoading")
+                        .loopMode(.loop)
+                        
                 }
                 else{
                     ScrollView{

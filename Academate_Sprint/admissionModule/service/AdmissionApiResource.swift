@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct ApiResource {
+struct AdmissionApiResource {
     
     let parent_url = "https://vppcoe-va.getflytechnologies.com/api"
     
@@ -18,14 +18,14 @@ struct ApiResource {
         }
     func authenticate(
         loginREquest: LoginRequest,
-        completioHandler: @escaping(_ result: LoginResponse?) -> Void
+        completioHandler: @escaping(_ result: LoginResponseUID?) -> Void
     ) {
         var urlRequest  = URLRequest(url: URL(string: String(parent_url + "/login"))!)
         urlRequest.httpMethod = "post"
         urlRequest.addValue("application/json", forHTTPHeaderField: "content-type")
         urlRequest.httpBody = try? JSONEncoder().encode(loginREquest)
         
-        HttpUtility.shared.postData(request: urlRequest, resultType: LoginResponse.self) { response in
+        HttpUtility.shared.postData(request: urlRequest, resultType: LoginResponseUID.self) { response in
             _ = completioHandler(response)
         }
     }
