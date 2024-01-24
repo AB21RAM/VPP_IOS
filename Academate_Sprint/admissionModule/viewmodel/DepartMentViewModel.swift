@@ -20,7 +20,7 @@ struct CountDataModel {
 }
 class DepartMentViewModel : ObservableObject {
     @Published var countDataModel: CountDataModel = CountDataModel()
-    private let apiResource = ApiResource()
+    private let apiResource = AdmissionApiResource()
     @Published var documentURL: URL?
     @Published var downloadError: Error?
     init(){

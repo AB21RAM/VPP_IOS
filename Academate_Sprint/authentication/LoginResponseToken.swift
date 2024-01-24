@@ -6,3 +6,6 @@
 //
 
 import Foundation
+struct LoginResponseToken: Decodable {
+    var message, token, androidToken: String
+}

@@ -11,12 +11,15 @@ struct ContentView: View {
     @StateObject var userDefaultsManager = UserDefaultsManager.shared
     var body: some View {
         if userDefaultsManager.getIsLoggedIn() {
-                    // User is logged in, show HomeView
-                    HomeView()
-                } else {
-                    // User is not logged in, show LoginView
-                    LoginView()
-                }
+            if userDefaultsManager.getUserType() == 4{
+                StudentHomeView()
+            }else if userDefaultsManager.getUserType() == 3{
+                HomeView()
+            }
+        } else {
+            // User is not logged in, show LoginView
+            LoginView()
+        }
     }
 }
 

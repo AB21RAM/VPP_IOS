@@ -8,37 +8,95 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var loginViewModel = LoginViewModel()
+    @State private var showingSheet = false
+    @State private var userType : String = String()
     var body: some View {
-        NavigationView {
-            VStack {
+        NavigationStack{
+            VStack{
+                Image("logo")
+                    .resizable()
+                    .frame(width: 90, height: 100)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading,40)
+                    .padding(.top,70)
+                Text("AcadeMate")
+                    .font(.title)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading ,40)
                 
-                TextField("useremail", text: $loginViewModel.loginDataModel.userEmail)
-                    .keyboardType(.emailAddress).autocapitalization(.none)
-                SecureField("password", text: $loginViewModel.loginDataModel.userPassword)
+                //                Spacer()
+                Text("Welcome")
+                    .font(.title2)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading,40)
+                    .padding(.top,30)
                 
-                NavigationLink(
-                    destination: HomeView(),
-                    isActive: $loginViewModel.loginDataModel.navigate,
-                    label: {
-                        Button(action: {
-                            if(loginViewModel.validateUserInputs()) {
-                                loginViewModel.authenticateUser()
-                            }
-                        }, label: {
-                            Text("Login")
-                        }).alert(isPresented: $loginViewModel.loginDataModel.isPresentingErorAlert, content: {
-                            Alert(title: Text("Alert"), message: Text(loginViewModel.loginDataModel
-                                .errorMessage), dismissButton: .cancel(Text("Ok")))
-                        })
-                    }
-                )
+                Text("Select The Login Option")
+                    .font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading,40)
+                    .padding(.bottom,20)
+                
+                HStack{
+                    Button(action: {
+                        showingSheet.toggle()
+                        changeUserType(user: "Admission")
+                    }, label: {
+                        VStack {
+                            Image("admission")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(15)
+                                .background(.white)
+                                .clipShape(.rect(cornerRadius: 15))
+                            
+                            
+                            Text("Admission")
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .padding(.top,5)
+                        }
+                    }).padding(.trailing,20)
+                    
+                    Button(action: {
+                        showingSheet.toggle()
+                        changeUserType(user: "Student")
+                    }, label: {
+                        VStack {
+                            Image("student")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .background(.white)
+                                .clipShape(.rect(cornerRadius: 15))
+                            
+                            Text("Student")
+                                .font(.headline)
+                                .padding(.top,5)
+                                .foregroundColor(.black)
+                        }
+                    }).padding(.leading,20)
+                }
+                Spacer()
             }
-            .padding()
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .navigationTitle("Login")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color(UIColor(hex:0xEEEAF4, alpha: 1.0))                            .ignoresSafeArea()
+            }
+            .sheet(isPresented: $showingSheet) {
+                BottomSheetView(user: $userType)
+                    .presentationDetents([.height(400)])
+                    .presentationCornerRadius(21)
+            }
         }
     }
+    func changeUserType(user : String) {
+        userType = user
+    }
+    /*
+     
+     */
 }
 
 struct LoginView_Previews: PreviewProvider {

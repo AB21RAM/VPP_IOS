@@ -24,7 +24,6 @@ struct HomeView: View {
                 }else if dashboardViewModel.dashboardDataModel.isLoading{
                     LottieView("newLoading")
                         .loopMode(.loop)
-                        
                 }
                 else{
                     ScrollView{
@@ -141,7 +140,6 @@ struct HomeView: View {
                 
             }.background(Color(UIColor(hex:0xEEEAF4, alpha: 1.0)))
         }
-           
     }
 }
 

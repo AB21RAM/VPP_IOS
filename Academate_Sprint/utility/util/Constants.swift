@@ -12,5 +12,6 @@ struct UserDefaultsKeys {
     static let uid = "uid"
     static let user_type = "user_type"
     static let isLogin = "isLogin"
+    static let token = "token"
 }
 

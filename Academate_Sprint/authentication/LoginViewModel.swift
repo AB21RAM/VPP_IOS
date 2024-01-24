@@ -18,7 +18,7 @@ struct LoginDataModel {
 class LoginViewModel: ObservableObject {
     @Published var loginDataModel: LoginDataModel = LoginDataModel()
     private let loginValidation = LoginValidation()
-    private let apiResource = ApiResource()
+    private let apiResource = LoginEndpoint()
     let userDefaultsManager = UserDefaultsManager.shared
     
     func validateUserInputs() -> Bool {
@@ -30,10 +30,9 @@ class LoginViewModel: ObservableObject {
         return true
     }
     
-    func authenticateUser() {
-        
+    func authenticateUID() {
         let loginRequest = LoginRequest(email: loginDataModel.userEmail, password: loginDataModel.userPassword)
-        apiResource.authenticate(loginREquest: loginRequest) { response in
+        apiResource.uid_authenticate(loginREquest: loginRequest) { response in
             DispatchQueue.main.async {
                
                 if(response?.message == "Success") {
@@ -49,6 +48,25 @@ class LoginViewModel: ObservableObject {
                 }
                 print(response?.message as Any)
                 print("output is \(String(describing: response?.uid))")
+            }
+        }
+    }
+    func authenticateToken() {
+        let loginRequest = LoginRequest(email: loginDataModel.userEmail, password: loginDataModel.userPassword)
+        
+        apiResource.token_authenticate(loginREquest: loginRequest) { response in
+            DispatchQueue.main.async {
+                if(response?.message == "Logged in successfully") {
+                    self.loginDataModel.navigate = true
+                    self.userDefaultsManager.setToken(response?.androidToken ?? "ok")
+                    self.userDefaultsManager.setUserType(4)
+                    self.userDefaultsManager.setIsLoggedIn(true)
+                } else {
+                    self.loginDataModel.errorMessage = response?.message ?? "error occured"
+                    self.loginDataModel.isPresentingErorAlert = true
+                }
+                print(response?.message as Any)
+                print("output is \(String(describing: response?.androidToken))")
             }
         }
     }

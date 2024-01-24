@@ -131,9 +131,9 @@ struct DepartmentWiseView: View {
         }
     }
     // Backup Option if any thing Went Wrong 
-    func BrozwerLink(brach : String , year : Int){
-        Link("Info", destination: URL(string: "https://vppcoe-va.getflytechnologies.com/api/admission/pendingAppD?brach=1")!)
-    }
+//    func BrozwerLink(brach : String , year : Int){
+//        Link("Info", destination: URL(string: "https://vppcoe-va.getflytechnologies.com/api/admission/pendingAppD?brach=1")!)
+//    }
 }
 
 

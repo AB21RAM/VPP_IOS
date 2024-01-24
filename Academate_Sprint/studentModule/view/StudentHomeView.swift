@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct StudentHomeView: View {
+    @ObservedObject var viewmodel = StudentHomeViewModel()
+    let userDefaultsManager = UserDefaultsManager.shared
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Student Name : \(viewmodel.homeDataModel.Name)")
+            Text("Student Contact : \(viewmodel.homeDataModel.ContactNumber)")
+            Button(
+                action: {
+                    // do something
+                    userDefaultsManager.setIsLoggedIn(false)
+                },
+                label: { Image(systemName: "rectangle.portrait.and.arrow.right")
+                        .resizable()
+                        .frame(width: 50,height: 50)
+                    .foregroundColor(.black) }
+            )
+        }
+        
     }
 }
 

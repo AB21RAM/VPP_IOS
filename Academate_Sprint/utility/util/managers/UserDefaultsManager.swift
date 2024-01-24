@@ -14,6 +14,11 @@ class UserDefaultsManager: ObservableObject {
     private let userDefaults = UserDefaults.standard
 
     // MARK: - Published Properties
+    @Published var token: String? {
+        didSet {
+            userDefaults.set(token, forKey: UserDefaultsKeys.token)
+        }
+    }
     @Published var uid: Int? {
         didSet {
             userDefaults.set(uid, forKey: UserDefaultsKeys.uid)
@@ -33,12 +38,17 @@ class UserDefaultsManager: ObservableObject {
     }
 
     init() {
+        self.token = userDefaults.string(forKey: UserDefaultsKeys.token)
         self.uid = userDefaults.integer(forKey: UserDefaultsKeys.uid)
         self.userType = userDefaults.integer(forKey: UserDefaultsKeys.user_type)
         self.isLoggedIn = userDefaults.bool(forKey: UserDefaultsKeys.isLogin)
     }
 
     // MARK: - Setters
+    func setToken(_ token: String) {
+        self.token = token
+    }
+    
     func setUid(_ uid: Int) {
         self.uid = uid
     }
@@ -52,6 +62,9 @@ class UserDefaultsManager: ObservableObject {
     }
 
     // MARK: - Getters
+    func getToken() -> String?{
+        return token
+    }
     func getUid() -> Int? {
         return uid
     }

@@ -20,7 +20,7 @@ struct DashboardDataModel {
 }
 class DashBoardViewModel: ObservableObject {
     @Published var dashboardDataModel: DashboardDataModel = DashboardDataModel()
-    private let apiResource = ApiResource()
+    private let apiResource = AdmissionApiResource()
     
     
     
