@@ -6,13 +6,13 @@
 //
 
 import Foundation
-struct StudentPersonalDetailsResponse: Codable {
+struct StudentPersonalDetailsResponse: Decodable {
     var radd: [Radd]
     var code: Int
 }
 
 // MARK: - Radd
-struct Radd: Codable {
+struct Radd: Decodable {
     var personalID, studID: Int
     var name: String
     var genderID: Int

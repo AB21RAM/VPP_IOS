@@ -36,12 +36,31 @@ class UserDefaultsManager: ObservableObject {
             userDefaults.set(isLoggedIn, forKey: UserDefaultsKeys.isLogin)
         }
     }
+    
+    @Published var email: String? {
+        didSet {
+            userDefaults.set(email, forKey: UserDefaultsKeys.email)
+        }
+    }
+    @Published var photourl: String? {
+        didSet {
+            userDefaults.set(photourl, forKey: UserDefaultsKeys.photourl)
+        }
+    }
+    @Published var phototype: String? {
+        didSet {
+            userDefaults.set(phototype, forKey: UserDefaultsKeys.phototype)
+        }
+    }
 
     init() {
         self.token = userDefaults.string(forKey: UserDefaultsKeys.token)
         self.uid = userDefaults.integer(forKey: UserDefaultsKeys.uid)
         self.userType = userDefaults.integer(forKey: UserDefaultsKeys.user_type)
         self.isLoggedIn = userDefaults.bool(forKey: UserDefaultsKeys.isLogin)
+        self.email = userDefaults.string(forKey: UserDefaultsKeys.email)
+        self.photourl = userDefaults.string(forKey: UserDefaultsKeys.photourl)
+        self.phototype = userDefaults.string(forKey: UserDefaultsKeys.phototype)
     }
 
     // MARK: - Setters
@@ -60,6 +79,16 @@ class UserDefaultsManager: ObservableObject {
     func setIsLoggedIn(_ isLogin: Bool) {
         self.isLoggedIn = isLogin
     }
+    func setEmail(_ email: String) {
+        self.email = email
+    }
+    func setPhotoUrl(_ photourl: String) {
+        self.photourl = photourl
+    }
+    func setPhotoType(_ phototype : String){
+        self.phototype = phototype
+    }
+    
 
     // MARK: - Getters
     func getToken() -> String?{
@@ -75,5 +104,15 @@ class UserDefaultsManager: ObservableObject {
 
     func getIsLoggedIn() -> Bool {
         return isLoggedIn
+    }
+    
+    func getEmail() -> String?{
+        return email
+    }
+    func getPhotourl() -> String?{
+        return photourl
+    }
+    func getPhototype() -> String?{
+        return phototype
     }
 }

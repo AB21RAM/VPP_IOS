@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct MainScreenButton: View {
+    var image : String
+    var text : String
+    var cardbackground : Color
+    var textColor : Color
+    var imageBackground : Color
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Image(image)
+                .padding(10)
+                .background(imageBackground)
+                .clipShape(.rect(cornerRadius: 15))
+            Text(text)
+                .foregroundStyle(textColor)
+        }
+        .frame(width: 85,height: 75)
+        .padding(10)
+        .background(cardbackground)
+        .clipShape(.rect(cornerRadius: 15))
     }
 }
 
 #Preview {
-    MainScreenButton()
+    MainScreenButton(image: "profile", text: "Profile", cardbackground: Color("toolbar"), textColor: .white, imageBackground: .white)
 }

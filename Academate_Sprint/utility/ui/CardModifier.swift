@@ -24,3 +24,19 @@ struct CardModifier: ViewModifier {
             .padding(CGFloat(paddingValue))
     }
 }
+struct ResizableCardModifier: ViewModifier {
+    var paddingValue : Int
+    var backgroundColor : Color
+    var cornerRadius : Int
+    var foregroundColor : Color
+    var font : Font
+    func body(content: Content) -> some View {
+        content
+            .font(font)
+            .padding()
+            .foregroundColor(foregroundColor)
+            .background(backgroundColor)
+            .cornerRadius(CGFloat(cornerRadius))
+            .padding(CGFloat(paddingValue))
+    }
+}

@@ -6,3 +6,19 @@
 //
 
 import Foundation
+struct StudentBalanceFeeResponse: Codable {
+    var success: Bool
+    var result: [ResultBalance]
+}
+
+// MARK: - Result
+struct ResultBalance: Codable {
+    var receiptID, fhID, balanceAmount: Int
+
+    enum CodingKeys: String, CodingKey {
+        case receiptID = "receipt_id"
+        case fhID = "fh_id"
+        case balanceAmount = "balance_amount"
+    }
+}
+

@@ -38,6 +38,7 @@ class LoginViewModel: ObservableObject {
                 if(response?.message == "Success") {
                     self.loginDataModel.navigate = true
                     self.saveUserLoginData(
+                        email: self.loginDataModel.userEmail,
                         uid: response?.uid ?? 0,
                         isLogin: response?.isLogin ?? false,
                         user_type: response?.userType ?? 0
@@ -70,7 +71,8 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
-    func saveUserLoginData(uid : Int , isLogin : Bool , user_type : Int){
+    func saveUserLoginData(email : String ,uid : Int , isLogin : Bool , user_type : Int){
+        userDefaultsManager.setEmail(email)
         userDefaultsManager.setUid(uid)
         userDefaultsManager.setUserType(user_type)
         userDefaultsManager.setIsLoggedIn(true)
