@@ -17,6 +17,7 @@ struct DocumentViewerView: View {
     @ObservedObject var downloadManager = DownloadManager()
     @Binding var item : DocumentItem?
     @State var btnVisibility : Bool = true
+    private let userDefaults = UserDefaultsManager()
     var body: some View {
         VStack{
             if let item = item {
@@ -24,7 +25,7 @@ struct DocumentViewerView: View {
                     Text("\(item.name)")
                         .font(.title)
                         .onAppear {
-                            downloadManager.checkFileExists(fileName: sanitizeFileName("My\(item.name).jpg"))
+                            downloadManager.checkFileExists(fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").jpg"))
                         }
                         .modifier(ResizableCardModifier(paddingValue: 10, backgroundColor: Color("background"), cornerRadius: 10, foregroundColor: Color("toolbar"), font: .title2))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -36,7 +37,7 @@ struct DocumentViewerView: View {
                     //                        }
                     //                    }
                     if downloadManager.isDownloaded {
-                        if let file = downloadManager.getFile(fileType: "image", fileName: sanitizeFileName("My\(item.name).jpg")) as? UIImage {
+                        if let file = downloadManager.getFile(fileType: "image", fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").jpg")) as? UIImage {
                             Image(uiImage: file)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -60,7 +61,7 @@ struct DocumentViewerView: View {
                     }
                     else{
                         Button("Download \(item.name)") {
-                            downloadManager.downloadFile(fileURL: "\(item.url)", fileName: sanitizeFileName("My\(item.name).jpg"))
+                            downloadManager.downloadFile(fileURL: "\(item.url)", fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").jpg"))
                             btnVisibility.toggle()
                         }
                     }
@@ -69,16 +70,16 @@ struct DocumentViewerView: View {
                     Text("\(item.name)")
                         .font(.title)
                         .onAppear {
-                            downloadManager.checkFileExists(fileName: sanitizeFileName("My\(item.name).jpg"))
+                            downloadManager.checkFileExists(fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").jpg"))
                         }
                     if btnVisibility{
                         Button("Download \(item.name)") {
-                            downloadManager.downloadFile(fileURL: "\(item.url)", fileName: sanitizeFileName("My\(item.name).pdf"))
+                            downloadManager.downloadFile(fileURL: "\(item.url)", fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").pdf"))
                             btnVisibility.toggle()
                         }
                     }
                     if downloadManager.isDownloaded {
-                        if let fileData = downloadManager.getFile(fileType: "pdf", fileName: sanitizeFileName("My\(item.name).pdf")) as? Data {
+                        if let fileData = downloadManager.getFile(fileType: "pdf", fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").pdf")) as? Data {
                             if let pdfDocument = PDFDocument(data: fileData) {
                                 PDFKitView(showing: pdfDocument)
                                     .scaledToFit()
@@ -92,7 +93,7 @@ struct DocumentViewerView: View {
                                 }).actionSheet(isPresented: $isShareSheetPresented) {
                                     ActionSheet(title: Text("Share PDF"), buttons: [
                                         .default(Text("Share")) {
-                                            sharePDF(downloadManager.getFileURL(fileName: sanitizeFileName("My\(item.name).pdf"))!)
+                                            sharePDF(downloadManager.getFileURL(fileName: sanitizeFileName("My\(item.name)\(userDefaults.getEmail() ?? "Name").pdf"))!)
                                         },
                                         .cancel()
                                     ])

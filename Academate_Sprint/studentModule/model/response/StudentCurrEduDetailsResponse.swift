@@ -26,9 +26,9 @@ struct DataCurrEdu: Codable {
     var docIDS: Int
     var academicYear: String
     var finalSubmit: Int
-    var hDegree: String
+    var hDegree: JSONNull?
     var partPayment, ddID: JSONNull?
-    var neftID, cancelledApp: Int
+    var neftID, cancelledApp: JSONNull?
     var cancelledAppDate, cancelledAppDocument: JSONNull?
     var rowNum: Int
 

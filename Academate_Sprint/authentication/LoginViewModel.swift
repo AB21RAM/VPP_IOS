@@ -61,6 +61,7 @@ class LoginViewModel: ObservableObject {
                     self.loginDataModel.navigate = true
                     self.userDefaultsManager.setToken(response?.androidToken ?? "ok")
                     self.userDefaultsManager.setUserType(4)
+                    self.userDefaultsManager.setEmail(self.loginDataModel.userEmail)
                     self.userDefaultsManager.setIsLoggedIn(true)
                 } else {
                     self.loginDataModel.errorMessage = response?.message ?? "error occured"
@@ -77,6 +78,5 @@ class LoginViewModel: ObservableObject {
         userDefaultsManager.setUserType(user_type)
         userDefaultsManager.setIsLoggedIn(true)
     }
-     
         
 }

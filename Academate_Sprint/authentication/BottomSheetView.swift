@@ -68,7 +68,7 @@ struct BottomSheetView: View {
                 
                 
                 
-                
+                // For new User 
                 Button(action: {
                     if(loginViewModel.validateUserInputs()) {
                         if user == "Admission"{
@@ -88,7 +88,7 @@ struct BottomSheetView: View {
                 
             }
             
-            
+            // For new User
             .navigationDestination(
                 isPresented: $loginViewModel.loginDataModel.navigate) {
                     if user == "Admission"{

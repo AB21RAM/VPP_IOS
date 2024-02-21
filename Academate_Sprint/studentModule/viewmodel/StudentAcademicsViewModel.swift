@@ -23,7 +23,6 @@ struct AcademicsDataModel{
 class StudentAcademicsViewModel : ObservableObject{
     @Published var academicsDataModel: AcademicsDataModel = AcademicsDataModel()
     private let apiResource = StudentApiResource()
-    let userDefaultsManager = UserDefaultsManager.shared
     //    var studentDocs: StudentDocLinkResponse
     init() {
         getDocData {
@@ -38,10 +37,11 @@ class StudentAcademicsViewModel : ObservableObject{
         apiResource.getStudentDocs() { response in
             DispatchQueue.main.async {
                 self.academicsDataModel.isLoading = false
-
+                print("data is \(String(describing: response?.docs.photo)) ")
+                
                 if response?.docs.docID != 0 {
                     self.academicsDataModel.studentDocLinkResponse = response
-
+                    print("data is \(String(describing: response?.docs)) ")
                     // Generate the document list asynchronously
                     self.generateDocumentList { updatedDocumentList in
                         self.academicsDataModel.documentList = updatedDocumentList
@@ -84,9 +84,9 @@ extension Docs {
         if !aadharCard.isEmpty {
             documentList.append(DocumentItem(name: "Aadhar Card", url: aadharCard))
         }
-        //        if !antiraggingForm.value {
-        //            documentList.append(DocumentItem(name: "Antiragging Form", url: antiraggingForm))
-        //        }
+        if ((antiraggingForm?.isEmpty) != nil) {
+            documentList.append(DocumentItem(name: "Antiragging Form", url: antiraggingForm ?? ""))
+                }
         if !backPassbook.isEmpty {
             documentList.append(DocumentItem(name: "Back Passbook", url: backPassbook))
         }
@@ -114,9 +114,9 @@ extension Docs {
         if !feeReciept.isEmpty {
             documentList.append(DocumentItem(name: "Fee Receipt", url: feeReciept))
         }
-        //        if let gapCert = gapCert, !gapCert.isEmpty {
-        //            documentList.append(DocumentItem(name: "Gap Certificate", url: gapCert))
-        //        }
+//        if  ((gapCERT?.isEmpty) == nil) {
+//                    documentList.append(DocumentItem(name: "Gap Certificate", url: gapCERT ?? ""))
+//                }
         if !hscMarksheet.isEmpty {
             documentList.append(DocumentItem(name: "HSC Marksheet", url: hscMarksheet))
         }

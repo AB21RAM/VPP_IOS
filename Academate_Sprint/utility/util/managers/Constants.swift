@@ -14,7 +14,7 @@ struct UserDefaultsKeys {
     static let isLogin = "isLogin"
     static let token = "token"
     static let email = "email"
-    static let photourl = "photourl"
+    static let collegeID = "collegeID"
     static let phototype = "phototype"
     
     

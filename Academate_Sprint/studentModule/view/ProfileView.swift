@@ -10,7 +10,8 @@ import Lottie
 import LottieUI
 
 struct ProfileView: View {
-    @ObservedObject var viewmodel = StudentHomeViewModel()
+    @StateObject var viewmodel = StudentHomeViewModel()
+    
     var body: some View {
         VStack{
             if(viewmodel.homeDataModel.isLoadingPer && viewmodel.homeDataModel.isLoadingCurr){
@@ -75,35 +76,42 @@ struct ProfileView: View {
                     }
                 }
                 .modifier(CardModifier(paddingValue: 0, backgroundColor: Color.white, cornerRadius: 10, foregroundColor: Color("toolbar"), font: Font.caption))
-                
-            }
-            
-            /// MARK : Need to Add the check for enterance details
-            if(viewmodel.homeDataModel.isSem){
-                Text("Academic Score:")
-                    .font(.title2)
-                    .bold()
-                    .underline()
-                    .frame(maxWidth: .infinity,alignment: .leading)
-                ScrollView(.horizontal) {
-                    LazyHStack(alignment: .top, spacing: 10) {
-                        // MARK : This is where List need to insert
-                        ForEach(viewmodel.homeDataModel.semData , id: \.id) { item in
-                            VStack{
-                                Text("Semester: \(item.semNumber)")
-                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                Text("Score: \(item.aggregatedScore)")
-                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                    .bold()
+                /// MARK : Need to Add the check for enterance details
+                if(viewmodel.homeDataModel.isSem){
+                    Text("Academic Score:")
+                        .font(.title2)
+                        .bold()
+                        .underline()
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                    ScrollView(.horizontal) {
+                        LazyHStack(alignment: .top, spacing: 10) {
+                            // MARK : This is where List need to insert
+                            ForEach(viewmodel.homeDataModel.semData , id: \.id) { item in
+                                VStack{
+                                    Text("Semester: \(item.semNumber)")
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                    Text("Score: \(item.aggregatedScore)")
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                        .bold()
+                                }
+                                .modifier(CardModifier(paddingValue: 10, backgroundColor: .white, cornerRadius: 15, foregroundColor: Color("toolbar"), font: .title2))
                             }
-                            .modifier(CardModifier(paddingValue: 10, backgroundColor: .white, cornerRadius: 15, foregroundColor: Color("toolbar"), font: .title2))
                         }
                     }
                 }
+
             }
-            
+        }.task {
+            // Load data only when the view appears for the first time
+            if !viewmodel.isDataLoaded {
+                viewmodel.getStudentDashBoard()
+                viewmodel.getHomeData()
+//                viewmodel.getCurrEduData()
+                // Set the flag to indicate that data has been loaded
+                viewmodel.isDataLoaded = true
+                print(UserDefaultsManager().getCollegeID() ?? "")
+            }
         }
-        
     }
 }
 

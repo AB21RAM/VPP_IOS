@@ -8,7 +8,7 @@
 import SwiftUI
 /// tobe -- Network Check
 struct StudentHomeView: View {
-    @ObservedObject var viewmodel = StudentHomeViewModel()
+    @StateObject var viewmodel = StudentProfileViewModel()
     @State private var dynamicContent: Int = 1
     let userDefaultsManager = UserDefaultsManager.shared
     var body: some View {
@@ -113,47 +113,60 @@ struct StudentHomeView: View {
                     
                 }
                 HStack{
-                    AsyncImage(url: URL(string: viewmodel.homeDataModel.photo)) { phase in
-                        if let image = phase.image {
-                            // Display the loaded image
-                            image
-                                .resizable()
-                                .frame(width: 110, height: 120)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .shadow(radius: 10)
-                                .aspectRatio(contentMode: .fit)
-                        } else if phase.error != nil {
-                            // Display a placeholder when loading failed
-                            Image(systemName: "person.crop.rectangle.stack")
-                                .resizable()
-                                .frame(width: 110, height: 120)
-                                .shadow(radius: 10)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .aspectRatio(contentMode: .fit)
-                        } else {
-                            // Display a placeholder while loading
-                            ProgressView()
-                                .frame(width: 110, height: 120)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .aspectRatio(contentMode: .fit)
+                    if let imageURL = URL(string: viewmodel.profileDataModel.photo) {
+                        AsyncImage(url: imageURL) { phase in
+                            if let image = phase.image {
+                                // Display the loaded image
+                                image
+                                    .resizable()
+                                    .frame(width: 110, height: 120)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .shadow(radius: 10)
+                                    .aspectRatio(contentMode: .fit)
+                            } else if phase.error != nil {
+                                // Display a placeholder when loading failed
+                                Image(systemName: "person.crop.rectangle.stack")
+                                    .resizable()
+                                    .frame(width: 110, height: 120)
+                                    .shadow(radius: 10)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .aspectRatio(contentMode: .fit)
+                            } else {
+                                // Display a placeholder while loading
+                                ProgressView()
+                                    .frame(width: 110, height: 120)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .aspectRatio(contentMode: .fit)
+                            }
                         }
-                    }.padding(.trailing,10)
+                        .padding(.trailing, 10)
+                    } else {
+                        // Display placeholder when URL string is empty
+                        Image(systemName: "person.crop.rectangle.stack")
+                            .resizable()
+                            .frame(width: 110, height: 120)
+                            .shadow(radius: 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.trailing, 10)
+                    }
+
                     VStack{
-                        Text(viewmodel.homeDataModel.Name)
+                        Text(viewmodel.profileDataModel.Name)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
 //                            .font(.custom("new", fixedSize: 20))
                             .bold()
-                        Text(viewmodel.homeDataModel.idNo)
+                        Text(viewmodel.profileDataModel.idNo)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
-                        Text(viewmodel.homeDataModel.year)
+                        Text(viewmodel.profileDataModel.year)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
                             .bold()
-                        Text(userDefaultsManager.getEmail() ?? "User Email")
+                        Text(userDefaultsManager.getEmail() ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.subheadline)
+                            .font(.caption2)
                     }
                     .foregroundStyle(Color("toolbar"))
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -164,6 +177,16 @@ struct StudentHomeView: View {
 //                .frame(width: 390,height: 200)
                 .shadow(radius: 5)
                 .padding(.top,30)
+                .task {
+                    // Load data only when the view appears for the first time
+                    if !viewmodel.isDataLoaded {
+                        
+                        viewmodel.getProfileData()
+                        // Set the flag to indicate that data has been loaded
+                        viewmodel.isDataLoaded = true
+//                        userDefaultsManager.setCollegeID(viewmodel.homeDataModel.idNo)
+                    }
+                }
             }
         }
     }

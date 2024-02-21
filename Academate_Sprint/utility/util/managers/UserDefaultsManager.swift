@@ -42,9 +42,9 @@ class UserDefaultsManager: ObservableObject {
             userDefaults.set(email, forKey: UserDefaultsKeys.email)
         }
     }
-    @Published var photourl: String? {
+    @Published var collegeID: String? {
         didSet {
-            userDefaults.set(photourl, forKey: UserDefaultsKeys.photourl)
+            userDefaults.set(collegeID, forKey: UserDefaultsKeys.collegeID)
         }
     }
     @Published var phototype: String? {
@@ -59,7 +59,7 @@ class UserDefaultsManager: ObservableObject {
         self.userType = userDefaults.integer(forKey: UserDefaultsKeys.user_type)
         self.isLoggedIn = userDefaults.bool(forKey: UserDefaultsKeys.isLogin)
         self.email = userDefaults.string(forKey: UserDefaultsKeys.email)
-        self.photourl = userDefaults.string(forKey: UserDefaultsKeys.photourl)
+        self.collegeID = userDefaults.string(forKey: UserDefaultsKeys.collegeID)
         self.phototype = userDefaults.string(forKey: UserDefaultsKeys.phototype)
     }
 
@@ -82,8 +82,8 @@ class UserDefaultsManager: ObservableObject {
     func setEmail(_ email: String) {
         self.email = email
     }
-    func setPhotoUrl(_ photourl: String) {
-        self.photourl = photourl
+    func setCollegeID(_ collegeID: String) {
+        self.collegeID = collegeID
     }
     func setPhotoType(_ phototype : String){
         self.phototype = phototype
@@ -109,8 +109,8 @@ class UserDefaultsManager: ObservableObject {
     func getEmail() -> String?{
         return email
     }
-    func getPhotourl() -> String?{
-        return photourl
+    func getCollegeID() -> String?{
+        return collegeID
     }
     func getPhototype() -> String?{
         return phototype

@@ -58,6 +58,7 @@ struct Radd: Decodable {
 class JSONNull: Codable, Hashable {
     
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        // Since JSONNull represents null values, we consider all instances equal
         return true
     }
     
@@ -68,10 +69,8 @@ class JSONNull: Codable, Hashable {
     public init() {}
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
+        // No need to decode anything here since JSONNull represents a null value
+        // We can leave this initializer empty
     }
     
     public func encode(to encoder: Encoder) throws {

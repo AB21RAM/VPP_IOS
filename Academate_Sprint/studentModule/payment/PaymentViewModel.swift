@@ -14,12 +14,17 @@ struct SingleFeeHeadItem : Identifiable{
 }
 struct PaymentDataModel{
     var sfhList: [SingleFeeHeadItem] = []
+    var totalAmount : String = String()
+    var balanceAmount : String = String()
+    var FeeStructure : [FeeStructureData]? = []
 }
 class PaymentViewModel : ObservableObject{
     @Published var paymentDataModel : PaymentDataModel = PaymentDataModel()
     private let apiResource = StudentApiResource()
+    private let repository = StudentRepository()
     init() {
         getSingleFeeHeadData()
+        getStudentFeeData()
     }
     func getSingleFeeHeadData() {
         apiResource.getStudentSingleFeeHeads { [weak self] response in
@@ -42,6 +47,20 @@ class PaymentViewModel : ObservableObject{
             }
         }
     }
-
-
+    
+    func getStudentFeeData(){
+        repository.getStudentBalanceAmount { data in
+            DispatchQueue.main.async{
+                self.paymentDataModel.balanceAmount = data?.balanceAmount ?? ""
+            }
+        }
+        
+        repository.getStudentFeeStructure { data in
+            DispatchQueue.main.async{
+                self.paymentDataModel.totalAmount = data?.totalAmount ?? ""
+                self.paymentDataModel.FeeStructure = data?.feeStructure
+            }
+        }
+    }
+    
 }

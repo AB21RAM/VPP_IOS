@@ -41,6 +41,11 @@
 		0B04D3572B5C965400D4BAD5 /* AdmissionPendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */; };
 		0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */; };
 		0B7D8B542B5E9E2500BDA317 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7D8B532B5E9E2500BDA317 /* LottieUI */; };
+		0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6DC2B80F39500F489DE /* StudentRepository.swift */; };
+		0B80F6DF2B8120A800F489DE /* StudentProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6DE2B8120A800F489DE /* StudentProfileViewModel.swift */; };
+		0B80F6E22B822F8600F489DE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B80F6E12B822F8600F489DE /* Alamofire */; };
+		0B80F6E72B86074300F489DE /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6E52B86074200F489DE /* model.xcdatamodeld */; };
+		0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6E92B860E5400F489DE /* PersistenceController.swift */; };
 		0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD950212B5F02630084736B /* RadioButtonSource.swift */; };
 		0BD9502E2B6141A50084736B /* newLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502D2B6141A50084736B /* newLoading.json */; };
 		0BD950302B6141B50084736B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502F2B6141B50084736B /* loading.json */; };
@@ -125,6 +130,11 @@
 		0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchYearCSVView.swift; sourceTree = "<group>"; };
 		0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionPendingResponse.swift; sourceTree = "<group>"; };
 		0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchCSVView.swift; sourceTree = "<group>"; };
+		0B80F6DC2B80F39500F489DE /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
+		0B80F6DE2B8120A800F489DE /* StudentProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewModel.swift; sourceTree = "<group>"; };
+		0B80F6E32B83465F00F489DE /* DOCS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DOCS.md; sourceTree = "<group>"; };
+		0B80F6E62B86074300F489DE /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
+		0B80F6E92B860E5400F489DE /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		0BD950212B5F02630084736B /* RadioButtonSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonSource.swift; sourceTree = "<group>"; };
 		0BD9502D2B6141A50084736B /* newLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = newLoading.json; path = ../../../../../Downloads/newLoading.json; sourceTree = "<group>"; };
 		0BD9502F2B6141B50084736B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD950672B6854070084736B /* Easebuzz.xcframework in Frameworks */,
+				0B80F6E22B822F8600F489DE /* Alamofire in Frameworks */,
 				0B04D34D2B5C518700D4BAD5 /* SlidingTabView in Frameworks */,
 				0B7D8B542B5E9E2500BDA317 /* LottieUI in Frameworks */,
 			);
@@ -204,6 +215,7 @@
 				0B04D3052B5537B300D4BAD5 /* ContentView.swift */,
 				0B04D3072B5537B300D4BAD5 /* Assets.xcassets */,
 				0B04D3092B5537B300D4BAD5 /* Preview Content */,
+				0B80F6E32B83465F00F489DE /* DOCS.md */,
 			);
 			path = Academate_Sprint;
 			sourceTree = "<group>";
@@ -331,6 +343,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0B80F6DB2B80F37000F489DE /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				0B80F6DC2B80F39500F489DE /* StudentRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		0B80F6E42B8606D800F489DE /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				0B80F6E52B86074200F489DE /* model.xcdatamodeld */,
+				0B80F6E92B860E5400F489DE /* PersistenceController.swift */,
+			);
+			path = coreData;
+			sourceTree = "<group>";
+		};
 		0BD950232B613F590084736B /* admissionModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +374,7 @@
 		0BD950242B613F710084736B /* studentModule */ = {
 			isa = PBXGroup;
 			children = (
+				0B80F6DB2B80F37000F489DE /* repository */,
 				0BD950642B6852A70084736B /* payment */,
 				0BD9502C2B61401E0084736B /* viewmodel */,
 				0BD9502B2B6140130084736B /* view */,
@@ -357,6 +387,7 @@
 		0BD950262B613FB20084736B /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				0B80F6E42B8606D800F489DE /* coreData */,
 				0BD950382B6146700084736B /* ui */,
 				0B04D3142B5537EC00D4BAD5 /* util */,
 				0B7D8B552B5E9EEB00BDA317 /* Resources */,
@@ -424,6 +455,7 @@
 			children = (
 				0BD950452B61B4C20084736B /* StudentHomeViewModel.swift */,
 				0BD9505F2B665B310084736B /* StudentAcademicsViewModel.swift */,
+				0B80F6DE2B8120A800F489DE /* StudentProfileViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -500,6 +532,7 @@
 			packageProductDependencies = (
 				0B04D34C2B5C518700D4BAD5 /* SlidingTabView */,
 				0B7D8B532B5E9E2500BDA317 /* LottieUI */,
+				0B80F6E12B822F8600F489DE /* Alamofire */,
 			);
 			productName = Academate_Sprint;
 			productReference = 0B04D3002B5537B300D4BAD5 /* Academate_Sprint.app */;
@@ -532,6 +565,7 @@
 			packageReferences = (
 				0B04D34B2B5C518700D4BAD5 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				0B7D8B522B5E9E2500BDA317 /* XCRemoteSwiftPackageReference "LottieUI" */,
+				0B80F6E02B822F8600F489DE /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0B04D3012B5537B300D4BAD5 /* Products */;
 			projectDirPath = "";
@@ -575,6 +609,7 @@
 				0BD9503C2B619C720084736B /* BottomSheetView.swift in Sources */,
 				0BD950352B6143710084736B /* LoginEndpoint.swift in Sources */,
 				0BD950462B61B4C20084736B /* StudentHomeViewModel.swift in Sources */,
+				0B80F6DF2B8120A800F489DE /* StudentProfileViewModel.swift in Sources */,
 				0BD950712B68F0460084736B /* SingleFeeHeadResponse.swift in Sources */,
 				0BD950562B65AE530084736B /* DownloadManager.swift in Sources */,
 				0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */,
@@ -597,6 +632,7 @@
 				0B04D3422B57B9FA00D4BAD5 /* DepartmentWiseView.swift in Sources */,
 				0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */,
 				0B04D3232B55394F00D4BAD5 /* LoginValidation.swift in Sources */,
+				0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */,
 				0B04D3342B557EE400D4BAD5 /* year_data.swift in Sources */,
 				0BD9506B2B68ECC40084736B /* PaymentApiResource.swift in Sources */,
 				0BD950532B65858F0084736B /* MainScreenButton.swift in Sources */,
@@ -614,7 +650,9 @@
 				0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */,
 				0BD9504C2B6448640084736B /* ProfileView.swift in Sources */,
 				0B04D3282B55697B00D4BAD5 /* UserDefaultsManager.swift in Sources */,
+				0B80F6E72B86074300F489DE /* model.xcdatamodeld in Sources */,
 				0B04D31D2B5538AC00D4BAD5 /* LoginRequest.swift in Sources */,
+				0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */,
 				0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */,
 				0B04D3212B55392E00D4BAD5 /* LoginViewModel.swift in Sources */,
 				0BD9505C2B65C6220084736B /* pdfRepresentedView.swift in Sources */,
@@ -849,6 +887,14 @@
 				minimumVersion = 1.3.1;
 			};
 		};
+		0B80F6E02B822F8600F489DE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -862,7 +908,25 @@
 			package = 0B7D8B522B5E9E2500BDA317 /* XCRemoteSwiftPackageReference "LottieUI" */;
 			productName = LottieUI;
 		};
+		0B80F6E12B822F8600F489DE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B80F6E02B822F8600F489DE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0B80F6E52B86074200F489DE /* model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B80F6E62B86074300F489DE /* model.xcdatamodel */,
+			);
+			currentVersion = 0B80F6E62B86074300F489DE /* model.xcdatamodel */;
+			path = model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B04D2F82B5537B300D4BAD5 /* Project object */;
 }

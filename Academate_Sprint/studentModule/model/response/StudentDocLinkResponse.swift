@@ -27,7 +27,7 @@ struct Docs: Codable {
     var collegeAdmissionLetter: String
     var jeeScoreCard, nonCreamy, ewsPro: String
     var parentSignature: String
-    var antiraggingForm, gapCERT: JSONNull?
+    var antiraggingForm, gapCERT: String?
 
     enum CodingKeys: String, CodingKey {
         case docID = "doc_id"
