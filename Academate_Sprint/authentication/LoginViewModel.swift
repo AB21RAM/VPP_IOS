@@ -60,9 +60,11 @@ class LoginViewModel: ObservableObject {
                 if(response?.message == "Logged in successfully") {
                     self.loginDataModel.navigate = true
                     self.userDefaultsManager.setToken(response?.androidToken ?? "ok")
+                    print(self.userDefaultsManager.getToken()!)
                     self.userDefaultsManager.setUserType(4)
                     self.userDefaultsManager.setEmail(self.loginDataModel.userEmail)
                     self.userDefaultsManager.setIsLoggedIn(true)
+                    UserDefaults.standard.synchronize()
                 } else {
                     self.loginDataModel.errorMessage = response?.message ?? "error occured"
                     self.loginDataModel.isPresentingErorAlert = true

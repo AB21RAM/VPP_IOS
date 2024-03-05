@@ -11,10 +11,7 @@ struct semDataItem: Identifiable{
     var aggregatedScore: String
 }
 struct HomeDataModel{
-    
-
     var department : String = String()
-    
     var grNo : String = String()
     var dob : String = String()
     

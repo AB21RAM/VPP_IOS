@@ -15,7 +15,6 @@ class StudentRepository {
                 completion(nil)
                 return
             }
-            
             if let data = response.radd.first {
                 
                 let dateString : String? = data.dob
@@ -46,7 +45,7 @@ class StudentRepository {
 //                completion(nil)
 //                return
 //            }
-            print(response ?? "")
+            print("CurrentEdu response : \(String(describing: response))")
             let category = response?.category
             if let data = response?.data.first{
                 var branch = ""

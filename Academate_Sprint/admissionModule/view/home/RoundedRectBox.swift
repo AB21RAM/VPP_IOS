@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct year_data: View {
+struct RoundedRectBox: View {
     var year : String
     var count : String
     var width : CGFloat
@@ -38,6 +38,6 @@ struct year_data: View {
 
 struct year_data_Previews: PreviewProvider {
     static var previews: some View {
-        year_data(year: "first",count: "20",width: 50,height: 50)
+        RoundedRectBox(year: "first",count: "20",width: 50,height: 50)
     }
 }

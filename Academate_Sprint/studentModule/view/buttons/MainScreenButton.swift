@@ -21,6 +21,7 @@ struct MainScreenButton: View {
                 .clipShape(.rect(cornerRadius: 15))
             Text(text)
                 .foregroundStyle(textColor)
+                .font(.caption)
         }
         .frame(width: 85,height: 75)
         .padding(10)

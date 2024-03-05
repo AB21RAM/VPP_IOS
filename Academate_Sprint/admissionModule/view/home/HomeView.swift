@@ -35,25 +35,25 @@ struct HomeView: View {
                         
                         Grid{
                             GridRow {
-                                year_data(year: "First Year", count: dashboardViewModel.dashboardDataModel.firstYear,width: 150,height: 150)
+                                RoundedRectBox(year: "First Year", count: dashboardViewModel.dashboardDataModel.firstYear,width: 150,height: 150)
                                     .padding(.leading ,15)
                                     .padding(.trailing ,10)
-                                year_data(year: "Second Year", count: dashboardViewModel.dashboardDataModel.secondYear,width: 150,height: 150)
+                                RoundedRectBox(year: "Second Year", count: dashboardViewModel.dashboardDataModel.secondYear,width: 150,height: 150)
                                     .padding(.leading ,10)
                                     .padding(.trailing ,15)
                             }.padding(.bottom,20)
                             GridRow{
-                                year_data(year: "Third Year", count: dashboardViewModel.dashboardDataModel.thirdYear,width: 150,height: 150)
+                                RoundedRectBox(year: "Third Year", count: dashboardViewModel.dashboardDataModel.thirdYear,width: 150,height: 150)
                                     .padding(.leading ,15)
                                     .padding(.trailing ,10)
-                                year_data(year: "Fourth Year", count: dashboardViewModel.dashboardDataModel.fourthYear,width: 150,height: 150)
+                                RoundedRectBox(year: "Fourth Year", count: dashboardViewModel.dashboardDataModel.fourthYear,width: 150,height: 150)
                                     .padding(.leading ,10)
                                     .padding(.trailing ,15)
                             }
                         }
                         
                         
-                        year_data(year: "Direct Second Year", count: dashboardViewModel.dashboardDataModel.dSecondYear,width: 320,height: 120)
+                        RoundedRectBox(year: "Direct Second Year", count: dashboardViewModel.dashboardDataModel.dSecondYear,width: 320,height: 120)
                             .padding(20)
                         Divider()
                         /*

@@ -1,18 +1,28 @@
 //
-//  StudentHomeView.swift
+//  FacultyMainScreen.swift
 //  Academate_Sprint
 //
-//  Created by Sanjaykumar Bhosale  on 25/01/24.
+//  Created by Sanjaykumar Bhosale  on 02/03/24.
 //
 
 import SwiftUI
-/// tobe -- Network Check
-struct StudentHomeView: View {
-    @StateObject var viewmodel = StudentProfileViewModel()
-    @State private var dynamicContent: Int = 1
+
+struct FacultyMainScreen: View {
     let userDefaultsManager = UserDefaultsManager.shared
+    @State private var dynamicContent: Int = 1
     var body: some View {
-        
+        /*
+        VStack{
+            
+            
+            Text(userDefaultsManager.email?.lowercased() ?? "new")
+                .font(Font.custom("GFSDidot-Regular", size: 30))
+            //            .background(Color.blue)
+            
+            Text("Atharv ")
+                .font(Font.custom("SourceSerif4-VariableFont_opsz,wght", size: 40, relativeTo: .body))
+        }
+         */
         NavigationStack{
             GeometryReader { geometry in
                 ZStack{
@@ -66,8 +76,8 @@ struct StudentHomeView: View {
                                     dynamicContent = 2
                                 }, label: {
                                     MainScreenButton(
-                                        image: dynamicContent == 2 ? "academics_dark" : "academics_light",
-                                        text: "Academics",
+                                        image: dynamicContent == 2 ? "calender_dark" : "calender_light",
+                                        text: "My Leaves",
                                         cardbackground: dynamicContent == 2 ? Color("toolbar") : .white,
                                         textColor: dynamicContent == 2 ? .white : Color("toolbar"),
                                         imageBackground: dynamicContent == 2 ? .white:  Color("toolbar")
@@ -80,8 +90,8 @@ struct StudentHomeView: View {
                                     dynamicContent = 3
                                 }, label: {
                                     MainScreenButton(
-                                        image: dynamicContent == 3 ? "payments_dark" : "payments_light",
-                                        text: "Payments",
+                                        image: dynamicContent == 3 ? "punch_dark" : "punch_light",
+                                        text: "Punch Record",
                                         cardbackground: dynamicContent == 3 ? Color("toolbar") : .white,
                                         textColor: dynamicContent == 3 ? .white : Color("toolbar"),
                                         imageBackground: dynamicContent == 3 ? .white:  Color("toolbar")
@@ -96,13 +106,13 @@ struct StudentHomeView: View {
                         ScrollView{
                             VStack{
                                 if dynamicContent == 1 {
-                                    ProfileView()
+                                    FacultyProfileView()
                                         .padding()
                                 }else if dynamicContent == 2 {
-                                    AcademicsView()
+                                    FacultyMyLeavesView()
                                         .padding()
                                 }else if dynamicContent == 3 {
-                                    PaymentsView()
+                                    FacultyPunchRecordView()
                                         .padding()
                                 }
                             }
@@ -114,34 +124,7 @@ struct StudentHomeView: View {
                     
                 }
                 HStack{
-                    if let imageURL = URL(string: viewmodel.profileDataModel.photo) {
-                        AsyncImage(url: imageURL) { phase in
-                            if let image = phase.image {
-                                // Display the loaded image
-                                image
-                                    .resizable()
-                                    .frame(width: 110, height: 120)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .shadow(radius: 10)
-                                    .aspectRatio(contentMode: .fit)
-                            } else if phase.error != nil {
-                                // Display a placeholder when loading failed
-                                Image(systemName: "person.crop.rectangle.stack")
-                                    .resizable()
-                                    .frame(width: 110, height: 120)
-                                    .shadow(radius: 10)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .aspectRatio(contentMode: .fit)
-                            } else {
-                                // Display a placeholder while loading
-                                ProgressView()
-                                    .frame(width: 110, height: 120)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .aspectRatio(contentMode: .fit)
-                            }
-                        }
-                        .padding(.trailing, 10)
-                    } else {
+                    
                         // Display placeholder when URL string is empty
                         Image(systemName: "person.crop.rectangle.stack")
                             .resizable()
@@ -150,18 +133,18 @@ struct StudentHomeView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .aspectRatio(contentMode: .fit)
                             .padding(.trailing, 10)
-                    }
+                    
 
                     VStack{
-                        Text(viewmodel.profileDataModel.Name)
+                        Text("Name"/*viewmodel.profileDataModel.Name*/)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
 //                            .font(.custom("new", fixedSize: 20))
                             .bold()
-                        Text(viewmodel.profileDataModel.idNo)
+                        Text("ID"/*viewmodel.profileDataModel.idNo*/)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
-                        Text(viewmodel.profileDataModel.year)
+                        Text("Department"/*viewmodel.profileDataModel.year*/)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.headline)
                             .bold()
@@ -179,6 +162,7 @@ struct StudentHomeView: View {
                 .shadow(radius: 5)
                 .padding(.top,30)
                 .task {
+                    /*
                     // Load data only when the view appears for the first time
                     if !viewmodel.isDataLoaded {
                         
@@ -187,13 +171,15 @@ struct StudentHomeView: View {
                         viewmodel.isDataLoaded = true
 //                        userDefaultsManager.setCollegeID(viewmodel.homeDataModel.idNo)
                     }
+                    */
                 }
             }
         }
     }
+    
+    
 }
 
-
 #Preview {
-    StudentHomeView()
+    FacultyMainScreen()
 }

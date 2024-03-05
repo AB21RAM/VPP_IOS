@@ -15,6 +15,8 @@ struct ContentView: View {
                 StudentHomeView()
             }else if userDefaultsManager.getUserType() == 3{
                 HomeView()
+            }else if userDefaultsManager.getUserType() == 2{
+                FacultyMainScreen()
             }
         } else {
             // User is not logged in, show LoginView

@@ -75,6 +75,8 @@ struct BottomSheetView: View {
                             loginViewModel.authenticateUID()
                         }else if user == "Student"{
                             loginViewModel.authenticateToken()
+                        }else if user == "Faculty"{
+                            loginViewModel.authenticateUID()
                         }
                     }
                 }, label: {
@@ -95,6 +97,8 @@ struct BottomSheetView: View {
                         HomeView()
                     }else if user == "Student"{
                         StudentHomeView()
+                    }else if user == "Faculty"{
+                        FacultyMainScreen()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

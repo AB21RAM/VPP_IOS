@@ -77,6 +77,23 @@ struct LoginView: View {
                                 .foregroundColor(.black)
                         }
                     }).padding(.leading,20)
+                    Button(action: {
+                        showingSheet.toggle()
+                        changeUserType(user: "Faculty")
+                    }, label: {
+                        VStack {
+                            Image("student")
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .background(.white)
+                                .clipShape(.rect(cornerRadius: 15))
+                            
+                            Text("Faculty")
+                                .font(.headline)
+                                .padding(.top,5)
+                                .foregroundColor(.black)
+                        }
+                    }).padding(.leading,20)
                 }
                 Spacer()
             }

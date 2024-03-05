@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B00B08E2B9317AD00F9A5E8 /* FacultyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B08D2B9317AD00F9A5E8 /* FacultyRepository.swift */; };
+		0B00B09D2B931F9100F9A5E8 /* FacultyMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B09C2B931F9100F9A5E8 /* FacultyMainScreen.swift */; };
+		0B00B09E2B93282C00F9A5E8 /* two.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B00B09A2B931F6E00F9A5E8 /* two.ttf */; };
+		0B00B09F2B93291B00F9A5E8 /* new.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B00B09B2B931F6E00F9A5E8 /* new.ttf */; };
+		0B00B0A02B9329FC00F9A5E8 /* Academate-Sprint-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BD950632B6852880084736B /* Academate-Sprint-Info.plist */; };
+		0B00B0A22B9330C300F9A5E8 /* GFSDidot-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B00B0A12B9330C300F9A5E8 /* GFSDidot-Regular.ttf */; };
+		0B00B0A42B9331E800F9A5E8 /* SourceSerif4-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B00B0A32B9331E800F9A5E8 /* SourceSerif4-VariableFont_opsz,wght.ttf */; };
+		0B00B0A62B972CD900F9A5E8 /* FacultyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0A52B972CD900F9A5E8 /* FacultyProfileView.swift */; };
+		0B00B0A82B972D1900F9A5E8 /* FacultyMyLeavesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0A72B972D1900F9A5E8 /* FacultyMyLeavesView.swift */; };
+		0B00B0AA2B972D2C00F9A5E8 /* FacultyPunchRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0A92B972D2C00F9A5E8 /* FacultyPunchRecordView.swift */; };
+		0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0AB2B972D4300F9A5E8 /* FacultyTakeChargeView.swift */; };
+		0B00B0AE2B972D5400F9A5E8 /* FacultyLeaveAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0AD2B972D5400F9A5E8 /* FacultyLeaveAppView.swift */; };
+		0B00B0B02B97324500F9A5E8 /* LeaveInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0AF2B97324500F9A5E8 /* LeaveInfoCard.swift */; };
+		0B00B0B42B97434A00F9A5E8 /* PunchRecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0B32B97434A00F9A5E8 /* PunchRecordCard.swift */; };
 		0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3032B5537B300D4BAD5 /* Academate_SprintApp.swift */; };
 		0B04D3062B5537B300D4BAD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3052B5537B300D4BAD5 /* ContentView.swift */; };
 		0B04D3082B5537B300D4BAD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B04D3072B5537B300D4BAD5 /* Assets.xcassets */; };
@@ -23,7 +37,7 @@
 		0B04D32D2B556F9900D4BAD5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D32C2B556F9900D4BAD5 /* LoginView.swift */; };
 		0B04D32F2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D32E2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift */; };
 		0B04D3312B5578E600D4BAD5 /* DashBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3302B5578E600D4BAD5 /* DashBoardViewModel.swift */; };
-		0B04D3342B557EE400D4BAD5 /* year_data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3332B557EE400D4BAD5 /* year_data.swift */; };
+		0B04D3342B557EE400D4BAD5 /* RoundedRectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3332B557EE400D4BAD5 /* RoundedRectBox.swift */; };
 		0B04D3372B55B5FF00D4BAD5 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3362B55B5FF00D4BAD5 /* ErrorView.swift */; };
 		0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3382B55C02300D4BAD5 /* csv_test.swift */; };
 		0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D33B2B55CC4A00D4BAD5 /* DownloadCSVFile.swift */; };
@@ -39,6 +53,19 @@
 		0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3522B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift */; };
 		0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */; };
 		0B04D3572B5C965400D4BAD5 /* AdmissionPendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */; };
+		0B4413652B87175E00D2A083 /* FacultyApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413642B87175E00D2A083 /* FacultyApiResource.swift */; };
+		0B4413692B871B8A00D2A083 /* FacultyDashboardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413682B871B8A00D2A083 /* FacultyDashboardResponse.swift */; };
+		0B44136B2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44136A2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift */; };
+		0B44136D2B871CE100D2A083 /* AllFacultyIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44136C2B871CE100D2A083 /* AllFacultyIDResponse.swift */; };
+		0B44136F2B871D0A00D2A083 /* FacultyMappingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44136E2B871D0A00D2A083 /* FacultyMappingResponse.swift */; };
+		0B4413712B871D2C00D2A083 /* FacultyDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413702B871D2C00D2A083 /* FacultyDetailsResponse.swift */; };
+		0B4413732B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413722B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift */; };
+		0B4413752B871D7E00D2A083 /* FacultyLeaveDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413742B871D7E00D2A083 /* FacultyLeaveDataResponse.swift */; };
+		0B4413772B871DA600D2A083 /* FacultyLeaveCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413762B871DA600D2A083 /* FacultyLeaveCountResponse.swift */; };
+		0B4413792B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4413782B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift */; };
+		0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44137A2B87273100D2A083 /* FacultyBasicMesssageResponse.swift */; };
+		0B44137E2B873F2300D2A083 /* LeaveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44137D2B873F2300D2A083 /* LeaveRequest.swift */; };
+		0B4413802B873FDA00D2A083 /* TakeChargeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44137F2B873FDA00D2A083 /* TakeChargeRequest.swift */; };
 		0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */; };
 		0B7D8B542B5E9E2500BDA317 /* LottieUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B7D8B532B5E9E2500BDA317 /* LottieUI */; };
 		0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6DC2B80F39500F489DE /* StudentRepository.swift */; };
@@ -97,6 +124,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B00B08D2B9317AD00F9A5E8 /* FacultyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyRepository.swift; sourceTree = "<group>"; };
+		0B00B09A2B931F6E00F9A5E8 /* two.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = two.ttf; path = Academate_Sprint/utility/fonts/two.ttf; sourceTree = SOURCE_ROOT; };
+		0B00B09B2B931F6E00F9A5E8 /* new.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = new.ttf; path = Academate_Sprint/utility/fonts/new.ttf; sourceTree = SOURCE_ROOT; };
+		0B00B09C2B931F9100F9A5E8 /* FacultyMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyMainScreen.swift; sourceTree = "<group>"; };
+		0B00B0A12B9330C300F9A5E8 /* GFSDidot-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GFSDidot-Regular.ttf"; sourceTree = "<group>"; };
+		0B00B0A32B9331E800F9A5E8 /* SourceSerif4-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerif4-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
+		0B00B0A52B972CD900F9A5E8 /* FacultyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyProfileView.swift; sourceTree = "<group>"; };
+		0B00B0A72B972D1900F9A5E8 /* FacultyMyLeavesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyMyLeavesView.swift; sourceTree = "<group>"; };
+		0B00B0A92B972D2C00F9A5E8 /* FacultyPunchRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyPunchRecordView.swift; sourceTree = "<group>"; };
+		0B00B0AB2B972D4300F9A5E8 /* FacultyTakeChargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyTakeChargeView.swift; sourceTree = "<group>"; };
+		0B00B0AD2B972D5400F9A5E8 /* FacultyLeaveAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveAppView.swift; sourceTree = "<group>"; };
+		0B00B0AF2B97324500F9A5E8 /* LeaveInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveInfoCard.swift; sourceTree = "<group>"; };
+		0B00B0B32B97434A00F9A5E8 /* PunchRecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordCard.swift; sourceTree = "<group>"; };
 		0B04D3002B5537B300D4BAD5 /* Academate_Sprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Academate_Sprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B04D3032B5537B300D4BAD5 /* Academate_SprintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academate_SprintApp.swift; sourceTree = "<group>"; };
 		0B04D3052B5537B300D4BAD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,7 +154,7 @@
 		0B04D32C2B556F9900D4BAD5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0B04D32E2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionDashBoardResponse.swift; sourceTree = "<group>"; };
 		0B04D3302B5578E600D4BAD5 /* DashBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewModel.swift; sourceTree = "<group>"; };
-		0B04D3332B557EE400D4BAD5 /* year_data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = year_data.swift; sourceTree = "<group>"; };
+		0B04D3332B557EE400D4BAD5 /* RoundedRectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectBox.swift; sourceTree = "<group>"; };
 		0B04D3362B55B5FF00D4BAD5 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		0B04D3382B55C02300D4BAD5 /* csv_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = csv_test.swift; sourceTree = "<group>"; };
 		0B04D33B2B55CC4A00D4BAD5 /* DownloadCSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCSVFile.swift; sourceTree = "<group>"; };
@@ -129,6 +169,19 @@
 		0B04D3522B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInteractionControllerWrapper.swift; sourceTree = "<group>"; };
 		0B04D3542B5C895300D4BAD5 /* BranchYearCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchYearCSVView.swift; sourceTree = "<group>"; };
 		0B04D3562B5C965400D4BAD5 /* AdmissionPendingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionPendingResponse.swift; sourceTree = "<group>"; };
+		0B4413642B87175E00D2A083 /* FacultyApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyApiResource.swift; sourceTree = "<group>"; };
+		0B4413682B871B8A00D2A083 /* FacultyDashboardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyDashboardResponse.swift; sourceTree = "<group>"; };
+		0B44136A2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyPunchRecordResponse.swift; sourceTree = "<group>"; };
+		0B44136C2B871CE100D2A083 /* AllFacultyIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFacultyIDResponse.swift; sourceTree = "<group>"; };
+		0B44136E2B871D0A00D2A083 /* FacultyMappingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyMappingResponse.swift; sourceTree = "<group>"; };
+		0B4413702B871D2C00D2A083 /* FacultyDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyDetailsResponse.swift; sourceTree = "<group>"; };
+		0B4413722B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveHistoryResponse.swift; sourceTree = "<group>"; };
+		0B4413742B871D7E00D2A083 /* FacultyLeaveDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveDataResponse.swift; sourceTree = "<group>"; };
+		0B4413762B871DA600D2A083 /* FacultyLeaveCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveCountResponse.swift; sourceTree = "<group>"; };
+		0B4413782B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyCancelledLeavesResponse.swift; sourceTree = "<group>"; };
+		0B44137A2B87273100D2A083 /* FacultyBasicMesssageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyBasicMesssageResponse.swift; sourceTree = "<group>"; };
+		0B44137D2B873F2300D2A083 /* LeaveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveRequest.swift; sourceTree = "<group>"; };
+		0B44137F2B873FDA00D2A083 /* TakeChargeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeChargeRequest.swift; sourceTree = "<group>"; };
 		0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchCSVView.swift; sourceTree = "<group>"; };
 		0B80F6DC2B80F39500F489DE /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
 		0B80F6DE2B8120A800F489DE /* StudentProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfileViewModel.swift; sourceTree = "<group>"; };
@@ -156,7 +209,7 @@
 		0BD9505D2B66599B0084736B /* StudentDocLinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDocLinkResponse.swift; sourceTree = "<group>"; };
 		0BD9505F2B665B310084736B /* StudentAcademicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAcademicsViewModel.swift; sourceTree = "<group>"; };
 		0BD950612B666E6E0084736B /* DocumentViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerView.swift; sourceTree = "<group>"; };
-		0BD950632B6852880084736B /* Academate-Sprint-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Academate-Sprint-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0BD950632B6852880084736B /* Academate-Sprint-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Academate-Sprint-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0BD950652B6853610084736B /* Easebuzz.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Easebuzz.xcframework; sourceTree = "<group>"; };
 		0BD9506A2B68ECC40084736B /* PaymentApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentApiResource.swift; sourceTree = "<group>"; };
 		0BD9506C2B68ED7E0084736B /* PaymentDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDataRequest.swift; sourceTree = "<group>"; };
@@ -186,6 +239,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B00B08B2B93165200F9A5E8 /* nullableRequests  */ = {
+			isa = PBXGroup;
+			children = (
+				0B4413682B871B8A00D2A083 /* FacultyDashboardResponse.swift */,
+				0B4413782B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift */,
+			);
+			path = "nullableRequests ";
+			sourceTree = "<group>";
+		};
+		0B00B08C2B93177A00F9A5E8 /* repository  */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B08D2B9317AD00F9A5E8 /* FacultyRepository.swift */,
+			);
+			path = "repository ";
+			sourceTree = "<group>";
+		};
+		0B00B08F2B931C4700F9A5E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0962B931DC900F9A5E8 /* punch_record */,
+				0B00B0952B931DBD00F9A5E8 /* my_leaves */,
+				0B00B0942B931DB400F9A5E8 /* profile */,
+				0B00B0932B931D8300F9A5E8 /* take_charge */,
+				0B00B0922B931C6800F9A5E8 /* leave_application */,
+				0B00B09C2B931F9100F9A5E8 /* FacultyMainScreen.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0B00B0902B931C4C00F9A5E8 /* viewmodel  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "viewmodel ";
+			sourceTree = "<group>";
+		};
+		0B00B0922B931C6800F9A5E8 /* leave_application */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0AD2B972D5400F9A5E8 /* FacultyLeaveAppView.swift */,
+			);
+			path = leave_application;
+			sourceTree = "<group>";
+		};
+		0B00B0932B931D8300F9A5E8 /* take_charge */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0AB2B972D4300F9A5E8 /* FacultyTakeChargeView.swift */,
+			);
+			path = take_charge;
+			sourceTree = "<group>";
+		};
+		0B00B0942B931DB400F9A5E8 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0A52B972CD900F9A5E8 /* FacultyProfileView.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		0B00B0952B931DBD00F9A5E8 /* my_leaves */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0A72B972D1900F9A5E8 /* FacultyMyLeavesView.swift */,
+				0B00B0AF2B97324500F9A5E8 /* LeaveInfoCard.swift */,
+			);
+			path = my_leaves;
+			sourceTree = "<group>";
+		};
+		0B00B0962B931DC900F9A5E8 /* punch_record */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0A92B972D2C00F9A5E8 /* FacultyPunchRecordView.swift */,
+				0B00B0B32B97434A00F9A5E8 /* PunchRecordCard.swift */,
+			);
+			path = punch_record;
+			sourceTree = "<group>";
+		};
+		0B00B0992B931F4B00F9A5E8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0A32B9331E800F9A5E8 /* SourceSerif4-VariableFont_opsz,wght.ttf */,
+				0B00B0A12B9330C300F9A5E8 /* GFSDidot-Regular.ttf */,
+				0B00B09B2B931F6E00F9A5E8 /* new.ttf */,
+				0B00B09A2B931F6E00F9A5E8 /* two.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		0B04D2F72B5537B300D4BAD5 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +348,7 @@
 		0B04D3022B5537B300D4BAD5 /* Academate_Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				0B4413622B87173700D2A083 /* facultyModule */,
 				0BD950652B6853610084736B /* Easebuzz.xcframework */,
 				0BD950632B6852880084736B /* Academate-Sprint-Info.plist */,
 				0BD950332B6143270084736B /* authentication */,
@@ -303,7 +447,7 @@
 		0B04D3352B55B5D500D4BAD5 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				0B04D3332B557EE400D4BAD5 /* year_data.swift */,
+				0B04D3332B557EE400D4BAD5 /* RoundedRectBox.swift */,
 				0B04D3242B553AD100D4BAD5 /* HomeView.swift */,
 				0B04D3362B55B5FF00D4BAD5 /* ErrorView.swift */,
 				0B04D3382B55C02300D4BAD5 /* csv_test.swift */,
@@ -331,6 +475,60 @@
 				0B7D8B502B5E8FF900BDA317 /* BranchCSVView.swift */,
 			);
 			path = departmentWise;
+			sourceTree = "<group>";
+		};
+		0B4413622B87173700D2A083 /* facultyModule */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0902B931C4C00F9A5E8 /* viewmodel  */,
+				0B00B08F2B931C4700F9A5E8 /* view */,
+				0B00B08C2B93177A00F9A5E8 /* repository  */,
+				0B4413662B871B6300D2A083 /* model */,
+				0B4413632B87174300D2A083 /* service */,
+			);
+			path = facultyModule;
+			sourceTree = "<group>";
+		};
+		0B4413632B87174300D2A083 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				0B4413642B87175E00D2A083 /* FacultyApiResource.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0B4413662B871B6300D2A083 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B08B2B93165200F9A5E8 /* nullableRequests  */,
+				0B44137C2B873F1000D2A083 /* request */,
+				0B4413672B871B6C00D2A083 /* response */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0B4413672B871B6C00D2A083 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				0B44136A2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift */,
+				0B44136C2B871CE100D2A083 /* AllFacultyIDResponse.swift */,
+				0B44136E2B871D0A00D2A083 /* FacultyMappingResponse.swift */,
+				0B4413702B871D2C00D2A083 /* FacultyDetailsResponse.swift */,
+				0B4413722B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift */,
+				0B4413742B871D7E00D2A083 /* FacultyLeaveDataResponse.swift */,
+				0B4413762B871DA600D2A083 /* FacultyLeaveCountResponse.swift */,
+				0B44137A2B87273100D2A083 /* FacultyBasicMesssageResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		0B44137C2B873F1000D2A083 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				0B44137D2B873F2300D2A083 /* LeaveRequest.swift */,
+				0B44137F2B873FDA00D2A083 /* TakeChargeRequest.swift */,
+			);
+			path = request;
 			sourceTree = "<group>";
 		};
 		0B7D8B552B5E9EEB00BDA317 /* Resources */ = {
@@ -387,6 +585,7 @@
 		0BD950262B613FB20084736B /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				0B00B0992B931F4B00F9A5E8 /* fonts */,
 				0B80F6E42B8606D800F489DE /* coreData */,
 				0BD950382B6146700084736B /* ui */,
 				0B04D3142B5537EC00D4BAD5 /* util */,
@@ -581,11 +780,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B00B0A02B9329FC00F9A5E8 /* Academate-Sprint-Info.plist in Resources */,
 				0B04D30B2B5537B300D4BAD5 /* Preview Assets.xcassets in Resources */,
+				0B00B0A42B9331E800F9A5E8 /* SourceSerif4-VariableFont_opsz,wght.ttf in Resources */,
 				0BD9502E2B6141A50084736B /* newLoading.json in Resources */,
 				0BD950302B6141B50084736B /* loading.json in Resources */,
+				0B00B09E2B93282C00F9A5E8 /* two.ttf in Resources */,
 				0B04D3082B5537B300D4BAD5 /* Assets.xcassets in Resources */,
+				0B00B0A22B9330C300F9A5E8 /* GFSDidot-Regular.ttf in Resources */,
 				0BD950322B6141C20084736B /* line_loading_animation.json in Resources */,
+				0B00B09F2B93291B00F9A5E8 /* new.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,16 +805,22 @@
 				0B04D3172B55382900D4BAD5 /* HttpUtility.swift in Sources */,
 				0B04D34A2B5C50AA00D4BAD5 /* DepartmentsView.swift in Sources */,
 				0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */,
+				0B4413712B871D2C00D2A083 /* FacultyDetailsResponse.swift in Sources */,
+				0B00B0AE2B972D5400F9A5E8 /* FacultyLeaveAppView.swift in Sources */,
 				0B04D3062B5537B300D4BAD5 /* ContentView.swift in Sources */,
+				0B4413772B871DA600D2A083 /* FacultyLeaveCountResponse.swift in Sources */,
+				0B44136F2B871D0A00D2A083 /* FacultyMappingResponse.swift in Sources */,
 				0B04D3572B5C965400D4BAD5 /* AdmissionPendingResponse.swift in Sources */,
 				0B04D3312B5578E600D4BAD5 /* DashBoardViewModel.swift in Sources */,
 				0BD950482B61C0FC0084736B /* KeyBoardAdaptive.swift in Sources */,
 				0B04D33F2B57571B00D4BAD5 /* DocumentViewer.swift in Sources */,
+				0B4413692B871B8A00D2A083 /* FacultyDashboardResponse.swift in Sources */,
 				0BD9503C2B619C720084736B /* BottomSheetView.swift in Sources */,
 				0BD950352B6143710084736B /* LoginEndpoint.swift in Sources */,
 				0BD950462B61B4C20084736B /* StudentHomeViewModel.swift in Sources */,
 				0B80F6DF2B8120A800F489DE /* StudentProfileViewModel.swift in Sources */,
 				0BD950712B68F0460084736B /* SingleFeeHeadResponse.swift in Sources */,
+				0B44136B2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift in Sources */,
 				0BD950562B65AE530084736B /* DownloadManager.swift in Sources */,
 				0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */,
 				0BD950502B6448A70084736B /* PaymentsView.swift in Sources */,
@@ -621,11 +831,15 @@
 				0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */,
 				0BD950752B68F2060084736B /* StudentBalanceFeeResponse.swift in Sources */,
 				0B04D31F2B5538E400D4BAD5 /* LoginResponseUID.swift in Sources */,
+				0B4413792B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* AdmissionApiResource.swift in Sources */,
+				0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */,
 				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
+				0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */,
 				0B04D32B2B5569D900D4BAD5 /* Constants.swift in Sources */,
 				0BD9505E2B66599B0084736B /* StudentDocLinkResponse.swift in Sources */,
 				0BD950732B68F16E0084736B /* StudentFeeStructureResponse.swift in Sources */,
+				0B00B09D2B931F9100F9A5E8 /* FacultyMainScreen.swift in Sources */,
 				0B04D3512B5C728F00D4BAD5 /* CustomBackButton.swift in Sources */,
 				0B04D32F2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift in Sources */,
 				0B04D32D2B556F9900D4BAD5 /* LoginView.swift in Sources */,
@@ -633,15 +847,22 @@
 				0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */,
 				0B04D3232B55394F00D4BAD5 /* LoginValidation.swift in Sources */,
 				0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */,
-				0B04D3342B557EE400D4BAD5 /* year_data.swift in Sources */,
+				0B04D3342B557EE400D4BAD5 /* RoundedRectBox.swift in Sources */,
+				0B44137E2B873F2300D2A083 /* LeaveRequest.swift in Sources */,
+				0B4413732B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift in Sources */,
 				0BD9506B2B68ECC40084736B /* PaymentApiResource.swift in Sources */,
+				0B00B0AA2B972D2C00F9A5E8 /* FacultyPunchRecordView.swift in Sources */,
 				0BD950532B65858F0084736B /* MainScreenButton.swift in Sources */,
+				0B4413752B871D7E00D2A083 /* FacultyLeaveDataResponse.swift in Sources */,
 				0BD950622B666E6E0084736B /* DocumentViewerView.swift in Sources */,
+				0B00B08E2B9317AD00F9A5E8 /* FacultyRepository.swift in Sources */,
 				0BD950422B61B1CE0084736B /* StudentApiResource.swift in Sources */,
 				0B04D3462B5C36AA00D4BAD5 /* UiColor.swift in Sources */,
 				0BD950772B68F4310084736B /* StudentDashboardResponse.swift in Sources */,
 				0BD9503E2B61AFDE0084736B /* LoginResponseToken.swift in Sources */,
+				0B4413652B87175E00D2A083 /* FacultyApiResource.swift in Sources */,
 				0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */,
+				0B44136D2B871CE100D2A083 /* AllFacultyIDResponse.swift in Sources */,
 				0BD9507B2B68F57F0084736B /* StudentSemDetailsResponse.swift in Sources */,
 				0BD9504E2B64488A0084736B /* AcademicsView.swift in Sources */,
 				0BD9506D2B68ED7E0084736B /* PaymentDataRequest.swift in Sources */,
@@ -654,9 +875,14 @@
 				0B04D31D2B5538AC00D4BAD5 /* LoginRequest.swift in Sources */,
 				0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */,
 				0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */,
+				0B4413802B873FDA00D2A083 /* TakeChargeRequest.swift in Sources */,
 				0B04D3212B55392E00D4BAD5 /* LoginViewModel.swift in Sources */,
+				0B00B0B02B97324500F9A5E8 /* LeaveInfoCard.swift in Sources */,
 				0BD9505C2B65C6220084736B /* pdfRepresentedView.swift in Sources */,
 				0B04D34F2B5C663100D4BAD5 /* PendingCSVView.swift in Sources */,
+				0B00B0B42B97434A00F9A5E8 /* PunchRecordCard.swift in Sources */,
+				0B00B0A62B972CD900F9A5E8 /* FacultyProfileView.swift in Sources */,
+				0B00B0A82B972D1900F9A5E8 /* FacultyMyLeavesView.swift in Sources */,
 				0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */,
 				0B04D3372B55B5FF00D4BAD5 /* ErrorView.swift in Sources */,
 			);

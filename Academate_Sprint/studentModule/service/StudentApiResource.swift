@@ -150,6 +150,7 @@ struct StudentApiResource {
     }
     
     // MARK: - Educational Data
+    /*
     func getStudentCurrEduDetails(completionHandler: @escaping (_ result: StudentCurrEduDetailsResponse?) -> Void) {
         let baseURL = "\(parent_url)/currentEducation_per"
         let headers: HTTPHeaders = ["Authorization": token]
@@ -185,9 +186,9 @@ struct StudentApiResource {
                 }
             }
     }
+*/
 
-
-    /*
+    
     func getStudentCurrEduDetails(completionHandler: @escaping (_ result: StudentCurrEduDetailsResponse?) -> Void) {
         let baseURL = "\(parent_url)/currentEducation_per"
         let headers: HTTPHeaders = ["Authorization": token]
@@ -205,7 +206,7 @@ struct StudentApiResource {
                 }
             }
     }
-    */
+    
     /*
     func getStudentCurrEduDetails(
         completionHandler: @escaping (_ result: StudentCurrEduDetailsResponse?) -> Void

@@ -2,21 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true/>
-    </dict>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>tez</string>
-      <string>phonepe</string>
-      <string>paytm</string>
-      <string>gpay</string>
-    </array>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict/>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tez</string>
+		<string>phonepe</string>
+		<string>paytm</string>
+		<string>gpay</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SourceSerif4-VariableFont_opsz,wght.ttf</string>
+		<string>GFSDidot-Regular.ttf</string>
+		<string>new.ttf</string>
+		<string>utility/fonts/two.ttf</string>
 	</array>
 </dict>
 </plist>
