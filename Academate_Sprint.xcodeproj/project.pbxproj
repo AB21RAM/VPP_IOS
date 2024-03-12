@@ -21,6 +21,28 @@
 		0B00B0AE2B972D5400F9A5E8 /* FacultyLeaveAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0AD2B972D5400F9A5E8 /* FacultyLeaveAppView.swift */; };
 		0B00B0B02B97324500F9A5E8 /* LeaveInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0AF2B97324500F9A5E8 /* LeaveInfoCard.swift */; };
 		0B00B0B42B97434A00F9A5E8 /* PunchRecordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0B32B97434A00F9A5E8 /* PunchRecordCard.swift */; };
+		0B00B0B62B98697B00F9A5E8 /* FacultyMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0B52B98697B00F9A5E8 /* FacultyMainViewModel.swift */; };
+		0B00B0B82B99F61B00F9A5E8 /* FacultyMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0B72B99F61B00F9A5E8 /* FacultyMenuView.swift */; };
+		0B00B0C02B9FCDD600F9A5E8 /* ParentApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0BF2B9FCDD600F9A5E8 /* ParentApiResource.swift */; };
+		0B00B0C22B9FD10E00F9A5E8 /* StudentClgIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0C12B9FD10E00F9A5E8 /* StudentClgIDResponse.swift */; };
+		0B00B0C52B9FD15400F9A5E8 /* ParentAttendanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0C42B9FD15400F9A5E8 /* ParentAttendanceResponse.swift */; };
+		0B00B0C72B9FD1AC00F9A5E8 /* ParentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0C62B9FD1AC00F9A5E8 /* ParentRepository.swift */; };
+		0B00B0C92B9FD73700F9A5E8 /* ParentMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0C82B9FD73700F9A5E8 /* ParentMainViewModel.swift */; };
+		0B00B0CB2B9FDA4900F9A5E8 /* ParentMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0CA2B9FDA4900F9A5E8 /* ParentMainScreen.swift */; };
+		0B00B0D32BA027C400F9A5E8 /* HodApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0D22BA027C400F9A5E8 /* HodApiResource.swift */; };
+		0B00B0D72BA0282B00F9A5E8 /* HodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0D62BA0282B00F9A5E8 /* HodRepository.swift */; };
+		0B00B0DB2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0DA2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift */; };
+		0B00B0DD2BA036D800F9A5E8 /* CustomDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0DC2BA036D800F9A5E8 /* CustomDataType.swift */; };
+		0B00B0DF2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0DE2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift */; };
+		0B00B0E12BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0E02BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift */; };
+		0B00B0E32BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0E22BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift */; };
+		0B00B0E52BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0E42BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift */; };
+		0B00B0E72BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0E62BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift */; };
+		0B00B0E92BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0E82BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift */; };
+		0B00B0EB2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0EA2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift */; };
+		0B00B0ED2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0EC2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift */; };
+		0B00B0EF2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0EE2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift */; };
+		0B00B0F12BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00B0F02BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift */; };
 		0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3032B5537B300D4BAD5 /* Academate_SprintApp.swift */; };
 		0B04D3062B5537B300D4BAD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B04D3052B5537B300D4BAD5 /* ContentView.swift */; };
 		0B04D3082B5537B300D4BAD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B04D3072B5537B300D4BAD5 /* Assets.xcassets */; };
@@ -137,6 +159,28 @@
 		0B00B0AD2B972D5400F9A5E8 /* FacultyLeaveAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveAppView.swift; sourceTree = "<group>"; };
 		0B00B0AF2B97324500F9A5E8 /* LeaveInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveInfoCard.swift; sourceTree = "<group>"; };
 		0B00B0B32B97434A00F9A5E8 /* PunchRecordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunchRecordCard.swift; sourceTree = "<group>"; };
+		0B00B0B52B98697B00F9A5E8 /* FacultyMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyMainViewModel.swift; sourceTree = "<group>"; };
+		0B00B0B72B99F61B00F9A5E8 /* FacultyMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyMenuView.swift; sourceTree = "<group>"; };
+		0B00B0BF2B9FCDD600F9A5E8 /* ParentApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentApiResource.swift; sourceTree = "<group>"; };
+		0B00B0C12B9FD10E00F9A5E8 /* StudentClgIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentClgIDResponse.swift; sourceTree = "<group>"; };
+		0B00B0C42B9FD15400F9A5E8 /* ParentAttendanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentAttendanceResponse.swift; sourceTree = "<group>"; };
+		0B00B0C62B9FD1AC00F9A5E8 /* ParentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRepository.swift; sourceTree = "<group>"; };
+		0B00B0C82B9FD73700F9A5E8 /* ParentMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMainViewModel.swift; sourceTree = "<group>"; };
+		0B00B0CA2B9FDA4900F9A5E8 /* ParentMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentMainScreen.swift; sourceTree = "<group>"; };
+		0B00B0D22BA027C400F9A5E8 /* HodApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HodApiResource.swift; sourceTree = "<group>"; };
+		0B00B0D62BA0282B00F9A5E8 /* HodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HodRepository.swift; sourceTree = "<group>"; };
+		0B00B0DA2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODApprovedLeavesResponse.swift; sourceTree = "<group>"; };
+		0B00B0DC2BA036D800F9A5E8 /* CustomDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataType.swift; sourceTree = "<group>"; };
+		0B00B0DE2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODDepartmentIdResponse.swift; sourceTree = "<group>"; };
+		0B00B0E02BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODGetRemarkedNoduesReponse.swift; sourceTree = "<group>"; };
+		0B00B0E22BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODMyFacultyListReponse.swift; sourceTree = "<group>"; };
+		0B00B0E42BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODMyStudentsListResponse.swift; sourceTree = "<group>"; };
+		0B00B0E62BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoduesRemarkResponse.swift; sourceTree = "<group>"; };
+		0B00B0E82BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoduesSignApplicationBodyResponse.swift; sourceTree = "<group>"; };
+		0B00B0EA2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoduesSignedApplicationsReponse.swift; sourceTree = "<group>"; };
+		0B00B0EC2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODPresentFacultyCountResponse.swift; sourceTree = "<group>"; };
+		0B00B0EE2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDuesApplicationsResponse.swift; sourceTree = "<group>"; };
+		0B00B0F02BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoduesAllApplicationResponse.swift; sourceTree = "<group>"; };
 		0B04D3002B5537B300D4BAD5 /* Academate_Sprint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Academate_Sprint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B04D3032B5537B300D4BAD5 /* Academate_SprintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Academate_SprintApp.swift; sourceTree = "<group>"; };
 		0B04D3052B5537B300D4BAD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -265,6 +309,7 @@
 				0B00B0932B931D8300F9A5E8 /* take_charge */,
 				0B00B0922B931C6800F9A5E8 /* leave_application */,
 				0B00B09C2B931F9100F9A5E8 /* FacultyMainScreen.swift */,
+				0B00B0B72B99F61B00F9A5E8 /* FacultyMenuView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -272,6 +317,7 @@
 		0B00B0902B931C4C00F9A5E8 /* viewmodel  */ = {
 			isa = PBXGroup;
 			children = (
+				0B00B0B52B98697B00F9A5E8 /* FacultyMainViewModel.swift */,
 			);
 			path = "viewmodel ";
 			sourceTree = "<group>";
@@ -329,6 +375,143 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		0B00B0B92B9FCD7D00F9A5E8 /* parentModule */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0BE2B9FCDB100F9A5E8 /* viewmodel */,
+				0B00B0BD2B9FCDAA00F9A5E8 /* view */,
+				0B00B0BC2B9FCDA000F9A5E8 /* repository */,
+				0B00B0BB2B9FCD9900F9A5E8 /* model */,
+				0B00B0BA2B9FCD9000F9A5E8 /* service */,
+			);
+			path = parentModule;
+			sourceTree = "<group>";
+		};
+		0B00B0BA2B9FCD9000F9A5E8 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0BF2B9FCDD600F9A5E8 /* ParentApiResource.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0B00B0BB2B9FCD9900F9A5E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0C32B9FD11300F9A5E8 /* response */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0B00B0BC2B9FCDA000F9A5E8 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0C62B9FD1AC00F9A5E8 /* ParentRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		0B00B0BD2B9FCDAA00F9A5E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0CA2B9FDA4900F9A5E8 /* ParentMainScreen.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0B00B0BE2B9FCDB100F9A5E8 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0C82B9FD73700F9A5E8 /* ParentMainViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		0B00B0C32B9FD11300F9A5E8 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0C12B9FD10E00F9A5E8 /* StudentClgIDResponse.swift */,
+				0B00B0C42B9FD15400F9A5E8 /* ParentAttendanceResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		0B00B0CC2BA0273800F9A5E8 /* hodModule  */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0D12BA0278A00F9A5E8 /* viewmodel */,
+				0B00B0D02BA0278500F9A5E8 /* view */,
+				0B00B0CF2BA0277700F9A5E8 /* repository */,
+				0B00B0CE2BA0276E00F9A5E8 /* model */,
+				0B00B0CD2BA0276500F9A5E8 /* service */,
+			);
+			path = "hodModule ";
+			sourceTree = "<group>";
+		};
+		0B00B0CD2BA0276500F9A5E8 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0D22BA027C400F9A5E8 /* HodApiResource.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0B00B0CE2BA0276E00F9A5E8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0D52BA027E400F9A5E8 /* response */,
+				0B00B0D42BA027D000F9A5E8 /* request */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0B00B0CF2BA0277700F9A5E8 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0D62BA0282B00F9A5E8 /* HodRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		0B00B0D02BA0278500F9A5E8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0B00B0D12BA0278A00F9A5E8 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		0B00B0D42BA027D000F9A5E8 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		0B00B0D52BA027E400F9A5E8 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				0B00B0DA2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift */,
+				0B00B0DE2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift */,
+				0B00B0E02BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift */,
+				0B00B0E22BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift */,
+				0B00B0E42BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift */,
+				0B00B0E62BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift */,
+				0B00B0E82BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift */,
+				0B00B0EA2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift */,
+				0B00B0EC2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift */,
+				0B00B0EE2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift */,
+				0B00B0F02BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
 		0B04D2F72B5537B300D4BAD5 = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +531,8 @@
 		0B04D3022B5537B300D4BAD5 /* Academate_Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				0B00B0CC2BA0273800F9A5E8 /* hodModule  */,
+				0B00B0B92B9FCD7D00F9A5E8 /* parentModule */,
 				0B4413622B87173700D2A083 /* facultyModule */,
 				0BD950652B6853610084736B /* Easebuzz.xcframework */,
 				0BD950632B6852880084736B /* Academate-Sprint-Info.plist */,
@@ -590,6 +775,7 @@
 				0BD950382B6146700084736B /* ui */,
 				0B04D3142B5537EC00D4BAD5 /* util */,
 				0B7D8B552B5E9EEB00BDA317 /* Resources */,
+				0B00B0DC2BA036D800F9A5E8 /* CustomDataType.swift */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -807,6 +993,8 @@
 				0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */,
 				0B4413712B871D2C00D2A083 /* FacultyDetailsResponse.swift in Sources */,
 				0B00B0AE2B972D5400F9A5E8 /* FacultyLeaveAppView.swift in Sources */,
+				0B00B0C72B9FD1AC00F9A5E8 /* ParentRepository.swift in Sources */,
+				0B00B0EF2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift in Sources */,
 				0B04D3062B5537B300D4BAD5 /* ContentView.swift in Sources */,
 				0B4413772B871DA600D2A083 /* FacultyLeaveCountResponse.swift in Sources */,
 				0B44136F2B871D0A00D2A083 /* FacultyMappingResponse.swift in Sources */,
@@ -814,27 +1002,34 @@
 				0B04D3312B5578E600D4BAD5 /* DashBoardViewModel.swift in Sources */,
 				0BD950482B61C0FC0084736B /* KeyBoardAdaptive.swift in Sources */,
 				0B04D33F2B57571B00D4BAD5 /* DocumentViewer.swift in Sources */,
+				0B00B0DF2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift in Sources */,
+				0B00B0C02B9FCDD600F9A5E8 /* ParentApiResource.swift in Sources */,
 				0B4413692B871B8A00D2A083 /* FacultyDashboardResponse.swift in Sources */,
 				0BD9503C2B619C720084736B /* BottomSheetView.swift in Sources */,
 				0BD950352B6143710084736B /* LoginEndpoint.swift in Sources */,
+				0B00B0C92B9FD73700F9A5E8 /* ParentMainViewModel.swift in Sources */,
 				0BD950462B61B4C20084736B /* StudentHomeViewModel.swift in Sources */,
 				0B80F6DF2B8120A800F489DE /* StudentProfileViewModel.swift in Sources */,
 				0BD950712B68F0460084736B /* SingleFeeHeadResponse.swift in Sources */,
 				0B44136B2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift in Sources */,
 				0BD950562B65AE530084736B /* DownloadManager.swift in Sources */,
 				0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */,
+				0B00B0D32BA027C400F9A5E8 /* HodApiResource.swift in Sources */,
 				0BD950502B6448A70084736B /* PaymentsView.swift in Sources */,
 				0BD9506F2B68EE130084736B /* PaymentDataResponse.swift in Sources */,
 				0B04D3442B57C13600D4BAD5 /* CardModifier.swift in Sources */,
 				0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */,
+				0B00B0E52BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift in Sources */,
 				0BD950602B665B310084736B /* StudentAcademicsViewModel.swift in Sources */,
 				0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */,
 				0BD950752B68F2060084736B /* StudentBalanceFeeResponse.swift in Sources */,
 				0B04D31F2B5538E400D4BAD5 /* LoginResponseUID.swift in Sources */,
 				0B4413792B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift in Sources */,
+				0B00B0DB2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* AdmissionApiResource.swift in Sources */,
 				0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */,
 				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
+				0B00B0B82B99F61B00F9A5E8 /* FacultyMenuView.swift in Sources */,
 				0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */,
 				0B04D32B2B5569D900D4BAD5 /* Constants.swift in Sources */,
 				0BD9505E2B66599B0084736B /* StudentDocLinkResponse.swift in Sources */,
@@ -848,18 +1043,25 @@
 				0B04D3232B55394F00D4BAD5 /* LoginValidation.swift in Sources */,
 				0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */,
 				0B04D3342B557EE400D4BAD5 /* RoundedRectBox.swift in Sources */,
+				0B00B0DD2BA036D800F9A5E8 /* CustomDataType.swift in Sources */,
 				0B44137E2B873F2300D2A083 /* LeaveRequest.swift in Sources */,
+				0B00B0F12BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift in Sources */,
 				0B4413732B871D5C00D2A083 /* FacultyLeaveHistoryResponse.swift in Sources */,
 				0BD9506B2B68ECC40084736B /* PaymentApiResource.swift in Sources */,
+				0B00B0E72BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift in Sources */,
 				0B00B0AA2B972D2C00F9A5E8 /* FacultyPunchRecordView.swift in Sources */,
 				0BD950532B65858F0084736B /* MainScreenButton.swift in Sources */,
+				0B00B0C52B9FD15400F9A5E8 /* ParentAttendanceResponse.swift in Sources */,
+				0B00B0B62B98697B00F9A5E8 /* FacultyMainViewModel.swift in Sources */,
 				0B4413752B871D7E00D2A083 /* FacultyLeaveDataResponse.swift in Sources */,
 				0BD950622B666E6E0084736B /* DocumentViewerView.swift in Sources */,
+				0B00B0C22B9FD10E00F9A5E8 /* StudentClgIDResponse.swift in Sources */,
 				0B00B08E2B9317AD00F9A5E8 /* FacultyRepository.swift in Sources */,
 				0BD950422B61B1CE0084736B /* StudentApiResource.swift in Sources */,
 				0B04D3462B5C36AA00D4BAD5 /* UiColor.swift in Sources */,
 				0BD950772B68F4310084736B /* StudentDashboardResponse.swift in Sources */,
 				0BD9503E2B61AFDE0084736B /* LoginResponseToken.swift in Sources */,
+				0B00B0D72BA0282B00F9A5E8 /* HodRepository.swift in Sources */,
 				0B4413652B87175E00D2A083 /* FacultyApiResource.swift in Sources */,
 				0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */,
 				0B44136D2B871CE100D2A083 /* AllFacultyIDResponse.swift in Sources */,
@@ -867,11 +1069,14 @@
 				0BD9504E2B64488A0084736B /* AcademicsView.swift in Sources */,
 				0BD9506D2B68ED7E0084736B /* PaymentDataRequest.swift in Sources */,
 				0BD950792B68F4EC0084736B /* StudentCurrEduDetailsResponse.swift in Sources */,
+				0B00B0CB2B9FDA4900F9A5E8 /* ParentMainScreen.swift in Sources */,
+				0B00B0ED2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift in Sources */,
 				0BD950442B61B3820084736B /* StudentPersonalDetailsResponse.swift in Sources */,
 				0B7D8B512B5E8FF900BDA317 /* BranchCSVView.swift in Sources */,
 				0BD9504C2B6448640084736B /* ProfileView.swift in Sources */,
 				0B04D3282B55697B00D4BAD5 /* UserDefaultsManager.swift in Sources */,
 				0B80F6E72B86074300F489DE /* model.xcdatamodeld in Sources */,
+				0B00B0E32BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift in Sources */,
 				0B04D31D2B5538AC00D4BAD5 /* LoginRequest.swift in Sources */,
 				0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */,
 				0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */,
@@ -881,10 +1086,13 @@
 				0BD9505C2B65C6220084736B /* pdfRepresentedView.swift in Sources */,
 				0B04D34F2B5C663100D4BAD5 /* PendingCSVView.swift in Sources */,
 				0B00B0B42B97434A00F9A5E8 /* PunchRecordCard.swift in Sources */,
+				0B00B0EB2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift in Sources */,
 				0B00B0A62B972CD900F9A5E8 /* FacultyProfileView.swift in Sources */,
+				0B00B0E12BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift in Sources */,
 				0B00B0A82B972D1900F9A5E8 /* FacultyMyLeavesView.swift in Sources */,
 				0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */,
 				0B04D3372B55B5FF00D4BAD5 /* ErrorView.swift in Sources */,
+				0B00B0E92BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

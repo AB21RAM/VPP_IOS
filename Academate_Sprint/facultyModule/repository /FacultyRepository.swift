@@ -14,6 +14,7 @@ class FacultyRepository {
     func getFacultyDashboard(completion: @escaping (_ result: FacultyDashboardResponse?) -> Void) {
         apiResource.getFacultyDashboard(){ response in
             guard let response = response else {
+                print("some error at repo ")
                 completion(nil)
                 return
             }
@@ -28,6 +29,7 @@ class FacultyRepository {
                 completion(nil)
                 return
             }
+            
             // MARK : todo the necessary computation
             completion(response)
         }

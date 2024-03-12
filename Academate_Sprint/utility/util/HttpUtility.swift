@@ -32,4 +32,28 @@ final class HttpUtility {
         }.resume()
     }
 
+    /*
+    func getDataAsync<T: Decodable>(request: URLRequest, resultType: T.Type) async -> T? {
+        
+        return await withCheckedContinuation { continuation in
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if error == nil, let data = data {
+                    let response = try? JSONDecoder().decode(resultType.self, from: data)
+                    continuation.resume(returning: response)
+                }
+            }.resume()
+        }
+    }
+    func postDataAsync<T: Decodable>(request: URLRequest, resultType: T.Type) async -> T? {
+        
+        return await withCheckedContinuation { continuation in
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if(error == nil && data != nil) {
+                    let response = try? JSONDecoder().decode(resultType.self, from: data!)
+                    continuation.resume(returning: response)
+                }
+            }.resume()
+        }
+    }
+    */
 }

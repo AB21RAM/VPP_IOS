@@ -10,14 +10,17 @@ import Foundation
 // MARK: - FacultyDashboardResponse
 struct FacultyDashboardResponse: Codable {
     var leaveList: [LeaveList]
-    var used: JSONNull?
+    var used: JSONNull? = nil
     var alternate: [Alternate]
 
     enum CodingKeys: String, CodingKey {
         case leaveList = "leave_list"
-        case used, alternate
+        case used
+        case alternate
     }
+    
 }
+
 
 // MARK: - Alternate
 struct Alternate: Codable {
@@ -55,7 +58,10 @@ struct Alternate: Codable {
 // MARK: - LeaveList
 struct LeaveList: Codable {
     var casualLeave: Double
-    var earnedLeave, medicalLeave, summerVacation, winterVacation: Int
+    var earnedLeave: Int
+    var medicalLeave: Int
+    var summerVacation: Int
+    var winterVacation: Int
     var compensationLeave: Double
 
     enum CodingKeys: String, CodingKey {
@@ -66,4 +72,15 @@ struct LeaveList: Codable {
         case winterVacation = "Winter Vacation"
         case compensationLeave = "Compensation Leave"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        casualLeave = try container.decode(Double.self, forKey: .casualLeave)
+        earnedLeave = try container.decodeIfPresent(Int.self, forKey: .earnedLeave) ?? 0
+        medicalLeave = try container.decodeIfPresent(Int.self, forKey: .medicalLeave) ?? 0
+        summerVacation = try container.decodeIfPresent(Int.self, forKey: .summerVacation) ?? 0
+        winterVacation = try container.decodeIfPresent(Int.self, forKey: .winterVacation) ?? 0
+        compensationLeave = try container.decode(Double.self, forKey: .compensationLeave)
+    }
 }
+

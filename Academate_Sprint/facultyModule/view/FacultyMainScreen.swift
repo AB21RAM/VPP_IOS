@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FacultyMainScreen: View {
     let userDefaultsManager = UserDefaultsManager.shared
+    @StateObject var viewmodel = FacultyMainViewModel()
+    @State var isNavigateMenu = false
     @State private var dynamicContent: Int = 1
     var body: some View {
         /*
@@ -29,7 +31,16 @@ struct FacultyMainScreen: View {
                     VStack(spacing: 0){
                         //                    (spacing: 0)
                         VStack{
+//                            Image(systemName: "text.justifyright")
                             HStack{
+                                Button {
+                                    isNavigateMenu.toggle()
+                                } label: {
+                                    Image(systemName: "text.justifyright")
+                                }.sheet(isPresented: $isNavigateMenu, content: {
+                                    FacultyMenuView()
+                                })
+
                                 Text("Profile")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .font(.title)
@@ -162,6 +173,8 @@ struct FacultyMainScreen: View {
                 .shadow(radius: 5)
                 .padding(.top,30)
                 .task {
+                    viewmodel.getDashboardData()
+                    viewmodel.getPunchRecord()
                     /*
                     // Load data only when the view appears for the first time
                     if !viewmodel.isDataLoaded {
