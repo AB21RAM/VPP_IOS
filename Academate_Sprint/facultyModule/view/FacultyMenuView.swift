@@ -15,6 +15,13 @@ struct FacultyMenuView: View {
             
             Text("Menu")
             VStack{
+                
+                NavigationLink {
+                    FacultyLeaveAppView()
+                } label: {
+                    Text("Apply Leave")
+                }
+
                 Button {
                     isNavigateApplyLeave.toggle()
                 } label: {

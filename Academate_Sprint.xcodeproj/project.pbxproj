@@ -95,6 +95,33 @@
 		0B80F6E22B822F8600F489DE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B80F6E12B822F8600F489DE /* Alamofire */; };
 		0B80F6E72B86074300F489DE /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6E52B86074200F489DE /* model.xcdatamodeld */; };
 		0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80F6E92B860E5400F489DE /* PersistenceController.swift */; };
+		0B81BD3B2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD3A2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift */; };
+		0B81BD3D2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD3C2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift */; };
+		0B81BD3F2BA05F1000C0CBA6 /* SimpleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD3E2BA05F1000C0CBA6 /* SimpleResponse.swift */; };
+		0B81BD412BA05F8000C0CBA6 /* VisitorsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD402BA05F8000C0CBA6 /* VisitorsListResponse.swift */; };
+		0B81BD482BA0630700C0CBA6 /* AlumniApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD472BA0630700C0CBA6 /* AlumniApiResource.swift */; };
+		0B81BD4C2BA19AF700C0CBA6 /* AlumniRegistrationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD4B2BA19AF700C0CBA6 /* AlumniRegistrationForm.swift */; };
+		0B81BD4E2BA1A4CB00C0CBA6 /* EmailCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD4D2BA1A4CB00C0CBA6 /* EmailCheck.swift */; };
+		0B81BD512BA1B28500C0CBA6 /* AlumniHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD502BA1B28500C0CBA6 /* AlumniHomeView.swift */; };
+		0B81BD552BA1B2CF00C0CBA6 /* AlumniMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD542BA1B2CF00C0CBA6 /* AlumniMainScreen.swift */; };
+		0B81BD582BA1B94A00C0CBA6 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD572BA1B94A00C0CBA6 /* Sidebar.swift */; };
+		0B81BD5A2BA1C81900C0CBA6 /* AlumniLeavingCertFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD592BA1C81900C0CBA6 /* AlumniLeavingCertFormView.swift */; };
+		0B81BD5C2BA1C86500C0CBA6 /* AlumniPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD5B2BA1C86500C0CBA6 /* AlumniPaymentView.swift */; };
+		0B81BD5E2BA1CA0400C0CBA6 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD5D2BA1CA0400C0CBA6 /* SideMenu.swift */; };
+		0B81BD622BA1CEDA00C0CBA6 /* AlumniNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD612BA1CEDA00C0CBA6 /* AlumniNavigation.swift */; };
+		0B81BD642BA1D54E00C0CBA6 /* AlumniApplicationStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD632BA1D54E00C0CBA6 /* AlumniApplicationStatusCard.swift */; };
+		0B81BD662BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD652BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift */; };
+		0B81BD682BA331C300C0CBA6 /* HODMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD672BA331C300C0CBA6 /* HODMainScreen.swift */; };
+		0B81BD6B2BA332B200C0CBA6 /* HODNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD6A2BA332B200C0CBA6 /* HODNavigation.swift */; };
+		0B81BD6E2BA333FE00C0CBA6 /* HODCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD6D2BA333FE00C0CBA6 /* HODCountView.swift */; };
+		0B81BD702BA335CB00C0CBA6 /* HODFacultyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD6F2BA335CB00C0CBA6 /* HODFacultyListView.swift */; };
+		0B81BD722BA335F400C0CBA6 /* HODStudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD712BA335F400C0CBA6 /* HODStudentListView.swift */; };
+		0B81BD762BA33EDB00C0CBA6 /* HODApprovedLeaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD752BA33EDB00C0CBA6 /* HODApprovedLeaveView.swift */; };
+		0B81BD782BA3435600C0CBA6 /* HODVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD772BA3435600C0CBA6 /* HODVisitorView.swift */; };
+		0B81BD7B2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD7A2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift */; };
+		0B81BD802BA4109D00C0CBA6 /* HODNoDuesAllAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD7F2BA4109D00C0CBA6 /* HODNoDuesAllAppView.swift */; };
+		0B81BD822BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD812BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift */; };
+		0B81BD842BA4194B00C0CBA6 /* HODNoDuesSignedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD832BA4194B00C0CBA6 /* HODNoDuesSignedView.swift */; };
 		0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD950212B5F02630084736B /* RadioButtonSource.swift */; };
 		0BD9502E2B6141A50084736B /* newLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502D2B6141A50084736B /* newLoading.json */; };
 		0BD950302B6141B50084736B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502F2B6141B50084736B /* loading.json */; };
@@ -232,6 +259,33 @@
 		0B80F6E32B83465F00F489DE /* DOCS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DOCS.md; sourceTree = "<group>"; };
 		0B80F6E62B86074300F489DE /* model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = model.xcdatamodel; sourceTree = "<group>"; };
 		0B80F6E92B860E5400F489DE /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		0B81BD3A2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRemarkBodyResponse.swift; sourceTree = "<group>"; };
+		0B81BD3C2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorStatusUpdateBody.swift; sourceTree = "<group>"; };
+		0B81BD3E2BA05F1000C0CBA6 /* SimpleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleResponse.swift; sourceTree = "<group>"; };
+		0B81BD402BA05F8000C0CBA6 /* VisitorsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorsListResponse.swift; sourceTree = "<group>"; };
+		0B81BD472BA0630700C0CBA6 /* AlumniApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniApiResource.swift; sourceTree = "<group>"; };
+		0B81BD4B2BA19AF700C0CBA6 /* AlumniRegistrationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniRegistrationForm.swift; sourceTree = "<group>"; };
+		0B81BD4D2BA1A4CB00C0CBA6 /* EmailCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheck.swift; sourceTree = "<group>"; };
+		0B81BD502BA1B28500C0CBA6 /* AlumniHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniHomeView.swift; sourceTree = "<group>"; };
+		0B81BD542BA1B2CF00C0CBA6 /* AlumniMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniMainScreen.swift; sourceTree = "<group>"; };
+		0B81BD572BA1B94A00C0CBA6 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		0B81BD592BA1C81900C0CBA6 /* AlumniLeavingCertFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniLeavingCertFormView.swift; sourceTree = "<group>"; };
+		0B81BD5B2BA1C86500C0CBA6 /* AlumniPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniPaymentView.swift; sourceTree = "<group>"; };
+		0B81BD5D2BA1CA0400C0CBA6 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		0B81BD612BA1CEDA00C0CBA6 /* AlumniNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniNavigation.swift; sourceTree = "<group>"; };
+		0B81BD632BA1D54E00C0CBA6 /* AlumniApplicationStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlumniApplicationStatusCard.swift; sourceTree = "<group>"; };
+		0B81BD652BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLeaveStatusBody.swift; sourceTree = "<group>"; };
+		0B81BD672BA331C300C0CBA6 /* HODMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODMainScreen.swift; sourceTree = "<group>"; };
+		0B81BD6A2BA332B200C0CBA6 /* HODNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNavigation.swift; sourceTree = "<group>"; };
+		0B81BD6D2BA333FE00C0CBA6 /* HODCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODCountView.swift; sourceTree = "<group>"; };
+		0B81BD6F2BA335CB00C0CBA6 /* HODFacultyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODFacultyListView.swift; sourceTree = "<group>"; };
+		0B81BD712BA335F400C0CBA6 /* HODStudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODStudentListView.swift; sourceTree = "<group>"; };
+		0B81BD752BA33EDB00C0CBA6 /* HODApprovedLeaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODApprovedLeaveView.swift; sourceTree = "<group>"; };
+		0B81BD772BA3435600C0CBA6 /* HODVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODVisitorView.swift; sourceTree = "<group>"; };
+		0B81BD7A2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoDuesMainScreen.swift; sourceTree = "<group>"; };
+		0B81BD7F2BA4109D00C0CBA6 /* HODNoDuesAllAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoDuesAllAppView.swift; sourceTree = "<group>"; };
+		0B81BD812BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoDuesRemarksView.swift; sourceTree = "<group>"; };
+		0B81BD832BA4194B00C0CBA6 /* HODNoDuesSignedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HODNoDuesSignedView.swift; sourceTree = "<group>"; };
 		0BD950212B5F02630084736B /* RadioButtonSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonSource.swift; sourceTree = "<group>"; };
 		0BD9502D2B6141A50084736B /* newLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = newLoading.json; path = ../../../../../Downloads/newLoading.json; sourceTree = "<group>"; };
 		0BD9502F2B6141B50084736B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
@@ -476,6 +530,12 @@
 		0B00B0D02BA0278500F9A5E8 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0B81BD792BA40D3B00C0CBA6 /* noDues */,
+				0B81BD742BA33E9700C0CBA6 /* visitor */,
+				0B81BD732BA33E8A00C0CBA6 /* approvedLeave */,
+				0B81BD6C2BA333ED00C0CBA6 /* mainScreen */,
+				0B81BD692BA332A100C0CBA6 /* navigation */,
+				0B81BD672BA331C300C0CBA6 /* HODMainScreen.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -490,6 +550,10 @@
 		0B00B0D42BA027D000F9A5E8 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				0B00B0E82BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift */,
+				0B81BD3A2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift */,
+				0B81BD3C2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift */,
+				0B81BD652BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -503,11 +567,11 @@
 				0B00B0E22BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift */,
 				0B00B0E42BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift */,
 				0B00B0E62BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift */,
-				0B00B0E82BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift */,
 				0B00B0EA2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift */,
 				0B00B0EC2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift */,
 				0B00B0EE2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift */,
 				0B00B0F02BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift */,
+				0B81BD402BA05F8000C0CBA6 /* VisitorsListResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -531,6 +595,7 @@
 		0B04D3022B5537B300D4BAD5 /* Academate_Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				0B81BD422BA062C000C0CBA6 /* alumniModule */,
 				0B00B0CC2BA0273800F9A5E8 /* hodModule  */,
 				0B00B0B92B9FCD7D00F9A5E8 /* parentModule */,
 				0B4413622B87173700D2A083 /* facultyModule */,
@@ -743,6 +808,173 @@
 			path = coreData;
 			sourceTree = "<group>";
 		};
+		0B81BD422BA062C000C0CBA6 /* alumniModule */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD492BA19AB900C0CBA6 /* view */,
+				0B81BD442BA062D900C0CBA6 /* model */,
+				0B81BD432BA062D300C0CBA6 /* service */,
+			);
+			path = alumniModule;
+			sourceTree = "<group>";
+		};
+		0B81BD432BA062D300C0CBA6 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD472BA0630700C0CBA6 /* AlumniApiResource.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0B81BD442BA062D900C0CBA6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD462BA062E900C0CBA6 /* response */,
+				0B81BD452BA062E000C0CBA6 /* request */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0B81BD452BA062E000C0CBA6 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		0B81BD462BA062E900C0CBA6 /* response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		0B81BD492BA19AB900C0CBA6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD562BA1B92100C0CBA6 /* sidebar */,
+				0B81BD532BA1B29500C0CBA6 /* lcForm */,
+				0B81BD522BA1B28D00C0CBA6 /* payment */,
+				0B81BD4F2BA1ABEB00C0CBA6 /* home  */,
+				0B81BD4A2BA19AD000C0CBA6 /* onBoarding */,
+				0B81BD542BA1B2CF00C0CBA6 /* AlumniMainScreen.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0B81BD4A2BA19AD000C0CBA6 /* onBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD4B2BA19AF700C0CBA6 /* AlumniRegistrationForm.swift */,
+				0B81BD4D2BA1A4CB00C0CBA6 /* EmailCheck.swift */,
+			);
+			path = onBoarding;
+			sourceTree = "<group>";
+		};
+		0B81BD4F2BA1ABEB00C0CBA6 /* home  */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD502BA1B28500C0CBA6 /* AlumniHomeView.swift */,
+				0B81BD632BA1D54E00C0CBA6 /* AlumniApplicationStatusCard.swift */,
+			);
+			path = "home ";
+			sourceTree = "<group>";
+		};
+		0B81BD522BA1B28D00C0CBA6 /* payment */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD5B2BA1C86500C0CBA6 /* AlumniPaymentView.swift */,
+			);
+			path = payment;
+			sourceTree = "<group>";
+		};
+		0B81BD532BA1B29500C0CBA6 /* lcForm */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD592BA1C81900C0CBA6 /* AlumniLeavingCertFormView.swift */,
+			);
+			path = lcForm;
+			sourceTree = "<group>";
+		};
+		0B81BD562BA1B92100C0CBA6 /* sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD572BA1B94A00C0CBA6 /* Sidebar.swift */,
+				0B81BD5D2BA1CA0400C0CBA6 /* SideMenu.swift */,
+				0B81BD612BA1CEDA00C0CBA6 /* AlumniNavigation.swift */,
+			);
+			path = sidebar;
+			sourceTree = "<group>";
+		};
+		0B81BD692BA332A100C0CBA6 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD6A2BA332B200C0CBA6 /* HODNavigation.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		0B81BD6C2BA333ED00C0CBA6 /* mainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD6D2BA333FE00C0CBA6 /* HODCountView.swift */,
+				0B81BD6F2BA335CB00C0CBA6 /* HODFacultyListView.swift */,
+				0B81BD712BA335F400C0CBA6 /* HODStudentListView.swift */,
+			);
+			path = mainScreen;
+			sourceTree = "<group>";
+		};
+		0B81BD732BA33E8A00C0CBA6 /* approvedLeave */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD752BA33EDB00C0CBA6 /* HODApprovedLeaveView.swift */,
+			);
+			path = approvedLeave;
+			sourceTree = "<group>";
+		};
+		0B81BD742BA33E9700C0CBA6 /* visitor */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD772BA3435600C0CBA6 /* HODVisitorView.swift */,
+			);
+			path = visitor;
+			sourceTree = "<group>";
+		};
+		0B81BD792BA40D3B00C0CBA6 /* noDues */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD7E2BA4108100C0CBA6 /* signed */,
+				0B81BD7D2BA4105E00C0CBA6 /* remarks */,
+				0B81BD7C2BA4105100C0CBA6 /* allApplications */,
+				0B81BD7A2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift */,
+			);
+			path = noDues;
+			sourceTree = "<group>";
+		};
+		0B81BD7C2BA4105100C0CBA6 /* allApplications */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD7F2BA4109D00C0CBA6 /* HODNoDuesAllAppView.swift */,
+			);
+			path = allApplications;
+			sourceTree = "<group>";
+		};
+		0B81BD7D2BA4105E00C0CBA6 /* remarks */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD812BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift */,
+			);
+			path = remarks;
+			sourceTree = "<group>";
+		};
+		0B81BD7E2BA4108100C0CBA6 /* signed */ = {
+			isa = PBXGroup;
+			children = (
+				0B81BD832BA4194B00C0CBA6 /* HODNoDuesSignedView.swift */,
+			);
+			path = signed;
+			sourceTree = "<group>";
+		};
 		0BD950232B613F590084736B /* admissionModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +1008,7 @@
 				0B04D3142B5537EC00D4BAD5 /* util */,
 				0B7D8B552B5E9EEB00BDA317 /* Resources */,
 				0B00B0DC2BA036D800F9A5E8 /* CustomDataType.swift */,
+				0B81BD3E2BA05F1000C0CBA6 /* SimpleResponse.swift */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -992,6 +1225,8 @@
 				0B04D34A2B5C50AA00D4BAD5 /* DepartmentsView.swift in Sources */,
 				0B04D3532B5C815E00D4BAD5 /* DocumentInteractionControllerWrapper.swift in Sources */,
 				0B4413712B871D2C00D2A083 /* FacultyDetailsResponse.swift in Sources */,
+				0B81BD4C2BA19AF700C0CBA6 /* AlumniRegistrationForm.swift in Sources */,
+				0B81BD512BA1B28500C0CBA6 /* AlumniHomeView.swift in Sources */,
 				0B00B0AE2B972D5400F9A5E8 /* FacultyLeaveAppView.swift in Sources */,
 				0B00B0C72B9FD1AC00F9A5E8 /* ParentRepository.swift in Sources */,
 				0B00B0EF2BA03CB100F9A5E8 /* NoDuesApplicationsResponse.swift in Sources */,
@@ -1004,21 +1239,33 @@
 				0B04D33F2B57571B00D4BAD5 /* DocumentViewer.swift in Sources */,
 				0B00B0DF2BA0395F00F9A5E8 /* HODDepartmentIdResponse.swift in Sources */,
 				0B00B0C02B9FCDD600F9A5E8 /* ParentApiResource.swift in Sources */,
+				0B81BD482BA0630700C0CBA6 /* AlumniApiResource.swift in Sources */,
 				0B4413692B871B8A00D2A083 /* FacultyDashboardResponse.swift in Sources */,
 				0BD9503C2B619C720084736B /* BottomSheetView.swift in Sources */,
+				0B81BD782BA3435600C0CBA6 /* HODVisitorView.swift in Sources */,
 				0BD950352B6143710084736B /* LoginEndpoint.swift in Sources */,
+				0B81BD622BA1CEDA00C0CBA6 /* AlumniNavigation.swift in Sources */,
+				0B81BD702BA335CB00C0CBA6 /* HODFacultyListView.swift in Sources */,
 				0B00B0C92B9FD73700F9A5E8 /* ParentMainViewModel.swift in Sources */,
 				0BD950462B61B4C20084736B /* StudentHomeViewModel.swift in Sources */,
 				0B80F6DF2B8120A800F489DE /* StudentProfileViewModel.swift in Sources */,
+				0B81BD5E2BA1CA0400C0CBA6 /* SideMenu.swift in Sources */,
 				0BD950712B68F0460084736B /* SingleFeeHeadResponse.swift in Sources */,
+				0B81BD682BA331C300C0CBA6 /* HODMainScreen.swift in Sources */,
+				0B81BD552BA1B2CF00C0CBA6 /* AlumniMainScreen.swift in Sources */,
 				0B44136B2B871C4B00D2A083 /* FacultyPunchRecordResponse.swift in Sources */,
+				0B81BD762BA33EDB00C0CBA6 /* HODApprovedLeaveView.swift in Sources */,
+				0B81BD3F2BA05F1000C0CBA6 /* SimpleResponse.swift in Sources */,
 				0BD950562B65AE530084736B /* DownloadManager.swift in Sources */,
 				0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */,
 				0B00B0D32BA027C400F9A5E8 /* HodApiResource.swift in Sources */,
+				0B81BD5C2BA1C86500C0CBA6 /* AlumniPaymentView.swift in Sources */,
 				0BD950502B6448A70084736B /* PaymentsView.swift in Sources */,
+				0B81BD802BA4109D00C0CBA6 /* HODNoDuesAllAppView.swift in Sources */,
 				0BD9506F2B68EE130084736B /* PaymentDataResponse.swift in Sources */,
 				0B04D3442B57C13600D4BAD5 /* CardModifier.swift in Sources */,
 				0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */,
+				0B81BD3D2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift in Sources */,
 				0B00B0E52BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift in Sources */,
 				0BD950602B665B310084736B /* StudentAcademicsViewModel.swift in Sources */,
 				0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */,
@@ -1026,18 +1273,23 @@
 				0B04D31F2B5538E400D4BAD5 /* LoginResponseUID.swift in Sources */,
 				0B4413792B871DC900D2A083 /* FacultyCancelledLeavesResponse.swift in Sources */,
 				0B00B0DB2BA0369200F9A5E8 /* HODApprovedLeavesResponse.swift in Sources */,
+				0B81BD3B2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* AdmissionApiResource.swift in Sources */,
 				0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */,
 				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
 				0B00B0B82B99F61B00F9A5E8 /* FacultyMenuView.swift in Sources */,
 				0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */,
+				0B81BD662BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift in Sources */,
 				0B04D32B2B5569D900D4BAD5 /* Constants.swift in Sources */,
+				0B81BD642BA1D54E00C0CBA6 /* AlumniApplicationStatusCard.swift in Sources */,
 				0BD9505E2B66599B0084736B /* StudentDocLinkResponse.swift in Sources */,
 				0BD950732B68F16E0084736B /* StudentFeeStructureResponse.swift in Sources */,
 				0B00B09D2B931F9100F9A5E8 /* FacultyMainScreen.swift in Sources */,
 				0B04D3512B5C728F00D4BAD5 /* CustomBackButton.swift in Sources */,
 				0B04D32F2B55774300D4BAD5 /* AdmissionDashBoardResponse.swift in Sources */,
 				0B04D32D2B556F9900D4BAD5 /* LoginView.swift in Sources */,
+				0B81BD5A2BA1C81900C0CBA6 /* AlumniLeavingCertFormView.swift in Sources */,
+				0B81BD842BA4194B00C0CBA6 /* HODNoDuesSignedView.swift in Sources */,
 				0B04D3422B57B9FA00D4BAD5 /* DepartmentWiseView.swift in Sources */,
 				0B04D3392B55C02300D4BAD5 /* csv_test.swift in Sources */,
 				0B04D3232B55394F00D4BAD5 /* LoginValidation.swift in Sources */,
@@ -1050,6 +1302,7 @@
 				0BD9506B2B68ECC40084736B /* PaymentApiResource.swift in Sources */,
 				0B00B0E72BA03C3400F9A5E8 /* HODNoduesRemarkResponse.swift in Sources */,
 				0B00B0AA2B972D2C00F9A5E8 /* FacultyPunchRecordView.swift in Sources */,
+				0B81BD412BA05F8000C0CBA6 /* VisitorsListResponse.swift in Sources */,
 				0BD950532B65858F0084736B /* MainScreenButton.swift in Sources */,
 				0B00B0C52B9FD15400F9A5E8 /* ParentAttendanceResponse.swift in Sources */,
 				0B00B0B62B98697B00F9A5E8 /* FacultyMainViewModel.swift in Sources */,
@@ -1063,12 +1316,16 @@
 				0BD9503E2B61AFDE0084736B /* LoginResponseToken.swift in Sources */,
 				0B00B0D72BA0282B00F9A5E8 /* HodRepository.swift in Sources */,
 				0B4413652B87175E00D2A083 /* FacultyApiResource.swift in Sources */,
+				0B81BD6E2BA333FE00C0CBA6 /* HODCountView.swift in Sources */,
 				0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */,
+				0B81BD7B2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift in Sources */,
+				0B81BD822BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift in Sources */,
 				0B44136D2B871CE100D2A083 /* AllFacultyIDResponse.swift in Sources */,
 				0BD9507B2B68F57F0084736B /* StudentSemDetailsResponse.swift in Sources */,
 				0BD9504E2B64488A0084736B /* AcademicsView.swift in Sources */,
 				0BD9506D2B68ED7E0084736B /* PaymentDataRequest.swift in Sources */,
 				0BD950792B68F4EC0084736B /* StudentCurrEduDetailsResponse.swift in Sources */,
+				0B81BD4E2BA1A4CB00C0CBA6 /* EmailCheck.swift in Sources */,
 				0B00B0CB2B9FDA4900F9A5E8 /* ParentMainScreen.swift in Sources */,
 				0B00B0ED2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift in Sources */,
 				0BD950442B61B3820084736B /* StudentPersonalDetailsResponse.swift in Sources */,
@@ -1076,7 +1333,9 @@
 				0BD9504C2B6448640084736B /* ProfileView.swift in Sources */,
 				0B04D3282B55697B00D4BAD5 /* UserDefaultsManager.swift in Sources */,
 				0B80F6E72B86074300F489DE /* model.xcdatamodeld in Sources */,
+				0B81BD722BA335F400C0CBA6 /* HODStudentListView.swift in Sources */,
 				0B00B0E32BA03A0D00F9A5E8 /* HODMyFacultyListReponse.swift in Sources */,
+				0B81BD6B2BA332B200C0CBA6 /* HODNavigation.swift in Sources */,
 				0B04D31D2B5538AC00D4BAD5 /* LoginRequest.swift in Sources */,
 				0B80F6DD2B80F39500F489DE /* StudentRepository.swift in Sources */,
 				0B04D3042B5537B300D4BAD5 /* Academate_SprintApp.swift in Sources */,
@@ -1092,6 +1351,7 @@
 				0B00B0A82B972D1900F9A5E8 /* FacultyMyLeavesView.swift in Sources */,
 				0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */,
 				0B04D3372B55B5FF00D4BAD5 /* ErrorView.swift in Sources */,
+				0B81BD582BA1B94A00C0CBA6 /* Sidebar.swift in Sources */,
 				0B00B0E92BA03C5400F9A5E8 /* HODNoduesSignApplicationBodyResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

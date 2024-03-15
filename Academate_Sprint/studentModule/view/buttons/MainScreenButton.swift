@@ -20,6 +20,7 @@ struct MainScreenButton: View {
                 .background(imageBackground)
                 .clipShape(.rect(cornerRadius: 15))
             Text(text)
+//                .multilineTextAlignment(.center)
                 .foregroundStyle(textColor)
                 .font(.caption)
         }
@@ -31,5 +32,5 @@ struct MainScreenButton: View {
 }
 
 #Preview {
-    MainScreenButton(image: "profile", text: "Profile", cardbackground: Color("toolbar"), textColor: .white, imageBackground: .white)
+    MainScreenButton(image: "profile_dark", text: "All Applications", cardbackground: Color("toolbar"), textColor: .white, imageBackground: .white)
 }
