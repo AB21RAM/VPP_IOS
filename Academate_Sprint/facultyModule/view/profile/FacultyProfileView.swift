@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct FacultyProfileView: View {
-    @State private var isNavigateApplyLeave = false
-    @State private var isNavigateAlternate = false
+    @StateObject var viewmodel = FacultyDashboardViewModel()
+    let columns = [
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
     var body: some View {
         NavigationStack{
             
@@ -22,25 +25,27 @@ struct FacultyProfileView: View {
                     .frame(alignment: .leading)
                     .padding(.trailing,100)
                 VStack{
-                    Grid{
-                        GridRow {
-                            RoundedRectBox(year: "Casual", count: "0"/*dashboardViewModel.dashboardDataModel.firstYear*/,width: 150,height: 150)
-                                .padding(.leading ,15)
-                                .padding(.trailing ,10)
-                            
-                            RoundedRectBox(year: "Compensation", count: "0"/*dashboardViewModel.dashboardDataModel.secondYear*/,width: 150,height: 150)
-                                .padding(.leading ,10)
-                                .padding(.trailing ,15)
-                        }.padding(.bottom,20)
-                        GridRow{
-                            RoundedRectBox(year: "Earned", count: "0"/*dashboardViewModel.dashboardDataModel.thirdYear*/,width: 150,height: 150)
-                                .padding(.leading ,15)
-                                .padding(.trailing ,10)
-                            RoundedRectBox(year: "Medical", count: "0"/*dashboardViewModel.dashboardDataModel.fourthYear*/,width: 150,height: 150)
-                                .padding(.leading ,10)
-                                .padding(.trailing ,15)
-                        }
-                    }
+                    ScrollView {
+                                LazyVGrid(columns: columns, spacing: 10) {
+                                    ForEach(viewmodel.dataModel.leaves) { item in
+                                        VStack{
+                                            Text(item.name)
+                                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                                                .background(Color.blue)
+                                                .cornerRadius(10)
+                                                .padding(5)
+                                            Text(item.value)
+                                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                                                .background(Color.blue)
+                                                .cornerRadius(10)
+                                                .padding(5)
+                                        }
+                                        
+                                    }
+                                }
+                                .padding()
+                            }
+                    /*
                     HStack{
                         Button {
                             isNavigateApplyLeave.toggle()
@@ -64,7 +69,7 @@ struct FacultyProfileView: View {
                         }
                     }
                     
-                    
+                    */
                 }
                 Spacer()
             }

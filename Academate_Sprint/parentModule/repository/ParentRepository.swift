@@ -6,6 +6,15 @@
 //
 
 import Foundation
+struct studentParentAttendanceListItem : Identifiable{
+    var id = UUID()
+    var attDate: String
+    var attId: Int
+    var punchIn: String
+    var punchOut: String
+    var studClgId: String
+    
+}
 class ParentRepository{
     private let apiResource = ParentApiResource()
     
@@ -20,14 +29,20 @@ class ParentRepository{
         }
     }
     
-    func getGateAttendance(fromdate : String , toDate : String ,completionHandler: @escaping (_ result: [Attendance?]) -> Void){
+    func getGateAttendance(fromdate : String , toDate : String ,completionHandler: @escaping (_ result: [studentParentAttendanceListItem]) -> Void){
         var clgIDAct = ""
         self.getClgID { Id in
             clgIDAct = Id ?? "Error"
         }
         apiResource.getGateAttendance(clgID: clgIDAct, fromdate: fromdate, toDate: toDate) { result in
             if result?.attendance != nil {
-                completionHandler(result?.attendance ?? [])
+                
+                let data : [studentParentAttendanceListItem] = result?.attendance.compactMap { attendance in
+                    
+                    return studentParentAttendanceListItem(attDate: attendance.attDate, attId: attendance.attId, punchIn: attendance.punchIn, punchOut: attendance.punchIn, studClgId: attendance.studClgId)
+                } ?? []
+                completionHandler(data)
+
             }else{
                 completionHandler([])
             }

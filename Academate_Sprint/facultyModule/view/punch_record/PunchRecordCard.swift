@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct PunchRecordCard: View {
+    var date : String
+    var pIn : String
+    var pOut : String
     // Parameters To Be Add
     var body: some View {
         HStack{
-            Text("Date")
+            Text(date)
                 
                 .frame(width: 50,height: 50)
                 .padding(10)
@@ -22,13 +25,13 @@ struct PunchRecordCard: View {
             VStack{
                 Text("Punch In")
                     .bold()
-                Text("Time ")
+                Text(pIn)
             }.padding()
             
             VStack{
                 Text("Punch Out")
                     .bold()
-                Text("Time ")
+                Text(pOut)
             }.padding()
         }
         .frame(maxWidth: 350)
@@ -39,5 +42,5 @@ struct PunchRecordCard: View {
 }
 
 #Preview {
-    PunchRecordCard()
+    PunchRecordCard(date: "1", pIn: "1", pOut: "11")
 }

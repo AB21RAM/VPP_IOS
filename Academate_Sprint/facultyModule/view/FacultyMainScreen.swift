@@ -37,9 +37,10 @@ struct FacultyMainScreen: View {
                                     isNavigateMenu.toggle()
                                 } label: {
                                     Image(systemName: "text.justifyright")
-                                }.sheet(isPresented: $isNavigateMenu, content: {
-                                    FacultyMenuView()
-                                })
+                                }
+                                .navigationDestination(isPresented: $isNavigateMenu) {
+                                    facultyNavigation()
+                                }
 
                                 Text("Profile")
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -187,7 +188,7 @@ struct FacultyMainScreen: View {
                     */
                 }
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     

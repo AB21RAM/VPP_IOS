@@ -56,13 +56,14 @@ struct Alternate: Codable {
 }
 
 // MARK: - LeaveList
-struct LeaveList: Codable {
-    var casualLeave: Double
-    var earnedLeave: Int
-    var medicalLeave: Int
-    var summerVacation: Int
-    var winterVacation: Int
-    var compensationLeave: Double
+struct LeaveList: Codable , Hashable {
+    var casualLeave: Double = 0.0
+    var earnedLeave: Int = 0
+    var medicalLeave: Int = 0
+    var summerVacation: Int = 0
+    var winterVacation: Int = 0
+    var compensationLeave: Double = 0.0
+    var specialLeave: Double = 0.0
 
     enum CodingKeys: String, CodingKey {
         case casualLeave = "Casual Leave"
@@ -71,6 +72,7 @@ struct LeaveList: Codable {
         case summerVacation = "Summer Vacation"
         case winterVacation = "Winter Vacation"
         case compensationLeave = "Compensation Leave"
+        case specialLeave = "Special Leave"
     }
     
     init(from decoder: Decoder) throws {
@@ -81,6 +83,7 @@ struct LeaveList: Codable {
         summerVacation = try container.decodeIfPresent(Int.self, forKey: .summerVacation) ?? 0
         winterVacation = try container.decodeIfPresent(Int.self, forKey: .winterVacation) ?? 0
         compensationLeave = try container.decode(Double.self, forKey: .compensationLeave)
+        specialLeave = try container.decode(Double.self, forKey: .specialLeave)
     }
 }
 

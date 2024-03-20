@@ -7,7 +7,7 @@
 
 import Foundation
 struct ParentDataModel{
-    var attedance : [Attendance?] = []
+    var attedance : [studentParentAttendanceListItem] = []
     var isLoading : Bool = true
     var isError : Bool = false
 }

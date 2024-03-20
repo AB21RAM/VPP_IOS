@@ -11,6 +11,7 @@ class FacultyRepository {
     private let userDefaultsManager = UserDefaultsManager.shared
     
     
+    // MARK : Done
     func getFacultyDashboard(completion: @escaping (_ result: FacultyDashboardResponse?) -> Void) {
         apiResource.getFacultyDashboard(){ response in
             guard let response = response else {
@@ -23,6 +24,8 @@ class FacultyRepository {
         }
     }
     
+    // punch Record
+    // MARK : Done
     func getFacultyPunchRecord(completion: @escaping (_ result:FacultyPunchRecordResponse?) -> Void) {
         apiResource.getFacultyPunchRecord(){ response in
             guard let response = response else {
@@ -34,6 +37,7 @@ class FacultyRepository {
             completion(response)
         }
     }
+    
     func getAllFacultyID(completion: @escaping (_ result:AllFacultyIDResponse?) -> Void) {
         apiResource.getAllFacultyID(){ response in
             guard let response = response else {
@@ -55,7 +59,7 @@ class FacultyRepository {
             completion(response)
         }
     }
-    // input required
+    
     func getFacultyDetails(id: Int?, completion: @escaping (_ result: FacultyDetailsResponse?) -> Void) {
         apiResource.getFacultyDetails(id: id){ response in
             guard let response = response else {
@@ -66,7 +70,7 @@ class FacultyRepository {
             completion(response)
         }
     }
-    
+    // Use to get the status of leave and depending get the desired list 
     func getFacultyLeaveHistory(completion: @escaping (_ result:FacultyLeaveHistoryResponse?) -> Void) {
         apiResource.getFacultyLeaveHistory(){ response in
             guard let response = response else {
@@ -77,7 +81,7 @@ class FacultyRepository {
             completion(response)
         }
     }
-    
+    // apply leave 
     func getFacultyLeaveData(completion: @escaping (_ result:FacultyLeaveDataResponse?) -> Void) {
         apiResource.getFacultyLeaveData(){ response in
             guard let response = response else {
@@ -99,7 +103,7 @@ class FacultyRepository {
             completion(response)
         }
     }
-    
+
     func getFacultyCancelledLeaves(completion: @escaping (_ result:FacultyCancelledLeavesResponse?) -> Void) {
         apiResource.getFacultyCancelledLeaves(){ response in
             guard let response = response else {

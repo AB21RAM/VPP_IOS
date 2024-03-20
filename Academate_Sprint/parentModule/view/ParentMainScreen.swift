@@ -11,11 +11,25 @@ struct ParentMainScreen: View {
     //    yyyy-MM-dd --> Date Format
     // need to review that whether that list of Attendace get Attched to the view -> UUID()
     @StateObject var pViewModel : ParentMainViewModel = ParentMainViewModel()
-    @StateObject var sViewModel : StudentProfileViewModel = StudentProfileViewModel()
+//    @StateObject var sViewModel : StudentProfileViewModel = StudentProfileViewModel()
     @StateObject var viewmodel = StudentProfileViewModel()
     @State private var dynamicContent: Int = 1
+    @State private var date = Date.now
+    @State private var toDate = Date.now
+    @State private var fromdate = Date.now
+    private var formattedToDate: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.string(from: toDate)
+        }
+    private var formattedFromDate: String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.string(from: fromdate)
+        }
     let userDefaultsManager = UserDefaultsManager.shared
     var facultyList : [HODFacultyLeavesList] = [HODFacultyLeavesList( facultyName: "", alternateName: "", leaveAppID: 0, leaveID: 0, no_of_days: 1.0, fromDate: "", toDate: "", reason: "", facultyID: 0)]
+//    var studentAttendance :
     var body: some View {
         
         
@@ -57,40 +71,45 @@ struct ParentMainScreen: View {
                             VStack{
                                 VStack{
                                     HStack {
-                                        Text("From date")
-                                            .padding(10)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
+                                        
 //                                            .frame(maxWidth: .infinity,alignment: .leading)
-                                        Button(action: {}, label: {
-                                            Image(systemName: "calendar")
-                                                .foregroundStyle(Color.white)
+                                        DatePicker( selection: $fromdate, in: ...Date.now, displayedComponents: .date){
+                                            Text("From Date")
+                                                .font(.caption2)
                                                 .padding(10)
                                                 .background(
                                                     RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.blue)
+                                                        .stroke(Color("toolbar"))
                                                 )
-                                        })
-                                        Text("To date")
-                                            .padding(10)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        Button(action: {}, label: {
-                                            Image(systemName: "calendar")
-                                                .foregroundStyle(Color.white)
+                                        }
+//                                        Button(action: {
+//                                            
+//                                            DatePicker("From Date ", selection: $date)
+//                                                            .datePickerStyle(GraphicalDatePickerStyle())
+//                                                            .frame(maxHeight: 400)
+//                                        }, label: {
+//                                            Image(systemName: "calendar")
+//                                                .foregroundStyle(Color.white)
+//                                                .padding(10)
+//                                                .background(
+//                                                    RoundedRectangle(cornerRadius: 10)
+//                                                        .fill(Color.blue)
+//                                                )
+//                                        })
+                                        DatePicker( selection: $toDate, in: ...Date.now, displayedComponents: .date){
+                                            Text("To Date")
+                                                .font(.caption2)
                                                 .padding(10)
                                                 .background(
                                                     RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.blue)
+                                                        .stroke(Color("toolbar"))
                                                 )
-                                        })
+                                        }
                                     }
                                     .frame(maxWidth: .infinity)
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        pViewModel.getGateAttendance(fromDate: String(formattedFromDate), toDate: String(formattedToDate))
+                                    }, label: {
                                         Text("Fetch")
                                             
                                             .frame(maxWidth: .infinity)
@@ -103,47 +122,62 @@ struct ParentMainScreen: View {
                                             )
                                             
                                     })
-                                    .padding(.leading,20)
-                                    .padding(.trailing,20)
+//                                    Text("from date :\(formattedFromDate) to date : \(formattedToDate)")
+                                    
 //                                    .frame(maxWidth: .infinity)
-                                }.padding(.top,70)
+                                } 
+                                .padding(.trailing,10)
+                                .padding(.leading,10)
+                                .padding(.top,70)
                             }
                             .frame(width: geometry.size.width, height: geometry.size.height * 3 / 12)
                             .background(Color("background"))
                             ScrollView{
-                                LazyVStack(alignment: .center, content: {
-                                    ForEach(facultyList) { count in
-                                        HStack{
-                                            VStack{
-                                                Text("Student ID ")
-                                                    .font(.headline)
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text("Name")
-                                                    .bold()
-                                                    .font(.title2)
-                                                    .multilineTextAlignment(.leading)
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text("Department ")
-                                                    .font(.headline)
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                if pViewModel.ParentMainScreenDataModel.isLoading{
+                                    Text("Loading..")
+                                        .padding(30)
+                                        .frame(alignment: .center)
+                                }else if pViewModel.ParentMainScreenDataModel.isError{
+                                    Text("Some Error..")
+                                        .padding(30)
+                                        .frame(alignment: .center)
+                                }
+                                else{
+                                    LazyVStack(alignment: .center, content: {
+                                        ForEach(pViewModel.ParentMainScreenDataModel.attedance) { count in
+                                            HStack{
+                                                VStack{
+                                                    Text("Student ID ")
+                                                        .font(.headline)
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text("Name")
+                                                        .bold()
+                                                        .font(.title2)
+                                                        .multilineTextAlignment(.leading)
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text("Department ")
+                                                        .font(.headline)
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                
+                                                .frame(maxWidth: .infinity,alignment: .leading)
+                                                
+                                                Button(action: {
+                        //                                        guard let url = URL(string: "tel://\(phoneNumber)") else { return }
+                        //                                        UIApplication.shared.open(url)
+                                                            }) {
+                                                                Image(systemName: "phone")
+                                                                    .frame(width: 100, height: 100)
+                                                                    .frame(alignment: .center)
+                                                            }
                                             }
+                                            .modifier(CardModifier(paddingValue: 15, backgroundColor: Color(.white), cornerRadius: 10, foregroundColor: Color("toolbar"), font: .title2))
+                                            .shadow(radius: 5)
                                             
-                                            .frame(maxWidth: .infinity,alignment: .leading)
-                                            
-                                            Button(action: {
-                    //                                        guard let url = URL(string: "tel://\(phoneNumber)") else { return }
-                    //                                        UIApplication.shared.open(url)
-                                                        }) {
-                                                            Image(systemName: "phone")
-                                                                .frame(width: 100, height: 100)
-                                                                .frame(alignment: .center)
-                                                        }
                                         }
-                                        .modifier(CardModifier(paddingValue: 15, backgroundColor: Color(.white), cornerRadius: 10, foregroundColor: Color("toolbar"), font: .title2))
-                                        .shadow(radius: 5)
-                                        
-                                    }
-                                })
+                                    })
+                                }
+                                
                             }
                             .scrollIndicators(.hidden)
                             .frame(width: geometry.size.width, height: geometry.size.height * 7 / 12)

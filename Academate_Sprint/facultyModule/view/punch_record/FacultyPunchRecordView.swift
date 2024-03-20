@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct FacultyPunchRecordView: View {
+    @StateObject var viewModel = FacultyPunchRecordViewModel()
     var body: some View {
         ScrollView(.vertical){
-            PunchRecordCard()
-            PunchRecordCard()
-            PunchRecordCard()
+            LazyVStack{
+                ForEach(viewModel.dataModel.punch){ item in
+                    PunchRecordCard(date: item.dateKey, pIn: item.data.0, pOut: item.data.1)
+                }
+            }
+            
+//            PunchRecordCard()
+//            PunchRecordCard()
         }
     }
 }
