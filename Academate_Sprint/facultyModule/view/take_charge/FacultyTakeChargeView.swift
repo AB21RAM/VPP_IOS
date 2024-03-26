@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct FacultyTakeChargeView: View {
-    var facultyList : [HODFacultyLeavesList] = [HODFacultyLeavesList( facultyName: "", alternateName: "", leaveAppID: 0, leaveID: 0, no_of_days: 1.0, fromDate: "", toDate: "", reason: "", facultyID: 0)]
+    @StateObject var viewmodel = FacultyTakeChargeViewModel()
     var body: some View {
         ScrollView{
             LazyVStack(alignment: .center, content: {
-                ForEach(facultyList) { count in
+                ForEach(viewmodel.dataModel.leaves) { data in
                     HStack{
                         VStack{
-                            Text("Faculty ID ")
+                            Text("\(data.fDate)-\(data.tDate)")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity,alignment: .leading)
-                            Text("Name")
+                            Text(data.fname)
                                 .bold()
                                 .font(.title2)
                                 .multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity,alignment: .leading)
-                            Text("Department ")
+                            Text(data.reason)
+                                .font(.headline)
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                            Text(data.nod)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity,alignment: .leading)
                         }
@@ -32,6 +35,11 @@ struct FacultyTakeChargeView: View {
                         VStack{
                             Button(action: {
                                 // Make Appropriate API call
+                                viewmodel.dataModel.appId = data.fAppId
+                                viewmodel.dataModel.status = 1
+//                                defer {
+                                    viewmodel.postTakeCharge()
+//                                }
                             }) {
                                 Text("Accept")
 //                                    .frame(width: .infinity)
@@ -44,8 +52,17 @@ struct FacultyTakeChargeView: View {
                                     .font(.callout)
                                     .foregroundStyle(Color.white)
                             }
+                            .alert(
+                                isPresented: $viewmodel.dataModel.isShowCompletion, content: {
+                                    Alert(title: Text("Status.."), message: Text("Success..."), dismissButton: .cancel(Text("Ok")))
+                                })
                             Button(action: {
                                 // Make Appropriate API call
+                                viewmodel.dataModel.appId = data.fAppId
+                                viewmodel.dataModel.status = 2
+//                                defer {
+                                    viewmodel.postTakeCharge()
+//                                }
                             }) {
                                 Text("Decline")
 //                                    .frame(width: .infinity)
@@ -57,7 +74,10 @@ struct FacultyTakeChargeView: View {
                                     )
                                     .font(.callout)
                                     .foregroundStyle(Color.white)
-                            }
+                            }.alert(
+                                isPresented: $viewmodel.dataModel.isShowError, content: {
+                                    Alert(title: Text("Erros"), message: Text("No Success..."), dismissButton: .cancel(Text("Ok")))
+                                })
                         }
                     }
                     .modifier(CardModifier(paddingValue: 15, backgroundColor: Color(.white), cornerRadius: 10, foregroundColor: Color("toolbar"), font: .title2))
@@ -66,7 +86,8 @@ struct FacultyTakeChargeView: View {
                     
                 }
             })
-        }
+        }.navigationTitle("Take Charge ")
+            .bold()
     }
 }
 

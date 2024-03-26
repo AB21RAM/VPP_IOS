@@ -9,8 +9,6 @@ import Foundation
 class FacultyRepository {
     private let apiResource = FacultyApiResource()
     private let userDefaultsManager = UserDefaultsManager.shared
-    
-    
     // MARK : Done
     func getFacultyDashboard(completion: @escaping (_ result: FacultyDashboardResponse?) -> Void) {
         apiResource.getFacultyDashboard(){ response in
@@ -21,6 +19,16 @@ class FacultyRepository {
             }
             // MARK : todo the necessary computation
             completion(response)
+        }
+    }
+    func getFacultyAlternateRequestList(completion :@escaping(_ result :[Alternate]?)-> Void){
+        apiResource.getFacultyDashboard { result in
+            guard let response = result else {
+                print("some error at repo ")
+                completion(nil)
+                return
+            }
+            completion(response.alternate)
         }
     }
     
@@ -115,4 +123,25 @@ class FacultyRepository {
         }
     }
     
+    func postTakeCharge(takechargeRequest : TakeChargeRequest,
+                        completion : @escaping(_ result :String)-> Void){
+        apiResource.postFacultyTakeCharge(takeChargeRequest: takechargeRequest) { result in
+            if result?.message == "Success"{
+                completion("Success")
+            }else{
+                completion("Error")
+            }
+        }
+    }
+    
+    func postApplyLeave(leaveRequest : LeaveRequest,
+                        completion : @escaping(_ result :String)-> Void){
+        apiResource.postFacultyLeaveApplication(leaveRequest: leaveRequest) { result in
+            if result?.message == "Success"{
+                completion("Success")
+            }else{
+                completion("Error")
+            }
+        }
+    }
 }

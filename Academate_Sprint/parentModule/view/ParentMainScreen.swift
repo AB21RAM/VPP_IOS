@@ -109,6 +109,8 @@ struct ParentMainScreen: View {
                                     .frame(maxWidth: .infinity)
                                     Button(action: {
                                         pViewModel.getGateAttendance(fromDate: String(formattedFromDate), toDate: String(formattedToDate))
+                                        print(String(formattedToDate))
+                                        print(formattedFromDate)
                                     }, label: {
                                         Text("Fetch")
                                             

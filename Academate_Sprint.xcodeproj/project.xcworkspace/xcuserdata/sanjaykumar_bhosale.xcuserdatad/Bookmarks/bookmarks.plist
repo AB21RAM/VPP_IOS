@@ -23,6 +23,94 @@
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>35</string>
+					<key>EndingLineNumber</key>
+					<string>14</string>
+					<key>StartingColumnNumber</key>
+					<string>29</string>
+					<key>StartingLineNumber</key>
+					<string>14</string>
+					<key>Timestamp</key>
+					<string>732784007.272895</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Academate_Sprint/facultyModule/viewmodel /FacultyLeaveApplicationViewModel.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>Double</string>
+				<key>leading</key>
+				<string>    var to_date: String = String()
+    var reason: String = String()
+    var no_of_date: Double = </string>
+				<key>trailing</key>
+				<string>()
+    var alternate: Int = Int()
+    var doc: String = String()
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>18</string>
+					<key>EndingLineNumber</key>
+					<string>14</string>
+					<key>StartingColumnNumber</key>
+					<string>8</string>
+					<key>StartingLineNumber</key>
+					<string>14</string>
+					<key>Timestamp</key>
+					<string>732784030.988959</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Academate_Sprint/facultyModule/viewmodel /FacultyLeaveApplicationViewModel.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>no_of_date</string>
+				<key>leading</key>
+				<string>    var to_date: String = String()
+    var reason: String = String()
+    var </string>
+				<key>trailing</key>
+				<string>: Double = Double()
+    var alternate: Int = Int()
+    var doc: String = String()
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
 	</array>
 </dict>
 </plist>
