@@ -24,11 +24,11 @@ struct LeaveInfoCard: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 10) {
-            Text(leaveDate ?? "Leave date")
+            Text(leaveDate )
                 .font(.title3)
-            Text(leaveName ?? "Leave Name ")
+            Text(leaveName )
                 .font(.title)
-            Text(reason ?? "Reason")
+            Text(reason )
                 .font(.headline)
             HStack {
                 Text("Alternate Status")

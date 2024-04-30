@@ -59,7 +59,7 @@ struct FacultyApiResource{
         urlRequest.httpMethod = "GET"
         
         HttpUtility.shared.getData(request: urlRequest, resultType: FacultyPunchRecordResponse.self) { response in
-            print(response ?? "")
+//            print(response ?? "")
             completionHandler(response)
         }
     }
@@ -116,15 +116,29 @@ struct FacultyApiResource{
     // apply leave --> data
     func getFacultyLeaveData(completionHandler: @escaping (_ result:FacultyLeaveDataResponse?) -> Void) {
         let baseURL = URL(string: parent_url + "/api/faculty/get_allowed_leaves")!
-        let queryItem = URLQueryItem(name: "uid", value: String(uid))
-        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
-        components.queryItems = [queryItem]
-        var urlRequest = URLRequest(url: components.url!)
-        urlRequest.httpMethod = "GET"
+//        let queryItem = URLQueryItem(name: "uid", value: String(uid))
         
-        HttpUtility.shared.getData(request: urlRequest, resultType: FacultyLeaveDataResponse.self) { response in
-            completionHandler(response)
-        }
+//        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
+//        components.queryItems = [queryItem]
+//        var urlRequest = URLRequest(url: components.url!)
+//        urlRequest.httpMethod = "GET"
+//        
+//        HttpUtility.shared.getData(request: urlRequest, resultType: FacultyLeaveDataResponse.self) { response in
+//            completionHandler(response)
+//        }
+        let parameters: [String: Any] = ["uid": uid]
+        AF.request(baseURL, method: .get, parameters: parameters)
+            .validate()
+            .responseDecodable(of: FacultyLeaveDataResponse.self) { response in
+                switch response.result {
+                case .success(let data):
+                    print(data)
+                    completionHandler(data)
+                case .failure(let error):
+                    print("Error: \(error)")
+                    completionHandler(nil)
+                }
+            }
     }
     // Also used to check whether the leaves are available or not --> Apply Leave
     func getFacultyLeaveCount(id: Int?, completionHandler: @escaping (_ result: FacultyLeaveCountResponse?) -> Void) {

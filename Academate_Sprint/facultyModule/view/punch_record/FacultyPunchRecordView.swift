@@ -20,6 +20,9 @@ struct FacultyPunchRecordView: View {
 //            PunchRecordCard()
 //            PunchRecordCard()
         }
+        .task {
+            viewModel.getPuchRecord()
+        }
     }
 }
 

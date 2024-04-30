@@ -49,8 +49,9 @@ class FacultyLeaveApplicationViewModel : ObservableObject{
     }
     func getLeaveApplicationData(){
         repository.getFacultyLeaveData { result in
-            if let result = result{
-                DispatchQueue.main.async {
+            
+            DispatchQueue.main.async {
+                if let result = result{
                     self.dataModel.isLoading = true
                     self.dataModel.alternateList = result.facultylist
                     self.dataModel.altenateListName = result.facultylist.map({ FacultyNew in
@@ -61,10 +62,13 @@ class FacultyLeaveApplicationViewModel : ObservableObject{
                         LeaveType.lname
                     })
                     self.dataModel.isLoading = false
+                    print("Apply Leave data is \(result)")
                 }
-            }else{
-                self.dataModel.errorMessage = "Some Error"
-                self.dataModel.isShowError = true
+                else{
+                    print("Apply Leave data is having Error")
+                    self.dataModel.errorMessage = "Some Error"
+                    self.dataModel.isShowError = true
+                }
             }
         }
     }

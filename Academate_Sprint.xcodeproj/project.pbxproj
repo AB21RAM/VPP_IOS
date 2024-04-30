@@ -175,6 +175,12 @@
 		0BD9507B2B68F57F0084736B /* StudentSemDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507A2B68F57F0084736B /* StudentSemDetailsResponse.swift */; };
 		0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507C2B68FAFA0084736B /* PaymentCoordinator.swift */; };
 		0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507E2B6A2A380084736B /* PaymentViewModel.swift */; };
+		0BEB9BCE2BDF92B6005BD96E /* RegistrationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */; };
+		0BEB9BD12BDF9370005BD96E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD02BDF9370005BD96E /* DashboardView.swift */; };
+		0BEB9BD42BDFA510005BD96E /* AdmissionFormNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD32BDFA510005BD96E /* AdmissionFormNavigation.swift */; };
+		0BEB9BD92BDFA95D005BD96E /* BasicDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD82BDFA95D005BD96E /* BasicDetailsView.swift */; };
+		0BEB9BDB2BDFAB25005BD96E /* EducationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BDA2BDFAB25005BD96E /* EducationDetailsView.swift */; };
+		0BEB9BDD2BDFAB77005BD96E /* UploadDocsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BDC2BDFAB77005BD96E /* UploadDocsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -358,6 +364,12 @@
 		0BD9507A2B68F57F0084736B /* StudentSemDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSemDetailsResponse.swift; sourceTree = "<group>"; };
 		0BD9507C2B68FAFA0084736B /* PaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCoordinator.swift; sourceTree = "<group>"; };
 		0BD9507E2B6A2A380084736B /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormView.swift; sourceTree = "<group>"; };
+		0BEB9BD02BDF9370005BD96E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		0BEB9BD32BDFA510005BD96E /* AdmissionFormNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionFormNavigation.swift; sourceTree = "<group>"; };
+		0BEB9BD82BDFA95D005BD96E /* BasicDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailsView.swift; sourceTree = "<group>"; };
+		0BEB9BDA2BDFAB25005BD96E /* EducationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationDetailsView.swift; sourceTree = "<group>"; };
+		0BEB9BDC2BDFAB77005BD96E /* UploadDocsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +650,7 @@
 		0B04D3022B5537B300D4BAD5 /* Academate_Sprint */ = {
 			isa = PBXGroup;
 			children = (
+				0BEB9BC72BDF9234005BD96E /* admissionFormModule */,
 				0B81BD422BA062C000C0CBA6 /* alumniModule */,
 				0B00B0CC2BA0273800F9A5E8 /* hodModule  */,
 				0B00B0B92B9FCD7D00F9A5E8 /* parentModule */,
@@ -1195,6 +1208,83 @@
 			path = payment;
 			sourceTree = "<group>";
 		};
+		0BEB9BC72BDF9234005BD96E /* admissionFormModule */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BCB2BDF9275005BD96E /* service */,
+				0BEB9BCA2BDF926B005BD96E /* model */,
+				0BEB9BC92BDF925F005BD96E /* view */,
+			);
+			path = admissionFormModule;
+			sourceTree = "<group>";
+		};
+		0BEB9BC92BDF925F005BD96E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BD72BDFA759005BD96E /* upload_docs */,
+				0BEB9BD62BDFA74D005BD96E /* education_details */,
+				0BEB9BD52BDFA741005BD96E /* basic_details */,
+				0BEB9BD22BDFA4EF005BD96E /* navigation */,
+				0BEB9BCF2BDF9359005BD96E /* dashboard */,
+				0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0BEB9BCA2BDF926B005BD96E /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		0BEB9BCB2BDF9275005BD96E /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0BEB9BCF2BDF9359005BD96E /* dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BD02BDF9370005BD96E /* DashboardView.swift */,
+			);
+			path = dashboard;
+			sourceTree = "<group>";
+		};
+		0BEB9BD22BDFA4EF005BD96E /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BD32BDFA510005BD96E /* AdmissionFormNavigation.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		0BEB9BD52BDFA741005BD96E /* basic_details */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BD82BDFA95D005BD96E /* BasicDetailsView.swift */,
+			);
+			path = basic_details;
+			sourceTree = "<group>";
+		};
+		0BEB9BD62BDFA74D005BD96E /* education_details */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BDA2BDFAB25005BD96E /* EducationDetailsView.swift */,
+			);
+			path = education_details;
+			sourceTree = "<group>";
+		};
+		0BEB9BD72BDFA759005BD96E /* upload_docs */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9BDC2BDFAB77005BD96E /* UploadDocsView.swift */,
+			);
+			path = upload_docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1339,6 +1429,7 @@
 				0B04D3552B5C895300D4BAD5 /* BranchYearCSVView.swift in Sources */,
 				0B81BD3D2BA05C2000C0CBA6 /* VisitorStatusUpdateBody.swift in Sources */,
 				0B00B0E52BA03BF200F9A5E8 /* HODMyStudentsListResponse.swift in Sources */,
+				0BEB9BD92BDFA95D005BD96E /* BasicDetailsView.swift in Sources */,
 				0BD950602B665B310084736B /* StudentAcademicsViewModel.swift in Sources */,
 				0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */,
 				0BD950752B68F2060084736B /* StudentBalanceFeeResponse.swift in Sources */,
@@ -1349,6 +1440,7 @@
 				0B81BD3B2BA05BF900C0CBA6 /* PostRemarkBodyResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* AdmissionApiResource.swift in Sources */,
 				0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */,
+				0BEB9BCE2BDF92B6005BD96E /* RegistrationFormView.swift in Sources */,
 				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
 				0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */,
 				0B81BD662BA311FF00C0CBA6 /* UpdateLeaveStatusBody.swift in Sources */,
@@ -1370,6 +1462,8 @@
 				0B80F6EA2B860E5400F489DE /* PersistenceController.swift in Sources */,
 				0B04D3342B557EE400D4BAD5 /* RoundedRectBox.swift in Sources */,
 				0B00B0DD2BA036D800F9A5E8 /* CustomDataType.swift in Sources */,
+				0BEB9BD42BDFA510005BD96E /* AdmissionFormNavigation.swift in Sources */,
+				0BEB9BD12BDF9370005BD96E /* DashboardView.swift in Sources */,
 				0B44137E2B873F2300D2A083 /* LeaveRequest.swift in Sources */,
 				0B81BD8F2BAD544B00C0CBA6 /* FacultyTakeChargeViewModel.swift in Sources */,
 				0B00B0F12BA03CDD00F9A5E8 /* NoduesAllApplicationResponse.swift in Sources */,
@@ -1398,6 +1492,7 @@
 				0B04D33C2B55CC4A00D4BAD5 /* DownloadCSVFile.swift in Sources */,
 				0B81BD7B2BA40D5F00C0CBA6 /* HODNoDuesMainScreen.swift in Sources */,
 				0B81BD822BA4182C00C0CBA6 /* HODNoDuesRemarksView.swift in Sources */,
+				0BEB9BDB2BDFAB25005BD96E /* EducationDetailsView.swift in Sources */,
 				0B44136D2B871CE100D2A083 /* AllFacultyIDResponse.swift in Sources */,
 				0B81BD872BA4955000C0CBA6 /* facultyNavigation.swift in Sources */,
 				0BD9507B2B68F57F0084736B /* StudentSemDetailsResponse.swift in Sources */,
@@ -1405,6 +1500,7 @@
 				0BD9506D2B68ED7E0084736B /* PaymentDataRequest.swift in Sources */,
 				0BD950792B68F4EC0084736B /* StudentCurrEduDetailsResponse.swift in Sources */,
 				0B81BD4E2BA1A4CB00C0CBA6 /* EmailCheck.swift in Sources */,
+				0BEB9BDD2BDFAB77005BD96E /* UploadDocsView.swift in Sources */,
 				0B78A9532BB38A7500662225 /* AlumniLoginBody.swift in Sources */,
 				0B00B0CB2B9FDA4900F9A5E8 /* ParentMainScreen.swift in Sources */,
 				0B00B0ED2BA03C9300F9A5E8 /* HODPresentFacultyCountResponse.swift in Sources */,

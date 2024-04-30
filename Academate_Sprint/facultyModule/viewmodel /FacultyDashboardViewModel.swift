@@ -25,7 +25,15 @@ class FacultyDashboardViewModel : ObservableObject{
             if let response = response {
                 DispatchQueue.main.async {
                     self.dataModel.isLoading = true
-                    var leaveItems: [LeaveItem] = []
+                    var leaveItems: [LeaveItem] = [
+                        LeaveItem(name: "Casual Leave",value: String(response.leaveList.first?.casualLeave ?? 0)),
+                        LeaveItem(name: "Earned Leave",value: String(response.leaveList.first?.earnedLeave ?? 0)),
+                        LeaveItem(name: "Medical Leave",value: String(response.leaveList.first?.medicalLeave ?? 0)),
+                        LeaveItem(name: "Summer Vacation",value: String(response.leaveList.first?.summerVacation ?? 0)),
+                        LeaveItem(name: "Winter Vacation",value: String(response.leaveList.first?.winterVacation ?? 0)),
+                        LeaveItem(name: "Compensation Leave",value: String(response.leaveList.first?.compensationLeave ?? 0))
+                    ]
+                    /*
                     for leave in response.leaveList {
                         if leave.casualLeave != 0 {
                             leaveItems.append(LeaveItem(name: "Casual Leave", value: "\(leave.casualLeave)"))
@@ -45,10 +53,12 @@ class FacultyDashboardViewModel : ObservableObject{
                         if leave.compensationLeave != 0 {
                             leaveItems.append(LeaveItem(name: "Compensation Leave", value: "\(leave.compensationLeave)"))
                         }
-                        if leave.specialLeave != 0 {
-                            leaveItems.append(LeaveItem(name: "Special Leave", value: "\(leave.specialLeave)"))
-                        }
+//                        if leave.specialLeave != 0 {
+//                            leaveItems.append(LeaveItem(name: "Special Leave", value: "\(leave.specialLeave)"))
+//                        }
                     }
+                     */
+                    print("DashBoard Data is : \(leaveItems)")
                     self.dataModel.leaves = leaveItems
                     self.dataModel.isLoading = false
                 }

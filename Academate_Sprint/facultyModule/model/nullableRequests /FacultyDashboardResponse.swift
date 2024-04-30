@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - FacultyDashboardResponse
-struct FacultyDashboardResponse: Codable {
+struct FacultyDashboardResponse: Decodable {
     var leaveList: [LeaveList]
-    var used: JSONNull? = nil
+    var used: Int? = 0
     var alternate: [Alternate]
 
     enum CodingKeys: String, CodingKey {
@@ -27,12 +27,12 @@ struct Alternate: Codable {
     var leaveAppID, facultyID, leaveID: Int
     var fromDate, toDate, reason: String
     var noOfDays: Double
-    var docLink: String?
+    var docLink: String? = ""
     var status, signedByHod: Int
-    var signedByPrincipal: Int?
+    var signedByPrincipal: Int? = 0
     var alternate, statusAlternate: Int
-    var appliedDate: String?
-    var halfFullDay: String?
+    var appliedDate: String? = ""
+    var halfFullDay: String? = ""
     var name, lname: String
 
     enum CodingKeys: String, CodingKey {
@@ -56,14 +56,14 @@ struct Alternate: Codable {
 }
 
 // MARK: - LeaveList
-struct LeaveList: Codable , Hashable {
+struct LeaveList: Decodable , Hashable {
     var casualLeave: Double = 0.0
     var earnedLeave: Int = 0
     var medicalLeave: Int = 0
     var summerVacation: Int = 0
     var winterVacation: Int = 0
     var compensationLeave: Double = 0.0
-    var specialLeave: Double = 0.0
+//    var specialLeave: Int? = 0
 
     enum CodingKeys: String, CodingKey {
         case casualLeave = "Casual Leave"
@@ -83,7 +83,7 @@ struct LeaveList: Codable , Hashable {
         summerVacation = try container.decodeIfPresent(Int.self, forKey: .summerVacation) ?? 0
         winterVacation = try container.decodeIfPresent(Int.self, forKey: .winterVacation) ?? 0
         compensationLeave = try container.decode(Double.self, forKey: .compensationLeave)
-        specialLeave = try container.decode(Double.self, forKey: .specialLeave)
+//        specialLeave = try container.decode(Int.self, forKey: .specialLeave)
     }
 }
 

@@ -30,21 +30,26 @@ struct FacultyProfileView: View {
                                     ForEach(viewmodel.dataModel.leaves) { item in
                                         VStack{
                                             Text(item.name)
-                                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
-                                                .background(Color.blue)
-                                                .cornerRadius(10)
-                                                .padding(5)
+                                                .font(.headline)
+                                                .padding()
                                             Text(item.value)
-                                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
-                                                .background(Color.blue)
-                                                .cornerRadius(10)
-                                                .padding(5)
+                                                .font(.title)
+                                                .bold()
+                                                .padding(.bottom,10)
                                         }
+                                        .frame(alignment: .leading)
+                                        .foregroundStyle(Color.white)
+                                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100)
+                                        .background(RoundedRectangle(cornerRadius: 20)
+                                            .fill(LinearGradient(gradient: Gradient(colors: [Color.indigo, Color.black]), startPoint: .leading, endPoint: .trailing)))
+                                            .cornerRadius(10)
+                                            .padding(5)
                                         
                                     }
                                 }
                                 .padding()
                             }
+                    
                     /*
                     HStack{
                         Button {
@@ -70,9 +75,12 @@ struct FacultyProfileView: View {
                     }
                     
                     */
-                }
-                Spacer()
+                }.frame(maxHeight: .infinity)
+//                Spacer()
             }
+        }
+        .task {
+            viewmodel.getDashboardData()
         }
     }
 }

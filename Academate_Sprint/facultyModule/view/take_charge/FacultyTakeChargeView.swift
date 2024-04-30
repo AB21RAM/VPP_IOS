@@ -40,6 +40,7 @@ struct FacultyTakeChargeView: View {
 //                                defer {
                                     viewmodel.postTakeCharge()
 //                                }
+                                viewmodel.getList()
                             }) {
                                 Text("Accept")
 //                                    .frame(width: .infinity)
@@ -63,6 +64,7 @@ struct FacultyTakeChargeView: View {
 //                                defer {
                                     viewmodel.postTakeCharge()
 //                                }
+                                viewmodel.getList()
                             }) {
                                 Text("Decline")
 //                                    .frame(width: .infinity)
@@ -76,7 +78,7 @@ struct FacultyTakeChargeView: View {
                                     .foregroundStyle(Color.white)
                             }.alert(
                                 isPresented: $viewmodel.dataModel.isShowError, content: {
-                                    Alert(title: Text("Erros"), message: Text("No Success..."), dismissButton: .cancel(Text("Ok")))
+                                    Alert(title: Text("Done"), message: Text("Charge Taken"), dismissButton: .cancel(Text("Ok")))
                                 })
                         }
                     }
@@ -86,8 +88,13 @@ struct FacultyTakeChargeView: View {
                     
                 }
             })
-        }.navigationTitle("Take Charge ")
+            
+        }.task {
+            viewmodel.getList()
+        }
+        .navigationTitle("Take Charge ")
             .bold()
+            
     }
 }
 

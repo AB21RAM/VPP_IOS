@@ -58,6 +58,7 @@ class LoginViewModel: ObservableObject {
         apiResource.token_authenticate(loginREquest: loginRequest) { response in
             DispatchQueue.main.async {
                 if(response?.message == "Logged in successfully") {
+                    print("Data Arrived\(loginRequest.email)")
                     self.loginDataModel.navigate = true
                     self.userDefaultsManager.setToken(response?.androidToken ?? "ok")
                     print(self.userDefaultsManager.getToken()!)

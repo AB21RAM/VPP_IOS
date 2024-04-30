@@ -22,10 +22,7 @@ struct AlumniNavigation: View {
                         Text("Main Screen")
                 }
                 .navigationTitle("Alumni")
-                
-                
             }
-            
         })
         .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
         .background(Color("background"))

@@ -96,31 +96,31 @@ struct LoginView: View {
                         }
                     }).padding(.leading,20)
                 }
-                HStack{
-                    Button(action: {
-//                        showingSheet.toggle()
-                        isNavigateToHOD.toggle()
-                        changeUserType(user: "HOD")
-                    }, label: {
-                        VStack {
-                            Image("student")
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .background(.white)
-                                .clipShape(.rect(cornerRadius: 15))
-                            
-                            Text("HOD")
-                                .font(.headline)
-                                .padding(.top,5)
-                                .foregroundColor(.black)
-                        }
-                    }).padding(.leading,20)
-                }
+//                HStack{
+//                    Button(action: {
+////                        showingSheet.toggle()
+//                        isNavigateToHOD.toggle()
+//                        changeUserType(user: "HOD")
+//                    }, label: {
+//                        VStack {
+//                            Image("student")
+//                                .resizable()
+//                                .frame(width: 80, height: 80)
+//                                .background(.white)
+//                                .clipShape(.rect(cornerRadius: 15))
+//                            
+//                            Text("HOD")
+//                                .font(.headline)
+//                                .padding(.top,5)
+//                                .foregroundColor(.black)
+//                        }
+//                    }).padding(.leading,20)
+//                }
                 Spacer()
             }
-            .navigationDestination(isPresented: $isNavigateToHOD, destination: {
-                HODMainScreen()
-            })
+//            .navigationDestination(isPresented: $isNavigateToHOD, destination: {
+//                HODMainScreen()
+//            })
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
                 Color(UIColor(hex:0xEEEAF4, alpha: 1.0))                            .ignoresSafeArea()

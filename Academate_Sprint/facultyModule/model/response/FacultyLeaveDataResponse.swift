@@ -11,14 +11,14 @@ struct FacultyLeaveDataResponse : Decodable{
     let facultylist: [FacultyNew]
 }
 
-struct LeaveType: Codable , Hashable , Identifiable {
-    var id = UUID()
+struct LeaveType: Decodable  {
+//    var id = UUID()
     let leave_id: Int
     let lname: String
 }
 
-struct FacultyNew: Codable , Hashable , Identifiable{
-    var id = UUID()
+struct FacultyNew: Decodable {
+//    var id = UUID()
     let faculty_id: Int
     let name: String
 }

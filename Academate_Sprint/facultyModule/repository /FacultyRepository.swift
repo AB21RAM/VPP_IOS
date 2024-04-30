@@ -13,7 +13,7 @@ class FacultyRepository {
     func getFacultyDashboard(completion: @escaping (_ result: FacultyDashboardResponse?) -> Void) {
         apiResource.getFacultyDashboard(){ response in
             guard let response = response else {
-                print("some error at repo ")
+                print("some error at repo Data")
                 completion(nil)
                 return
             }
@@ -24,7 +24,7 @@ class FacultyRepository {
     func getFacultyAlternateRequestList(completion :@escaping(_ result :[Alternate]?)-> Void){
         apiResource.getFacultyDashboard { result in
             guard let response = result else {
-                print("some error at repo ")
+                print("some error at repo Alternate")
                 completion(nil)
                 return
             }
@@ -35,7 +35,7 @@ class FacultyRepository {
     // punch Record
     // MARK : Done
     func getFacultyPunchRecord(completion: @escaping (_ result:FacultyPunchRecordResponse?) -> Void) {
-        apiResource.getFacultyPunchRecord(){ response in
+        apiResource.getFacultyPunchRecord{ response in
             guard let response = response else {
                 completion(nil)
                 return
@@ -93,9 +93,11 @@ class FacultyRepository {
     func getFacultyLeaveData(completion: @escaping (_ result:FacultyLeaveDataResponse?) -> Void) {
         apiResource.getFacultyLeaveData(){ response in
             guard let response = response else {
+                print("Apply Leave data is having Error")
                 completion(nil)
                 return
             }
+            print("Apply Leave data is having No Error")
             // MARK : todo the necessary computation
             completion(response)
         }
@@ -129,6 +131,7 @@ class FacultyRepository {
             if result?.message == "Success"{
                 completion("Success")
             }else{
+                print(result?.message ?? "ERROR")
                 completion("Error")
             }
         }

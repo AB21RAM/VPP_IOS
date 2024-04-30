@@ -10,6 +10,7 @@ import SwiftUI
 struct FacultyMyLeavesView: View {
     @StateObject var viewmodel = FacultyLeaveHistoryViewModel()
     var body: some View {
+        
         ScrollView(.vertical){
             LazyVStack{
                 ForEach(viewmodel.dataModel.data){ item in
@@ -17,12 +18,18 @@ struct FacultyMyLeavesView: View {
                 }
             }
                 
-                LeaveInfoCard(leaveDate: "", leaveName: "", reason: "", alternateStatus: 2, HodStatus: 1, approvalStatus: 0)
+//                LeaveInfoCard(leaveDate: "", leaveName: "", reason: "", alternateStatus: 2, HodStatus: 1, approvalStatus: 0)
             
-            Spacer()
+//            Spacer()
+        }
+        .frame(maxHeight: .infinity)
+        .task {
+            viewmodel.getLeaveHistory()
         }
         
     }
+    
+
 }
 
 #Preview {
