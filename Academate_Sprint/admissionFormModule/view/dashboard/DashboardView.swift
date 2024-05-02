@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DashboardView: View {
     @State var isPersonalCompleted = true
-    @State var isParentCompleted = false
-    @State var isAddressCompleted = false
+    @State var isParentCompleted = true    
+    @State var isAddressCompleted = true
     @State var isPreviousCompleted = false
     @State var isEntranceCompleted = false
     @State var isDocumentCompleted = false
@@ -86,7 +86,7 @@ struct DashboardView: View {
                                 }
                                 .padding(15)
                                 HStack{
-                                    if isPersonalCompleted {
+                                    if isParentCompleted {
                                         Text("Parent Completed")
                                         Spacer()
                                         Image(systemName: "checkmark.seal")
@@ -102,7 +102,7 @@ struct DashboardView: View {
                                 .padding(.trailing,15)
                                 .padding(.bottom,15)
                                 HStack{
-                                    if isPersonalCompleted {
+                                    if isAddressCompleted {
                                         Text("Address Completed")
                                         Spacer()
                                         Image(systemName: "checkmark.seal")
@@ -136,7 +136,7 @@ struct DashboardView: View {
                             
                             VStack{
                                 HStack{
-                                    if isPersonalCompleted {
+                                    if isPreviousCompleted {
                                         Text("Previous Completed")
                                         Spacer()
                                         Image(systemName: "checkmark.seal")
@@ -150,7 +150,7 @@ struct DashboardView: View {
                                 }
                                 .padding(15)
                                 HStack{
-                                    if isPersonalCompleted {
+                                    if isEntranceCompleted {
                                         Text("Entrance Completed")
                                         Spacer()
                                         Image(systemName: "checkmark.seal")
@@ -184,7 +184,7 @@ struct DashboardView: View {
                             
                             VStack{
                                 HStack{
-                                    if isPersonalCompleted {
+                                    if isDocumentCompleted {
                                         Text("Completed")
                                         Spacer()
                                         Image(systemName: "checkmark.seal")
