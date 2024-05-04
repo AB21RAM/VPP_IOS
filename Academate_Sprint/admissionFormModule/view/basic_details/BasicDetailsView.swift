@@ -81,6 +81,7 @@ struct PersonalDetailsView : View {
     @State var lastcollege : String = ""
     @State var bankAccnumber : String = ""
     @State var bankname : String = ""
+    @State var pob : String = ""
     @State var dob : Date =  Date.now
     @State var isAvailable : Bool = false
     @State var isExpanded : Bool = false
@@ -89,11 +90,23 @@ struct PersonalDetailsView : View {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: dob)
     }
+    private func dateFromISOString(isoString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.date(from: isoString)
+    }
     @State private var gender = ""
     let genders = ["Male" , "Female"]
     @State private var maritialStatus = ""
     let status = ["Single" , "Married"]
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     var body: some View {
+        
         ScrollView(showsIndicators : false){
             VStack{
                 HStack{
@@ -215,6 +228,21 @@ struct PersonalDetailsView : View {
                             .frame(maxWidth: .infinity,alignment: .leading)
                     }
                     Divider()
+                    HStack{
+                        Text("*Place Of Birth : ")
+                            .bold()
+                            .font(.title3)
+                            .frame(width: .infinity , alignment: .leading)
+                        TextField("Place Of Birth", text: $pob)
+                            .keyboardType(.alphabet).autocapitalization(.none)
+                            .padding(15)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color("toolbar"))
+                            )
+                        
+                    }
+                    .padding(.bottom,5)
                     HStack{
                         Text("Gender :")
                             .bold()
@@ -433,9 +461,47 @@ struct PersonalDetailsView : View {
                             
                     }else{
                         Button(action: {
-    //                        withAnimation{
-                                isExpanded.toggle()
-    //                        }
+//    //                        withAnimation{
+//                                isExpanded.toggle()
+//    //                        }
+                            viewmodel.personalDataModel.fullName = fullName
+//                            @State var religion : String = ""
+                            viewmodel.personalDataModel.religion = religion
+//                            @State var caste : String = ""
+                            viewmodel.personalDataModel.caste = caste
+//                            @State var subCaste : String = ""
+                            viewmodel.personalDataModel.subCaste = subCaste
+//                            @State var community : String = ""
+                            viewmodel.personalDataModel.community = community
+//                            @State var minority : String = ""
+                            viewmodel.personalDataModel.minority = minority
+//                            @State var nationality : String = ""
+                            viewmodel.personalDataModel.nationality = nationality
+//                            @State var phonenumber : String = ""
+                            viewmodel.personalDataModel.contact = phonenumber
+//                            @State var childnumber : String = ""
+                            viewmodel.personalDataModel.childNumber = Int(childnumber) ?? 0
+//                            @State var aadharnumber : String = ""
+                            viewmodel.personalDataModel.aadharNumber = aadharnumber
+//                            @State var lastcollege : String = ""
+                            viewmodel.personalDataModel.lastCollege = lastcollege
+//                            @State var bankAccnumber : String = ""
+                            viewmodel.personalDataModel.bankAccountNumber = bankAccnumber
+//                            @State var bankname : String = ""
+                            viewmodel.personalDataModel.bankName = bankname
+//                            @State var dob : Date =  Date.now
+                            viewmodel.personalDataModel.dob = formattedDOB()
+                            viewmodel.personalDataModel.pob = pob
+                            viewmodel.personalDataModel.status = maritialStatus == "Single" ? 0 : 1
+                            viewmodel.personalDataModel.gender = gender == "Male" ? 0 : 1
+                            viewmodel.personalDataModel.uid = uid
+                            viewmodel.postPersonalDetails()
+                            if viewmodel.personalDataModel.NavigateParentDetails{
+                                withAnimation{
+                                    isExpanded.toggle()
+                                }
+                            }
+
                         }, label: {
                             Text("Submit and Next")
                                 .padding()
@@ -445,16 +511,53 @@ struct PersonalDetailsView : View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .fill(Color.indigo)
                                 )
-                                .padding()
+//                                .padding()
                             
                         })
                     }
+                        
                     
                 }
             }
         }
         .padding(10)
         .frame(alignment: .topLeading)
+        .task {
+            viewmodel.getPersonalDetails { data in
+                if let data = data {
+                    // Handle the case where data is available
+                    print("Retrieved RaddNew object: \(data)")
+                    // Assuming you want to do something with the retrieved data
+                    // Here you can update your UI or perform other operations
+                    let name = data.name.components(separatedBy: " ")
+                    firstName = name[1]
+                    middleName = name[2]
+                    lastName = name[0]
+                    fullName = data.name // inputString.split(separator: " ")
+                    dob = dateFromISOString(isoString: data.dob) ?? Date.now
+                    pob = data.placeOfBirth
+                    gender = data.genderID == 0 ? "Male" : "Female"
+                    religion = data.religion
+                    caste = data.caste
+                    subCaste = data.subCaste
+                    community = data.communitee
+                    minority = data.minority
+                    nationality = data.nationality
+                    phonenumber = data.contact
+                    childnumber = String(data.childNumber)
+                    aadharnumber = data.aadharNumber
+                    lastcollege = data.lastCollegeAttended
+                    bankAccnumber = data.bankAccountNumber ?? "NA"
+                    bankname = data.bankName
+                    maritialStatus = data.marriedStatus == "0" ? "Single" : "Married"
+                } else {
+                    // Handle the case where data retrieval failed
+                    print("Failed to retrieve RaddNew object")
+                    // You might want to display an error message or take other actions
+                }
+            }
+
+        }
         
     }
 }

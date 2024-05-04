@@ -9,10 +9,10 @@ import Foundation
 struct FeeStructureGetResponse: Codable {
     let finalSubmit: Int
     let found: Bool
-    let result: [Result]
+    let result: [ResultNew]
 }
 
-struct Result: Codable {
+struct ResultNew: Codable {
     let academicYear: Int
     let amount: Int
     let assoId: Int

@@ -190,7 +190,7 @@ struct AdmissionFormApiResource {
     
     // MARK: - POST REQUEST
     func postSignUp(
-        request : SignUpFormDataBody,
+        request : FormDataSignUp,
         completioHandler: @escaping(_ result: SimpleResponse?) -> Void
     ){
         var urlRequest  = URLRequest(url: URL(string: String(parent_url + "api/admission/signup"))!)

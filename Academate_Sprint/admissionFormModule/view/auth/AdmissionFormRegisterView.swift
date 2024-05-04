@@ -9,20 +9,42 @@ import SwiftUI
 
 struct AdmissionFormRegisterView: View {
     @State var email : String = ""
-    @State private var SeatType = ""
+    @State private var SeatType = "CAP"
     let seatTypes = ["CAP" , "Institute Level", "Against CAP"]
     
-    @State private var Program = ""
+    @State private var Program = "First Year (F.Y B.E)"
     let ProgramType = ["First Year (F.Y B.E)" ,"Direct Second Year (D.S.Y. B.E.)", "Second Year (S.Y. B.E.)", "Third Year (T.Y. B.E.)","Final Year (B.E. Final Year)"]
     
-    @State private var branch = ""
+    @State private var branch = "Computer Engineering"
     let branchTypes = ["Computer Engineering" ,"Artificial Intelligence And Data Science", "Information technology"]
     
+    
+    let branchIDMap: [String: Int] = [
+        "Computer Engineering": 1,
+        "Artificial Intelligence And Data Science": 2,
+        "Information technology": 3
+    ]
+
+    let programIDMap: [String: Int] = [
+        "First Year (F.Y B.E)": 1,
+        "Direct Second Year (D.S.Y. B.E.)": 2,
+        "Second Year (S.Y. B.E.)": 3,
+        "Third Year (T.Y. B.E.)": 4,
+        "Final Year (B.E. Final Year)": 5
+    ]
+
+    let seatIDMap: [String: Int] = [
+        "CAP": 1,
+        "Institute Level": 2,
+        "Against CAP": 3
+    ]
     @State var CollegeID : String = ""
     @State var grNumber : String = ""
     @State var Password : String = ""
     @State var ConfirmPassword : String = ""
-    
+    @StateObject var viewmodel = AdmissionRegisterViewmodel()
+//    @State private var focusedFieldIndex: Int = 0
+    @FocusState var focus : Int?
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -31,10 +53,15 @@ struct AdmissionFormRegisterView: View {
                         Text("Email : ")
                             .bold()
                             .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Email", text: $email)
-                            .keyboardType(.alphabet).autocapitalization(.none)
+                            .frame(alignment: .leading)
+                        TextField("Email", text: $viewmodel.datamodel.email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
                             .padding(15)
+                            .onSubmit {
+                                focus = 1
+                            }
+                            .focused($focus, equals: 0)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("toolbar"))
@@ -48,12 +75,16 @@ struct AdmissionFormRegisterView: View {
                         Text("Seat Type :")
                             .bold()
                             .font(.title2)
-                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .frame(alignment: .leading)
                         Picker("Seat Type  ", selection: $SeatType) {
                             ForEach(seatTypes, id: \.self) {
                                 Text($0)
                             }
                         }
+                        .onSubmit {
+                            focus = 2
+                        }
+                        .focused($focus, equals: 1)
                         .frame(maxWidth: .infinity,alignment: .trailing)
                     }
                     Divider()
@@ -61,12 +92,17 @@ struct AdmissionFormRegisterView: View {
                         Text("Selected Programme :")
                             .bold()
                             .font(.title2)
-                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .frame(alignment: .leading)
                         Picker("Selected Programme  ", selection: $Program) {
                             ForEach(ProgramType, id: \.self) {
                                 Text($0)
                             }
                         }
+                        .onSubmit {
+                            focus = 3
+                            print("\(Program)")
+                        }
+                        .focused($focus, equals: 2)
                         .frame(maxWidth: .infinity,alignment: .trailing)
                     }
                     Divider()
@@ -74,12 +110,17 @@ struct AdmissionFormRegisterView: View {
                         Text("Selected Branch :")
                             .bold()
                             .font(.title2)
-                            .frame(maxWidth: .infinity,alignment: .leading)
+                            .frame(alignment: .leading)
                         Picker("Selected Branch", selection: $branch) {
                             ForEach(branchTypes, id: \.self) {
                                 Text($0)
                             }
                         }
+                        .onSubmit {
+                            focus = 4
+                            print("\(branch)")
+                        }
+                        .focused($focus, equals: 3)
                         .frame(maxWidth: .infinity,alignment: .trailing)
                     }
                     Divider()
@@ -87,10 +128,14 @@ struct AdmissionFormRegisterView: View {
                         Text("College ID : ")
                             .bold()
                             .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("College ID", text: $CollegeID)
+                            .frame(alignment: .leading)
+                        TextField("College ID", text: $viewmodel.datamodel.clgId)
                             .keyboardType(.alphabet).autocapitalization(.none)
                             .padding(15)
+                            .onSubmit {
+                                focus = 5
+                            }
+                            .focused($focus, equals: 4)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("toolbar"))
@@ -102,10 +147,14 @@ struct AdmissionFormRegisterView: View {
                         Text("Gr Number : ")
                             .bold()
                             .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Gr Number", text: $grNumber)
-                            .keyboardType(.alphabet).autocapitalization(.none)
+                            .frame(alignment: .leading)
+                        TextField("Gr Number", text: $viewmodel.datamodel.grNumber)
+                            .keyboardType(.numberPad).autocapitalization(.none)
                             .padding(15)
+                            .onSubmit {
+                                focus = 6
+                            }
+                            .focused($focus, equals: 5)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("toolbar"))
@@ -117,10 +166,14 @@ struct AdmissionFormRegisterView: View {
                         Text("Password : ")
                             .bold()
                             .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Password", text: $Password)
+                            .frame(alignment: .leading)
+                        SecureField("Password", text: $viewmodel.datamodel.password)
                             .keyboardType(.alphabet).autocapitalization(.none)
                             .padding(15)
+                            .onSubmit {
+                                focus = 7
+                            }
+                            .focused($focus, equals: 6)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("toolbar"))
@@ -132,10 +185,14 @@ struct AdmissionFormRegisterView: View {
                         Text("Confirm Password : ")
                             .bold()
                             .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Confirm Password", text: $ConfirmPassword)
+                            .frame(alignment: .leading)
+                        SecureField("Confirm Password", text: $viewmodel.datamodel.cnfpassword)
                             .keyboardType(.alphabet).autocapitalization(.none)
                             .padding(15)
+//                            .onSubmit {
+//                                focus = 1
+//                            }
+                            .focused($focus, equals: 7)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color("toolbar"))
@@ -144,9 +201,11 @@ struct AdmissionFormRegisterView: View {
                     }
                     .padding(.bottom,5)
                     Button(action: {
-                        //                        withAnimation{
-                        //                        isExpanded.toggle()
-                        //                        }
+                        print(" Seat ID : \(seatIDMap[SeatType])")
+                        viewmodel.datamodel.seatType = seatIDMap[SeatType] ?? 1
+                        viewmodel.datamodel.selectedProgram = programIDMap[Program] ?? 1
+                        viewmodel.datamodel.branch = branchIDMap[branch] ?? 1
+                        viewmodel.signup()
                     }, label: {
                         Text("SignUp")
                             .padding()
@@ -156,16 +215,42 @@ struct AdmissionFormRegisterView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.indigo)
                             )
-                            .padding()
+                           
                         
                     })
+                    
+                    if viewmodel.datamodel.error{
+                        Text("Your application is not allowed or alloted to this college!, \nPlease recheck the application number. ")
+                        .bold()
+                        .padding()
+                            .foregroundStyle(Color.white)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.red)
+                            )
+                    }
+                    if viewmodel.datamodel.nonMatchingPassword{
+                        Text("Password and confirm Password should be same")
+                        .bold()
+                        .padding()
+                            .foregroundStyle(Color.white)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.yellow)
+                            )
+                    }
                 }.padding()
+                
             }
-        }.navigationTitle(
+            .navigationDestination(isPresented: $viewmodel.datamodel.navigateToLogin, destination: {
+                AdmissionFormLoginView()
+            })
+        }
+        
+        .navigationTitle(
             Text("Signup")
-                .font(.title)
-                .bold()
         )
+    
     }
 }
 

@@ -141,6 +141,7 @@
 		0B81BD8D2BAACCCB00C0CBA6 /* FacultyLeaveHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD8C2BAACCCB00C0CBA6 /* FacultyLeaveHistoryViewModel.swift */; };
 		0B81BD8F2BAD544B00C0CBA6 /* FacultyTakeChargeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD8E2BAD544B00C0CBA6 /* FacultyTakeChargeViewModel.swift */; };
 		0B81BD912BAD618000C0CBA6 /* FacultyLeaveApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81BD902BAD618000C0CBA6 /* FacultyLeaveApplicationViewModel.swift */; };
+		0BC8967D2BE642DA00D597B0 /* AdmissionFormMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC8967C2BE642DA00D597B0 /* AdmissionFormMainViewModel.swift */; };
 		0BD950222B5F02630084736B /* RadioButtonSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD950212B5F02630084736B /* RadioButtonSource.swift */; };
 		0BD9502E2B6141A50084736B /* newLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502D2B6141A50084736B /* newLoading.json */; };
 		0BD950302B6141B50084736B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BD9502F2B6141B50084736B /* loading.json */; };
@@ -175,7 +176,6 @@
 		0BD9507B2B68F57F0084736B /* StudentSemDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507A2B68F57F0084736B /* StudentSemDetailsResponse.swift */; };
 		0BD9507D2B68FAFA0084736B /* PaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507C2B68FAFA0084736B /* PaymentCoordinator.swift */; };
 		0BD9507F2B6A2A380084736B /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9507E2B6A2A380084736B /* PaymentViewModel.swift */; };
-		0BEB9BCE2BDF92B6005BD96E /* RegistrationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */; };
 		0BEB9BD12BDF9370005BD96E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD02BDF9370005BD96E /* DashboardView.swift */; };
 		0BEB9BD42BDFA510005BD96E /* AdmissionFormNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD32BDFA510005BD96E /* AdmissionFormNavigation.swift */; };
 		0BEB9BD92BDFA95D005BD96E /* BasicDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9BD82BDFA95D005BD96E /* BasicDetailsView.swift */; };
@@ -207,6 +207,7 @@
 		0BEB9C112BE61C61005BD96E /* SemDetailsGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9C102BE61C61005BD96E /* SemDetailsGetResponse.swift */; };
 		0BEB9C132BE61D3D005BD96E /* FeeStructureGetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9C122BE61D3D005BD96E /* FeeStructureGetResponse.swift */; };
 		0BEB9C152BE61D60005BD96E /* FetchFhGetAdmissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9C142BE61D60005BD96E /* FetchFhGetAdmissionResponse.swift */; };
+		0BEB9C172BE62B7F005BD96E /* AdmissionRegisterViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB9C162BE62B7F005BD96E /* AdmissionRegisterViewmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -356,6 +357,7 @@
 		0B81BD8C2BAACCCB00C0CBA6 /* FacultyLeaveHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveHistoryViewModel.swift; sourceTree = "<group>"; };
 		0B81BD8E2BAD544B00C0CBA6 /* FacultyTakeChargeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyTakeChargeViewModel.swift; sourceTree = "<group>"; };
 		0B81BD902BAD618000C0CBA6 /* FacultyLeaveApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyLeaveApplicationViewModel.swift; sourceTree = "<group>"; };
+		0BC8967C2BE642DA00D597B0 /* AdmissionFormMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionFormMainViewModel.swift; sourceTree = "<group>"; };
 		0BD950212B5F02630084736B /* RadioButtonSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonSource.swift; sourceTree = "<group>"; };
 		0BD9502D2B6141A50084736B /* newLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = newLoading.json; path = ../../../../../Downloads/newLoading.json; sourceTree = "<group>"; };
 		0BD9502F2B6141B50084736B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../../Downloads/loading.json; sourceTree = "<group>"; };
@@ -390,7 +392,6 @@
 		0BD9507A2B68F57F0084736B /* StudentSemDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSemDetailsResponse.swift; sourceTree = "<group>"; };
 		0BD9507C2B68FAFA0084736B /* PaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCoordinator.swift; sourceTree = "<group>"; };
 		0BD9507E2B6A2A380084736B /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
-		0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormView.swift; sourceTree = "<group>"; };
 		0BEB9BD02BDF9370005BD96E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		0BEB9BD32BDFA510005BD96E /* AdmissionFormNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionFormNavigation.swift; sourceTree = "<group>"; };
 		0BEB9BD82BDFA95D005BD96E /* BasicDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailsView.swift; sourceTree = "<group>"; };
@@ -422,6 +423,7 @@
 		0BEB9C102BE61C61005BD96E /* SemDetailsGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemDetailsGetResponse.swift; sourceTree = "<group>"; };
 		0BEB9C122BE61D3D005BD96E /* FeeStructureGetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeStructureGetResponse.swift; sourceTree = "<group>"; };
 		0BEB9C142BE61D60005BD96E /* FetchFhGetAdmissionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFhGetAdmissionResponse.swift; sourceTree = "<group>"; };
+		0BEB9C162BE62B7F005BD96E /* AdmissionRegisterViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmissionRegisterViewmodel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1280,7 +1282,7 @@
 				0BEB9BD52BDFA741005BD96E /* basic_details */,
 				0BEB9BD22BDFA4EF005BD96E /* navigation */,
 				0BEB9BCF2BDF9359005BD96E /* dashboard */,
-				0BEB9BCD2BDF92B6005BD96E /* RegistrationFormView.swift */,
+				0BC8967C2BE642DA00D597B0 /* AdmissionFormMainViewModel.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1345,6 +1347,7 @@
 		0BEB9BDE2BE51B6A005BD96E /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				0BEB9C182BE62B9A005BD96E /* viewmodel */,
 				0BEB9BDF2BE51B7C005BD96E /* AdmissionFormLoginView.swift */,
 				0BEB9BE12BE51B9B005BD96E /* AdmissionFormRegisterView.swift */,
 			);
@@ -1393,6 +1396,14 @@
 				0BEB9C0E2BE61AB3005BD96E /* SemFormDataResponse.swift */,
 			);
 			path = request;
+			sourceTree = "<group>";
+		};
+		0BEB9C182BE62B9A005BD96E /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				0BEB9C162BE62B7F005BD96E /* AdmissionRegisterViewmodel.swift */,
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1562,7 +1573,7 @@
 				0BEB9C012BE613EF005BD96E /* PersonalDetailsFormDataResponse.swift in Sources */,
 				0B04D3192B55386000D4BAD5 /* AdmissionApiResource.swift in Sources */,
 				0B44137B2B87273100D2A083 /* FacultyBasicMesssageResponse.swift in Sources */,
-				0BEB9BCE2BDF92B6005BD96E /* RegistrationFormView.swift in Sources */,
+				0BC8967D2BE642DA00D597B0 /* AdmissionFormMainViewModel.swift in Sources */,
 				0B04D3482B5C4FD800D4BAD5 /* DepartMentViewModel.swift in Sources */,
 				0BEB9C112BE61C61005BD96E /* SemDetailsGetResponse.swift in Sources */,
 				0B00B0AC2B972D4300F9A5E8 /* FacultyTakeChargeView.swift in Sources */,
@@ -1660,6 +1671,7 @@
 				0B00B0B42B97434A00F9A5E8 /* PunchRecordCard.swift in Sources */,
 				0BEB9BE72BE6088D005BD96E /* AdmissionFormApiResource.swift in Sources */,
 				0B00B0EB2BA03C7100F9A5E8 /* HODNoduesSignedApplicationsReponse.swift in Sources */,
+				0BEB9C172BE62B7F005BD96E /* AdmissionRegisterViewmodel.swift in Sources */,
 				0B00B0A62B972CD900F9A5E8 /* FacultyProfileView.swift in Sources */,
 				0B00B0E12BA0398800F9A5E8 /* HODGetRemarkedNoduesReponse.swift in Sources */,
 				0B00B0A82B972D1900F9A5E8 /* FacultyMyLeavesView.swift in Sources */,
