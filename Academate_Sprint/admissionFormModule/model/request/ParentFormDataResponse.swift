@@ -13,12 +13,14 @@ struct ParentFormDataResponse: Codable {
     let fatherFullName: String
     let fatherIncome: String
     let fatherOccupation: String
+    
     let guardianCont: String
     let guardianDesignation: String
     let guardianEmail: String
     let guardianFullname: String
     let guardianIncome: String
     let guardianOccupation: String
+    
     let motherCont: String
     let motherDesignation: String
     let motherEmail: String

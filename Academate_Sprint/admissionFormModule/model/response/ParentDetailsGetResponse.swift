@@ -14,8 +14,12 @@ struct ParentDetailsGetResponse: Codable {
 // MARK: - Radd
 struct RaddParent: Codable {
     var parentID: Int
-    var fullname, contact, email, occupation: String
-    var designation, income: String
+    var fullname : String?
+    var contact : String?
+    var email : String?
+    var occupation : String?
+    var designation : String?
+    var income: String?
 
     enum CodingKeys: String, CodingKey {
         case parentID = "parent_id"

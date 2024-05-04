@@ -13,7 +13,13 @@ struct AddressDetailsGetResponse: Codable {
 }
 
 struct AddressDetails: Codable {
-    let saddId: Int
-    let address: String
-    let domicileNumber: Int?
+    var saddID: Int
+    var address: String
+    var domicileNumber: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case saddID = "sadd_id"
+        case address
+        case domicileNumber = "domicile_number"
+    }
 }

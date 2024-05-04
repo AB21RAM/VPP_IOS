@@ -161,66 +161,84 @@ struct PersonalDetailsView : View {
                  .padding(.bottom,5)
                  */
                 if isExpanded{
-                    
-                    HStack{
-                        Text("Fisrt Name : ")
-                            .bold()
-                            .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("First Name", text: $firstName)
-                            .keyboardType(.alphabet).autocapitalization(.none)
-                            .padding(15)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color("toolbar"))
-                            )
-                        
-                    }
-                    .padding(.bottom,5)
-                    HStack{
-                        Text("Middle Name : ")
-                            .bold()
-                            .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Middle Name", text: $middleName)
-                            .keyboardType(.alphabet).autocapitalization(.none)
-                            .padding(15)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color("toolbar"))
-                            )
-                        
-                    }
-                    .padding(.bottom,5)
-                    HStack{
-                        Text("Last Name : ")
-                            .bold()
-                            .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextField("Last Name", text: $lastName)
-                            .keyboardType(.alphabet).autocapitalization(.none)
-                            .padding(15)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color("toolbar"))
-                            )
-                        
-                    }
-                    .padding(.bottom,5)
-                    if !firstName.isEmpty || !middleName.isEmpty || !lastName.isEmpty{
-                        VStack{
+                    if viewmodel.personalDataModel.isDataAvailable{
+                        HStack{
                             Text("Full Name : ")
                                 .bold()
-                                .font(.title2)
-                                .frame(maxWidth: .infinity , alignment: .leading)
-                            Text("\(lastName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())")
-                                .padding(10)
-                                .frame(maxWidth: .infinity,alignment: .leading)
-                        }.task {
-                            fullName = "\(lastName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())"
+                                .font(.title3)
+                                .frame(width: .infinity , alignment: .leading)
+                            TextField("Full Name", text: $fullName)
+                                .keyboardType(.alphabet).autocapitalization(.none)
+                                .padding(15)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("toolbar"))
+                                )
+                            
                         }
+                    }else{
+                        HStack{
+                            Text("Fisrt Name : ")
+                                .bold()
+                                .font(.title3)
+                                .frame(width: .infinity , alignment: .leading)
+                            TextField("First Name", text: $firstName)
+                                .keyboardType(.alphabet).autocapitalization(.none)
+                                .padding(15)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("toolbar"))
+                                )
+                            
+                        }
+                        .padding(.bottom,5)
+                        HStack{
+                            Text("Middle Name : ")
+                                .bold()
+                                .font(.title3)
+                                .frame(width: .infinity , alignment: .leading)
+                            TextField("Middle Name", text: $middleName)
+                                .keyboardType(.alphabet).autocapitalization(.none)
+                                .padding(15)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("toolbar"))
+                                )
+                            
+                        }
+                        .padding(.bottom,5)
+                        HStack{
+                            Text("Last Name : ")
+                                .bold()
+                                .font(.title3)
+                                .frame(width: .infinity , alignment: .leading)
+                            TextField("Last Name", text: $lastName)
+                                .keyboardType(.alphabet).autocapitalization(.none)
+                                .padding(15)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color("toolbar"))
+                                )
+                            
+                        }
+                        .padding(.bottom,5)
+                        if !firstName.isEmpty || !middleName.isEmpty || !lastName.isEmpty{
+                            VStack{
+                                Text("Full Name : ")
+                                    .bold()
+                                    .font(.title2)
+                                    .frame(maxWidth: .infinity , alignment: .leading)
+                                Text("\(lastName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleName.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())")
+                                    .padding(10)
+                                    .frame(maxWidth: .infinity,alignment: .leading)
+                            }
+                            .task {
+                                fullName = "\(lastName.uppercased()) \(firstName.uppercased()) \(middleName.uppercased())"
+                            }
+                        }
+                        Divider()
                     }
-                    Divider()
+                    
                     DatePicker( selection: $dob, in: ...Date.now, displayedComponents: .date){
                         Text("DOB :")
                             .bold()
@@ -464,6 +482,9 @@ struct PersonalDetailsView : View {
 //    //                        withAnimation{
 //                                isExpanded.toggle()
 //    //                        }
+                            if !viewmodel.personalDataModel.isDataAvailable{
+                                fullName = "\(lastName.uppercased()) \(firstName.uppercased()) \(middleName.uppercased())"
+                            }
                             viewmodel.personalDataModel.fullName = fullName
 //                            @State var religion : String = ""
                             viewmodel.personalDataModel.religion = religion
@@ -529,11 +550,12 @@ struct PersonalDetailsView : View {
                     print("Retrieved RaddNew object: \(data)")
                     // Assuming you want to do something with the retrieved data
                     // Here you can update your UI or perform other operations
-                    let name = data.name.components(separatedBy: " ")
-                    firstName = name[1]
-                    middleName = name[2]
-                    lastName = name[0]
+//                    let name = data.name.components(separatedBy: " ")
+//                    firstName = name[1]
+//                    middleName = name[2]
+//                    lastName = name[0]
                     fullName = data.name // inputString.split(separator: " ")
+                    firstName = data.name
                     dob = dateFromISOString(isoString: data.dob) ?? Date.now
                     pob = data.placeOfBirth
                     gender = data.genderID == 0 ? "Male" : "Female"
@@ -562,9 +584,9 @@ struct PersonalDetailsView : View {
     }
 }
 struct ParentDetailsView : View {
-    @State var firstNameFather : String = ""
-    @State var middleNameFather : String = ""
-    @State var lastNameFather : String = ""
+//    @State var firstNameFather : String = ""
+//    @State var middleNameFather : String = ""
+//    @State var lastNameFather : String = ""
     @State var fullNameFather : String = ""
     @State var emailFather : String = ""
     @State var occupationFather : String = ""
@@ -572,9 +594,9 @@ struct ParentDetailsView : View {
     @State var AnnualIncomeFather : String = ""
     @State var phonenumberFather : String = ""
     
-    @State var firstNameMother : String = ""
-    @State var middleNameMother : String = ""
-    @State var lastNameMother : String = ""
+//    @State var firstNameMother : String = ""
+//    @State var middleNameMother : String = ""
+//    @State var lastNameMother : String = ""
     @State var fullNameMother : String = ""
     @State var emailMother : String = ""
     @State var occupationMother : String = ""
@@ -582,15 +604,15 @@ struct ParentDetailsView : View {
     @State var AnnualIncomeMother : String = ""
     @State var phonenumberMother : String = ""
     
-    @State var firstNameGuardian : String = ""
-    @State var middleNameGuardian : String = ""
-    @State var lastNameGuardian : String = ""
-    @State var fullNameGuardian : String = ""
-    @State var emailGuardian : String = ""
-    @State var occupationGuardian : String = ""
-    @State var designationGuardian : String = ""
-    @State var AnnualIncomeGuardian : String = ""
-    @State var phonenumberGuardian : String = ""
+//    @State var firstNameGuardian : String = ""
+//    @State var middleNameGuardian : String = ""
+//    @State var lastNameGuardian : String = ""
+    @State var fullNameGuardian : String = "NA"
+    @State var emailGuardian : String = "NA"
+    @State var occupationGuardian : String = "NA"
+    @State var designationGuardian : String = "NA"
+    @State var AnnualIncomeGuardian : String = "NA"
+    @State var phonenumberGuardian : String = "NA"
     
     @State var otpFather : String = ""
     @State var otpMother : String = ""
@@ -609,6 +631,12 @@ struct ParentDetailsView : View {
     @State var isOTPVerifyFather : Bool = false
     @State var isOTPVerifyMother : Bool = false
     @State var isOTPVerifyGuardian : Bool = false
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     var body: some View {
         ScrollView(showsIndicators : false){
             VStack{
@@ -634,35 +662,6 @@ struct ParentDetailsView : View {
                     })
                     
                 }
-               
-                
-                /*
-                 HStack{
-                 Text("Name : ")
-                 .bold()
-                 .font(.title2)
-                 .frame(width: .infinity , alignment: .leading)
-                 if isAvailable{
-                 Text("Name Value")
-                 .padding(15)
-                 .overlay(
-                 RoundedRectangle(cornerRadius: 10)
-                 .stroke(Color("toolbar"))
-                 )
-                 .frame(maxWidth: .infinity,alignment: .leading)
-                 }else{
-                 TextField("Name", text: $email)
-                 .keyboardType(.emailAddress).autocapitalization(.none)
-                 .padding(15)
-                 .overlay(
-                 RoundedRectangle(cornerRadius: 10)
-                 .stroke(Color("toolbar"))
-                 )
-                 }
-                 
-                 }
-                 .padding(.bottom,5)
-                 */
                 if isExpanded{
                     VStack{
                         ScrollView{
@@ -695,11 +694,11 @@ struct ParentDetailsView : View {
                             if isExpandedFater{
                                 VStack{
                                     HStack{
-                                        Text("Fisrt Name : ")
+                                        Text("Full Name : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("First Name", text: $firstNameFather)
+                                        TextField("Full Name", text: $fullNameFather)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -709,49 +708,6 @@ struct ParentDetailsView : View {
                                         
                                     }
                                     .padding(.bottom,5)
-                                    HStack{
-                                        Text("Middle Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Middle Name", text: $middleNameFather)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Last Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Last Name", text: $lastNameFather)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    if !firstNameFather.isEmpty || !middleNameFather.isEmpty || !lastNameFather.isEmpty{
-                                        VStack{
-                                            Text("Full Name : ")
-                                                .bold()
-                                                .font(.title2)
-                                                .frame(maxWidth: .infinity , alignment: .leading)
-                                            Text("\(lastNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())")
-                                                .padding(10)
-                                                .frame(maxWidth: .infinity,alignment: .leading)
-                                        }.task {
-                                            fullNameFather = "\(lastNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameFather.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())"
-                                        }
-                                    }
                                     Divider()
                                     HStack{
                                         Text("*Email : ")
@@ -822,6 +778,7 @@ struct ParentDetailsView : View {
                                         TextField("Phone No.", text: $phonenumberFather)
                                             .keyboardType(.phonePad).autocapitalization(.none)
                                             .padding(15)
+                                            .disabled(isOTPSentFather)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .stroke(Color("toolbar"))
@@ -842,41 +799,15 @@ struct ParentDetailsView : View {
                                             )
                                         
                                     }else{
-                                        Button(action: {
-                                           // otp sent logic
-                                            isOTPSentFather.toggle()
-                                        }, label: {
-                                            Text("Send OTP")
-                                                .padding()
-                                                .frame(maxWidth: .infinity)
-                                                .foregroundStyle(Color.white)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.indigo)
-                                                )
-                                                .padding()
-                                            
-                                        })
-                                    }
-                                    if isOTPSentFather && !isOTPVerifyFather{
-                                        HStack{
-                                            Text("*OTP. : ")
-                                                .bold()
-                                                .font(.title3)
-                                                .frame(width: .infinity , alignment: .leading)
-                                            TextField("OTP.", text: $otpFather)
-                                                .keyboardType(.phonePad).autocapitalization(.none)
-                                                .padding(15)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color("toolbar"))
-                                                )
+                                        
+                                        if !isOTPSentFather{
                                             Button(action: {
-                                                // Otp Verifiaction Logic
-                                                isOTPVerifyFather.toggle()
-                                                // is verified then hide the sent opt button and otp section
+                                                //                                            viewmodel.getOPTDetails(phone: phonenumberFather)
+                                                // otp sent logic
+                                                viewmodel.getOPTDetails(phone: phonenumberFather)
+                                                isOTPSentFather = true
                                             }, label: {
-                                                Text("Verify OTP")
+                                                Text("Send OTP")
                                                     .padding()
                                                     .frame(maxWidth: .infinity)
                                                     .foregroundStyle(Color.white)
@@ -887,13 +818,50 @@ struct ParentDetailsView : View {
                                                     .padding()
                                                 
                                             })
-                                            
+                                            if isOTPSentFather && !isOTPVerifyFather{
+                                                HStack{
+                                                    Text("*OTP. : ")
+                                                        .bold()
+                                                        .font(.title3)
+                                                        .frame(width: .infinity , alignment: .leading)
+                                                    TextField("OTP.", text: $otpFather)
+                                                        .keyboardType(.phonePad).autocapitalization(.none)
+                                                        .padding(15)
+                                                        .overlay(
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .stroke(Color("toolbar"))
+                                                        )
+                                                    Button(action: {
+                                                        // Otp Verifiaction Logic
+                                                        
+                                                        if viewmodel.parentDataModel.OTP == otpFather{
+                                                            isOTPVerifyFather = true
+                                                        }
+                                                        // is verified then hide the sent opt button and otp section
+                                                    }, label: {
+                                                        Text("Verify OTP")
+                                                            .padding()
+                                                            .frame(maxWidth: .infinity)
+                                                            .foregroundStyle(Color.white)
+                                                            .background(
+                                                                RoundedRectangle(cornerRadius: 10)
+                                                                    .fill(Color.indigo)
+                                                            )
+                                                            .padding()
+                                                        
+                                                    })
+                                                    
+                                                }
+                                                .padding(.bottom,5)
+                                            }
                                         }
-                                        .padding(.bottom,5)
+                                        
                                     }
+                                    
                                     
                                 }
                             }
+                            
                             HStack{
                                 Text("Mother Details ")
                                     .bold()
@@ -923,11 +891,11 @@ struct ParentDetailsView : View {
                             if isExpandedMother{
                                 VStack{
                                     HStack{
-                                        Text("Fisrt Name : ")
+                                        Text("Full Name : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("First Name", text: $firstNameMother)
+                                        TextField("Full Name", text: $fullNameMother)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -937,49 +905,7 @@ struct ParentDetailsView : View {
                                         
                                     }
                                     .padding(.bottom,5)
-                                    HStack{
-                                        Text("Middle Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Middle Name", text: $middleNameMother)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Last Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Last Name", text: $lastNameMother)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    if !firstNameMother.isEmpty || !middleNameMother.isEmpty || !lastNameMother.isEmpty{
-                                        VStack{
-                                            Text("Full Name : ")
-                                                .bold()
-                                                .font(.title2)
-                                                .frame(maxWidth: .infinity , alignment: .leading)
-                                            Text("\(lastNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())")
-                                                .padding(10)
-                                                .frame(maxWidth: .infinity,alignment: .leading)
-                                        }.task {
-                                            fullNameMother = "\(lastNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameMother.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())"
-                                        }
-                                    }
+                                    
                                     Divider()
                                     HStack{
                                         Text("*Email : ")
@@ -1064,47 +990,21 @@ struct ParentDetailsView : View {
                                             .padding(5)
                                             .frame(maxWidth: .infinity)
                                             .foregroundStyle(Color.white)
+                                            .disabled(isOTPSentMother)
                                             .background(
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .fill(Color.yellow)
                                             )
                                         
                                     }else{
-                                        Button(action: {
-                                           // otp sent logic
-                                            isOTPSentMother.toggle()
-                                        }, label: {
-                                            Text("Send OTP")
-                                                .padding()
-                                                .frame(maxWidth: .infinity)
-                                                .foregroundStyle(Color.white)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.indigo)
-                                                )
-                                                .padding()
-                                            
-                                        })
-                                    }
-                                    if isOTPSentMother && !isOTPVerifyMother{
-                                        HStack{
-                                            Text("*OTP. : ")
-                                                .bold()
-                                                .font(.title3)
-                                                .frame(width: .infinity , alignment: .leading)
-                                            TextField("OTP.", text: $otpMother)
-                                                .keyboardType(.phonePad).autocapitalization(.none)
-                                                .padding(15)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color("toolbar"))
-                                                )
+                                        if !isOTPSentMother{
                                             Button(action: {
-                                                // Otp Verifiaction Logic
-                                                isOTPVerifyMother.toggle()
-                                                // is verified then hide the sent opt button and otp section
+                                                //                                            viewmodel.getOPTDetails(phone: phonenumberFather)
+                                                // otp sent logic
+                                                viewmodel.getOPTDetails(phone: phonenumberMother)
+                                                isOTPSentMother = true
                                             }, label: {
-                                                Text("Verify OTP")
+                                                Text("Send OTP")
                                                     .padding()
                                                     .frame(maxWidth: .infinity)
                                                     .foregroundStyle(Color.white)
@@ -1115,10 +1015,46 @@ struct ParentDetailsView : View {
                                                     .padding()
                                                 
                                             })
-                                            
+                                            if isOTPSentMother && !isOTPVerifyMother{
+                                                HStack{
+                                                    Text("*OTP. : ")
+                                                        .bold()
+                                                        .font(.title3)
+                                                        .frame(width: .infinity , alignment: .leading)
+                                                    TextField("OTP.", text: $otpMother)
+                                                        .keyboardType(.phonePad).autocapitalization(.none)
+                                                        .padding(15)
+                                                        .overlay(
+                                                            RoundedRectangle(cornerRadius: 10)
+                                                                .stroke(Color("toolbar"))
+                                                        )
+                                                    Button(action: {
+                                                        // Otp Verifiaction Logic
+                                                        
+                                                        if viewmodel.parentDataModel.OTP == otpMother{
+                                                            isOTPVerifyMother = true
+                                                        }
+                                                        // is verified then hide the sent opt button and otp section
+                                                    }, label: {
+                                                        Text("Verify OTP")
+                                                            .padding()
+                                                            .frame(maxWidth: .infinity)
+                                                            .foregroundStyle(Color.white)
+                                                            .background(
+                                                                RoundedRectangle(cornerRadius: 10)
+                                                                    .fill(Color.indigo)
+                                                            )
+                                                            .padding()
+                                                        
+                                                    })
+                                                    
+                                                }
+                                                .padding(.bottom,5)
+                                            }
                                         }
-                                        .padding(.bottom,5)
+                                        
                                     }
+                                    
                                     
                                 }
                             }
@@ -1128,7 +1064,7 @@ struct ParentDetailsView : View {
                                     .frame(maxWidth: .infinity,alignment: .center)
                                 Button(action: {
                                     withAnimation{
-                                        isExpandedGuardian.toggle()
+                                        isExpandedGuardian = true
                                     }
                                 }, label: {
                                     Text("Yes")
@@ -1141,7 +1077,7 @@ struct ParentDetailsView : View {
                                 })
                                 Button(action: {
                                     withAnimation{
-                                        isExpandedGuardian.toggle()
+                                        isExpandedGuardian = false
                                     }
                                 }, label: {
                                     Text("No")
@@ -1190,11 +1126,11 @@ struct ParentDetailsView : View {
                                         
                                     }
                                     HStack{
-                                        Text("Fisrt Name : ")
+                                        Text("Full Name : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("First Name", text: $firstNameGuardian)
+                                        TextField("Full Name", text: $fullNameGuardian)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -1204,49 +1140,6 @@ struct ParentDetailsView : View {
                                         
                                     }
                                     .padding(.bottom,5)
-                                    HStack{
-                                        Text("Middle Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Middle Name", text: $middleNameGuardian)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Last Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Last Name", text: $lastNameGuardian)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    if !firstNameGuardian.isEmpty || !middleNameGuardian.isEmpty || !lastNameGuardian.isEmpty{
-                                        VStack{
-                                            Text("Full Name : ")
-                                                .bold()
-                                                .font(.title2)
-                                                .frame(maxWidth: .infinity , alignment: .leading)
-                                            Text("\(lastNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())")
-                                                .padding(10)
-                                                .frame(maxWidth: .infinity,alignment: .leading)
-                                        }.task {
-                                            fullNameGuardian = "\(lastNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(firstNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()) \(middleNameGuardian.trimmingCharacters(in: .whitespacesAndNewlines).uppercased())"
-                                        }
-                                    }
                                     Divider()
                                     HStack{
                                         Text("*Email : ")
@@ -1325,70 +1218,52 @@ struct ParentDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     
-                                    if fullNameGuardian.isEmpty || emailGuardian.isEmpty || occupationGuardian.isEmpty || designationGuardian.isEmpty || AnnualIncomeGuardian.isEmpty || phonenumberGuardian.isEmpty{
-                                        Text("All fields are Required")
-                                            .bold()
-                                            .padding(5)
-                                            .frame(maxWidth: .infinity)
-                                            .foregroundStyle(Color.white)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .fill(Color.yellow)
-                                            )
-                                        
-                                    }else{
-                                        Button(action: {
-                                           // otp sent logic
-                                            isOTPSentGuardian.toggle()
-                                        }, label: {
-                                            Text("Send OTP")
-                                                .padding()
-                                                .frame(maxWidth: .infinity)
-                                                .foregroundStyle(Color.white)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.indigo)
-                                                )
-                                                .padding()
-                                            
-                                        })
-                                    }
-                                    if isOTPSentGuardian && !isOTPVerifyGuardian{
-                                        HStack{
-                                            Text("*OTP. : ")
-                                                .bold()
-                                                .font(.title3)
-                                                .frame(width: .infinity , alignment: .leading)
-                                            TextField("OTP.", text: $otpGuardian)
-                                                .keyboardType(.phonePad).autocapitalization(.none)
-                                                .padding(15)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color("toolbar"))
-                                                )
-                                            Button(action: {
-                                                // Otp Verifiaction Logic
-                                                isOTPVerifyGuardian.toggle()
-                                                // is verified then hide the sent opt button and otp section
-                                            }, label: {
-                                                Text("Verify OTP")
-                                                    .padding()
-                                                    .frame(maxWidth: .infinity)
-                                                    .foregroundStyle(Color.white)
-                                                    .background(
-                                                        RoundedRectangle(cornerRadius: 10)
-                                                            .fill(Color.indigo)
-                                                    )
-                                                    .padding()
-                                                
-                                            })
-                                            
-                                        }
-                                        .padding(.bottom,5)
-                                    }
-                                    
+                                   
                                 }
                             }
+                            Button(action: {
+//                                @State var fullNameFather : String = ""
+                                viewmodel.parentDataModel.fatherFullName = fullNameFather
+                                viewmodel.parentDataModel.motherFullName = fullNameMother
+                                viewmodel.parentDataModel.guardianFullname = fullNameGuardian
+//                                @State var emailFather : String = ""
+                                viewmodel.parentDataModel.fatherEmail = emailFather
+                                viewmodel.parentDataModel.motherEmail = emailMother
+                                viewmodel.parentDataModel.guardianEmail = emailGuardian
+//                                @State var occupationFather : String = ""
+                                viewmodel.parentDataModel.fatherOccupation = occupationFather
+                                viewmodel.parentDataModel.motherOccupation = occupationMother
+                                viewmodel.parentDataModel.guardianOccupation = occupationGuardian
+//                                @State var designationFather : String = ""
+                                viewmodel.parentDataModel.fatherDesignation = designationFather
+                                viewmodel.parentDataModel.motherDesignation = designationMother
+                                viewmodel.parentDataModel.guardianDesignation = designationGuardian
+//                                @State var AnnualIncomeFather : String = ""
+                                viewmodel.parentDataModel.fatherIncome = AnnualIncomeFather
+                                viewmodel.parentDataModel.motherIncome = AnnualIncomeMother
+                                viewmodel.parentDataModel.guardianIncome = AnnualIncomeGuardian
+//                                @State var phonenumberFather : String = ""
+                                viewmodel.parentDataModel.fatherCont = phonenumberFather
+                                viewmodel.parentDataModel.motherCont = phonenumberMother
+                                viewmodel.parentDataModel.guardianCont = phonenumberGuardian
+                                viewmodel.parentDataModel.uid = String(uid)
+                                viewmodel.postParentDetails()
+                                if viewmodel.parentDataModel.NavigateAddressDetails{
+                                    withAnimation{
+                                        isExpanded.toggle()
+                                    }
+                                }
+                                
+                            }, label: {
+                                Text("Submit and Next")
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .foregroundStyle(Color.white)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color.indigo)
+                                    )
+                            })
                         }
                     }
                 }
@@ -1396,7 +1271,51 @@ struct ParentDetailsView : View {
         }
         .padding(10)
         .frame(maxHeight: .infinity, alignment: .topLeading)
-        
+        .task {
+            viewmodel.getIsFinalSubmit()
+            if viewmodel.mainDataModel.isFinalSubmit{
+                isOTPSentFather = true
+                isOTPSentMother = true
+                isOTPSentGuardian = true
+            }
+            viewmodel.getParentDetails { data in
+                if let data = data {
+                    // Handle the case where data is available
+                    print("Retrieved RaddNew object: \(data)")
+                   
+                    fullNameFather = data[0].fullname ?? ""
+                    emailFather = data[0].email ?? ""
+                    occupationFather = data[0].occupation ?? ""
+                    designationFather = data[0].designation ?? ""
+                    AnnualIncomeFather = data[0].income ?? ""
+                    phonenumberFather = data[0].contact ?? ""
+                    if data[0].contact != nil && data[0].contact?.count == 10{
+                        isOTPSentFather = true
+                    }
+                    fullNameMother = data[1].fullname ?? ""
+                    emailMother = data[1].email ?? ""
+                    occupationMother = data[1].occupation ?? ""
+                    designationMother = data[1].designation ?? ""
+                    AnnualIncomeMother = data[1].income ?? ""
+                    phonenumberMother = data[1].contact ?? ""
+                    if data[0].contact != nil && data[0].contact?.count == 10{
+                        isOTPSentMother = true
+                    }
+                    fullNameGuardian = data[2].fullname ?? "NA"
+                    emailGuardian = data[2].email ?? "NA"
+                    occupationGuardian = data[2].occupation ?? "NA"
+                    designationGuardian = data[2].designation ?? "NA"
+                    AnnualIncomeGuardian = data[2].income ?? "NA"
+                    phonenumberGuardian = data[2].contact ?? "NA"
+                
+                } else {
+                    // Handle the case where data retrieval failed
+                    print("Failed to retrieve RaddNew object")
+                    // You might want to display an error message or take other actions
+                }
+            }
+
+        }
     }
 }
 struct AddressDetailsView : View {
@@ -1404,7 +1323,13 @@ struct AddressDetailsView : View {
     @State var permanentAddress : String = ""
     @State var isAvailable : Bool = false
     @State var isExpanded : Bool = false
-    
+    @State var checked : Bool = false
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     var body: some View {
         ScrollView(showsIndicators : false){
             VStack{
@@ -1455,18 +1380,15 @@ struct AddressDetailsView : View {
                             .bold()
                             .frame(maxWidth: .infinity,alignment: .center)
                         Button(action: {
-                            withAnimation{
-//                                isExpandedGuardian.toggle()
-                            }
+                            checked = true
+                            permanentAddress = residentialAddress
                         }, label: {
                             Text("Same as Residential Address")
                                 .padding()
                                 .bold()
                         })
                         Button(action: {
-                            withAnimation{
-//                                isExpandedGuardian.toggle()
-                            }
+                            checked = false
                         }, label: {
                             Text("Different Address")
                                 .padding()
@@ -1480,13 +1402,14 @@ struct AddressDetailsView : View {
                             .fill(Color("background"))
                     )
                     
-                    // MARK : based on the above selection need to decide whether to display or not
-                    HStack{
-                        Text("Permanent Address : ")
-                            .bold()
-                            .font(.title3)
-                            .frame(width: .infinity , alignment: .leading)
-                        TextEditor(text: $permanentAddress)
+                    // MARK: - based on the above selection need to decide whether to display or not
+                    if !checked{
+                        HStack{
+                            Text("Permanent Address : ")
+                                .bold()
+                                .font(.title3)
+                                .frame(width: .infinity , alignment: .leading)
+                            TextEditor(text: $permanentAddress)
                                 .keyboardType(.alphabet)
                                 .autocapitalization(.none)
                                 .padding(15)
@@ -1495,10 +1418,10 @@ struct AddressDetailsView : View {
                                         .stroke(Color("toolbar"))
                                 )
                                 .frame(height: 150) // Adjust height as needed
-                        
+                            
+                        }
+                        .padding(.bottom,5)
                     }
-                    .padding(.bottom,5)
-                    
                     Divider()
                     
                     if permanentAddress.isEmpty || residentialAddress.isEmpty{
@@ -1514,9 +1437,16 @@ struct AddressDetailsView : View {
                             
                     }else{
                         Button(action: {
-    //                        withAnimation{
-                                isExpanded.toggle()
-    //                        }
+                            viewmodel.addressDataModel.address = residentialAddress
+                            viewmodel.addressDataModel.pAddress = permanentAddress
+                            viewmodel.addressDataModel.checked = String(checked)
+                            viewmodel.addressDataModel.uid = String(uid)
+                            viewmodel.postAddressDetails()
+                            if viewmodel.addressDataModel.NavigateEduDetails{
+                                withAnimation {
+                                    isExpanded.toggle()
+                                }
+                            }
                         }, label: {
                             Text("Submit and Next")
                                 .padding()
@@ -1536,13 +1466,25 @@ struct AddressDetailsView : View {
         }
         .padding(10)
         .frame(maxHeight: .infinity, alignment: .topLeading)
-        
+        .task {
+            viewmodel.getAddressDetails { data in
+                if let data = data {
+                    // Handle the case where data is available
+                    print("Retrieved address object: \(data)")
+                    permanentAddress = data.padd.address
+                    residentialAddress = data.radd.address
+                    
+                } else {
+                    // Handle the case where data retrieval failed
+                    print("Failed to retrieve RaddNew object")
+                    // You might want to display an error message or take other actions
+                }
+            }
+        }
     }
 }
 #Preview {
     BasicDetailsView()
 //    PersonalDetailsView()
 }
-#Preview{
-    PersonalDetailsView()
-}
+

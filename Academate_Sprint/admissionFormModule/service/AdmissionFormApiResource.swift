@@ -28,7 +28,7 @@ struct AdmissionFormApiResource {
         }
     }
     func getIsSubmitted(completionHandler: @escaping (_ result: SubmittedResponse?) -> Void) {
-        let baseURL = URL(string: parent_url + "api/admission/isSubmitted")!
+        let baseURL = URL(string: parent_url + "api/admission/isSubmmited")!
         let queryItem = URLQueryItem(name: "uid", value: String(uid))
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [queryItem]
@@ -83,9 +83,9 @@ struct AdmissionFormApiResource {
         }
     }
     
-    func getAddressDetails(uid: String, completionHandler: @escaping (_ result: AddressDetailsGetResponse?) -> Void) {
+    func getAddressDetails(completionHandler: @escaping (_ result: AddressDetailsGetResponse?) -> Void) {
         let baseURL = URL(string: parent_url + "api/admission/addDetails")!
-        let queryItem = URLQueryItem(name: "uid", value: uid)
+        let queryItem = URLQueryItem(name: "uid", value: String(uid))
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [queryItem]
         var urlRequest = URLRequest(url: components.url!)
