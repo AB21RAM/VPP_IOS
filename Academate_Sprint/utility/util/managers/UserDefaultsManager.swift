@@ -52,7 +52,7 @@ class UserDefaultsManager: ObservableObject {
             userDefaults.set(phototype, forKey: UserDefaultsKeys.phototype)
         }
     }
-
+    
     init() {
         self.token = userDefaults.string(forKey: UserDefaultsKeys.token)
         self.uid = userDefaults.integer(forKey: UserDefaultsKeys.uid)

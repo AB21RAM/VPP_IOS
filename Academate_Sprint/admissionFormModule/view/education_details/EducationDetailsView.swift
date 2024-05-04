@@ -58,12 +58,12 @@ struct EducationDetailsView: View {
                                 Divider()
                                 PreviousCourseDetailsView()
                                 Divider()
-                                AddressDetailsView()
+                                EntranceDetailsView()
                                 Divider()
                                 NavigationLink {
-                                    EducationDetailsView()
+                                    UploadDocumentView()
                                 } label: {
-                                        Label("Education Details",systemImage: "graduationcap")
+                                        Label("Upload Documents",systemImage: "doc.badge.arrow.up")
                                 }
                             }
                         }
@@ -92,38 +92,27 @@ struct PreviousCourseDetailsView : View {
     @State var HSCChemistryMarks : String = ""
     @State var HSCBiologyMarks : String = ""
     @State var HSCMathsMarks : String = ""
+    @State var HSCPCMMarks : String = ""
     @State var HSCVocationalMarks : String = ""
     @State var HSCVocationalName : String = ""
-    
+    let HSCVocationalSubjects = ["Computer Science" , "Information Technology" , "Electronics"]
 
     
-    @State var firstNameGuardian : String = ""
-    @State var middleNameGuardian : String = ""
-    @State var lastNameGuardian : String = ""
-    @State var fullNameGuardian : String = ""
-    @State var emailGuardian : String = ""
-    @State var occupationGuardian : String = ""
-    @State var designationGuardian : String = ""
-    @State var AnnualIncomeGuardian : String = ""
-    @State var phonenumberGuardian : String = ""
-    
-    @State var otpFather : String = ""
-    @State var otpMother : String = ""
-    @State var otpGuardian : String = ""
+    @State var DiplomaPassingYear : String = ""
+    @State var DiplomaSeatNo : String = ""
+    @State var DiplomaBoardName : String = ""
+    @State var DiplomaCollegeName : String = ""
+    @State var DiplomaMarks : String = ""
+    @State var DiplomaPercentage : String = ""
+    @State var DiplomaCGPI : String = ""
     
     @State var isAvailable : Bool = false
-    @State var isExpanded : Bool = true
+    @State var isExpanded : Bool = false
     @State var isExpandedSSC : Bool = false
-    @State var isExpandedHSC : Bool = true
-    @State var isExpandedGuardian : Bool = false
+    @State var isExpandedHSC : Bool = false
+    @State var isExpandedDiploma : Bool = false
     
-    @State var isOTPSentFather : Bool = false
-    @State var isOTPSentMother : Bool = false
-    @State var isOTPSentGuardian : Bool = false
-    
-    @State var isOTPVerifyFather : Bool = false
-    @State var isOTPVerifyMother : Bool = false
-    @State var isOTPVerifyGuardian : Bool = false
+    // Need to Add : validation that all the fields in the form is filled then go to next section
     var body: some View {
         ScrollView(showsIndicators : false){
             VStack{
@@ -186,6 +175,7 @@ struct PreviousCourseDetailsView : View {
                                     .bold()
                                     .frame(maxWidth: .infinity,alignment: .center)
                                     .font(.title2)
+                                    .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(Color("background"))
@@ -207,6 +197,7 @@ struct PreviousCourseDetailsView : View {
                                 })
                                 
                             }
+                            
                             if isExpandedSSC{
                                 VStack{
                                     HStack{
@@ -318,11 +309,13 @@ struct PreviousCourseDetailsView : View {
                                     }
                                 }
                             }
+                            Divider()
                             HStack{
                                 Text("HSC Details ")
                                     .bold()
                                     .frame(maxWidth: .infinity,alignment: .center)
                                     .font(.title2)
+                                    .padding()
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(Color("background"))
@@ -435,9 +428,110 @@ struct PreviousCourseDetailsView : View {
                                         
                                     }
                                     .padding(.bottom,5)
+                                    HStack{
+                                        Text("HSC Maths Marks : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("HSC Maths Marks", text: $HSCMathsMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("HSC Chemistry Marks : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("HSC Chemistry Marks", text: $HSCChemistryMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("HSC Physics Marks : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("HSC Physics Marks", text: $HSCPhysicsMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("HSC Biology Marks : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("HSC Biology Marks", text: $HSCBiologyMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Vocational Subject :")
+                                            .bold()
+                                            .font(.title2)
+                                            .frame(maxWidth: .infinity,alignment: .leading)
+                                        Picker("Subject ", selection: $HSCVocationalName) {
+                                            ForEach(HSCVocationalSubjects, id: \.self) {
+                                                Text($0)
+                                            }
+                                        }
+                                        .frame(maxWidth: .infinity,alignment: .trailing)
+                                    }
+                                    HStack{
+                                        Text("HSC Vocational Marks : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("HSC Vocational Marks", text: $HSCVocationalMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("PCM Percentage : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("PCM Percentage", text: $HSCPCMMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
                                     
-                                    
-                                    if HSCMarks.isEmpty || HSCPercentage.isEmpty || HSCSeatNo.isEmpty || HSCBoardName.isEmpty || HSCPassingYear.isEmpty{
+                                    if HSCMarks.isEmpty || HSCPercentage.isEmpty || HSCSeatNo.isEmpty || HSCBoardName.isEmpty || HSCPassingYear.isEmpty || HSCMathsMarks.isEmpty || HSCPhysicsMarks.isEmpty || HSCChemistryMarks.isEmpty || HSCBiologyMarks.isEmpty || HSCVocationalMarks.isEmpty || HSCPCMMarks.isEmpty{
                                         Text("All fields are Required")
                                             .bold()
                                             .padding(5)
@@ -450,8 +544,9 @@ struct PreviousCourseDetailsView : View {
                                         
                                     }else{
                                         Button(action: {
-                                           // otp sent logic
-//                                            isOTPSentFather.toggle()
+                                           // Submit the HSC Logic
+//
+                                            isExpandedHSC.toggle()
                                         }, label: {
                                             Text("Submit & Next")
                                                 .padding()
@@ -467,79 +562,223 @@ struct PreviousCourseDetailsView : View {
                                     }
                                 }
                             }
+                            Divider()
                             HStack{
-                                Text("Is Guardian ?")
+                                Text("Diploma Details ")
                                     .bold()
                                     .frame(maxWidth: .infinity,alignment: .center)
+                                    .font(.title2)
+                                    .padding()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(Color("background"))
+                                    )
+                                
                                 Button(action: {
                                     withAnimation{
-                                        isExpandedGuardian.toggle()
+                                        isExpandedDiploma.toggle()
                                     }
                                 }, label: {
-                                    Text("Yes")
-                                        .padding()
-                                        .bold()
-//                                        .frame(maxWidth: .infinity,alignment: .center)
-                                        .font(.title2)
-                                        
-                                    
-                                })
-                                Button(action: {
-                                    withAnimation{
-                                        isExpandedGuardian.toggle()
+                                    if isExpandedDiploma{
+                                        Image(systemName: "arrow.down.forward.and.arrow.up.backward")
+                                            .foregroundStyle(Color.black)
+                                    }else{
+                                        Image(systemName: "arrow.up.backward.and.arrow.down.forward")
+                                            .foregroundStyle(Color.black)
                                     }
-                                }, label: {
-                                    Text("No")
-                                        .padding()
-                                        .bold()
-//                                        .frame(maxWidth: .infinity,alignment: .center)
-                                        .font(.title2)
-                                       
                                     
                                 })
                                 
                             }
-                            .frame(maxWidth: .infinity,alignment: .center)
-                            .font(.title2)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color("background"))
-                            )
-                            
-                            if isExpandedGuardian{
+                            if isExpandedDiploma{
                                 VStack{
                                     HStack{
-                                        Text("Guardian Details ")
+                                        Text("Diploma Passing Year : ")
                                             .bold()
-                                            .frame(maxWidth: .infinity,alignment: .center)
-                                            .font(.title2)
-                                            .background(
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Diploma Passing Year", text: $DiplomaPassingYear)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
                                                 RoundedRectangle(cornerRadius: 10)
-                                                    .fill(Color("background"))
+                                                    .stroke(Color("toolbar"))
                                             )
                                         
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Diploma Seat No : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Diploma Seat No", text: $DiplomaSeatNo)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Name of \nthe board : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Name of the board", text: $DiplomaBoardName)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Name of \nthe College : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Name of the College", text: $DiplomaCollegeName)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    Divider()
+                                    HStack{
+                                        Text("Diploma Marks :")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Diploma Marks", text: $DiplomaMarks)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Diploma Percentage/CGPA : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Diploma Percentage/CGPA", text: $DiplomaPercentage)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    HStack{
+                                        Text("Diploma CGPI : ")
+                                            .bold()
+                                            .font(.title3)
+                                            .frame(width: .infinity , alignment: .leading)
+                                        TextField("Diploma CGPI", text: $DiplomaCGPI)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
+                                            .padding(15)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color("toolbar"))
+                                            )
+                                        
+                                    }
+                                    .padding(.bottom,5)
+                                    
+                                    
+                                        
+                                    
                                         Button(action: {
-                                            withAnimation{
-                                                isExpandedGuardian.toggle()
-                                            }
+                                           // Submit the Diploma Logic
+//
+                                            isExpandedDiploma.toggle()
                                         }, label: {
-                                            if isExpandedGuardian{
-                                                Image(systemName: "arrow.down.forward.and.arrow.up.backward")
-                                                    .foregroundStyle(Color.black)
-                                            }else{
-                                                Image(systemName: "arrow.up.backward.and.arrow.down.forward")
-                                                    .foregroundStyle(Color.black)
-                                            }
+                                            Text("Submit & Next")
+                                                .padding()
+                                                .frame(maxWidth: .infinity)
+                                                .foregroundStyle(Color.white)
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 10)
+                                                        .fill(Color.indigo)
+                                                )
+                                                .padding()
                                             
                                         })
-                                        
-                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .padding(10)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
+        
+    }
+}
+struct EntranceDetailsView : View {
+    @State var isAvailable : Bool = false
+    @State var isExpanded : Bool = false
+    @State var EntranceExamName : String = ""
+    @State var RollNo : String = ""
+    @State var ApplicationNumber : String = ""
+    @State var PhysicsScore : String = ""
+    @State var ChemistryScore : String = ""
+    @State var MathsScore : String = ""
+    @State var OverallScore : String = ""
+    
+    // Need to Add : Viewmodel Based List for the multiple entrance Examinations
+    // Need to Add : validation that all the fields in the form is filled then go to next section
+    var body: some View {
+        ScrollView(showsIndicators : false){
+            VStack{
+                HStack{
+                    Text("Entrance Details")
+                        .bold()
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .font(.title)
+                    
+                    Button(action: {
+                        withAnimation{
+                            isExpanded.toggle()
+                        }
+                    }, label: {
+                        if isExpanded{
+                            Image(systemName: "arrow.down.forward.and.arrow.up.backward")
+                                .foregroundStyle(Color.black)
+                        }else{
+                            Image(systemName: "arrow.up.backward.and.arrow.down.forward")
+                                .foregroundStyle(Color.black)
+                        }
+                        
+                    })
+                    
+                }
+                if isExpanded{
+                    VStack{
+                        ScrollView(showsIndicators: false){
+                                VStack{
                                     HStack{
-                                        Text("Fisrt Name : ")
+                                        Text("Entrance Exam Name : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("First Name", text: $firstNameGuardian)
+                                        TextField("Entrance Exam Name", text: $EntranceExamName)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -550,11 +789,11 @@ struct PreviousCourseDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     HStack{
-                                        Text("Middle Name : ")
+                                        Text("Roll No : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Middle Name", text: $middleNameGuardian)
+                                        TextField("Roll No", text: $RollNo)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -565,11 +804,11 @@ struct PreviousCourseDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     HStack{
-                                        Text("Last Name : ")
+                                        Text("Application Number : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Last Name", text: $lastNameGuardian)
+                                        TextField("Application Number", text: $ApplicationNumber)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -582,11 +821,11 @@ struct PreviousCourseDetailsView : View {
                                     
                                     Divider()
                                     HStack{
-                                        Text("*Email : ")
+                                        Text("Physics Score :")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Email", text: $emailGuardian)
+                                        TextField("Physics Score", text: $PhysicsScore)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -597,11 +836,11 @@ struct PreviousCourseDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     HStack{
-                                        Text("*Occupation : ")
+                                        Text("Chemistry Score : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Occupation", text: $occupationGuardian)
+                                        TextField("Chemistry Score", text: $ChemistryScore)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -612,26 +851,11 @@ struct PreviousCourseDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     HStack{
-                                        Text("*Designation : ")
+                                        Text("Maths Score : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Designation", text: $designationGuardian)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("*Annual Income : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Annual Income", text: $AnnualIncomeGuardian)
+                                        TextField("Maths Score", text: $MathsScore)
                                             .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
@@ -643,12 +867,12 @@ struct PreviousCourseDetailsView : View {
                                     .padding(.bottom,5)
                                     
                                     HStack{
-                                        Text("*Phone No. : ")
+                                        Text("Overall Score : ")
                                             .bold()
                                             .font(.title3)
                                             .frame(width: .infinity , alignment: .leading)
-                                        TextField("Phone No.", text: $phonenumberGuardian)
-                                            .keyboardType(.phonePad).autocapitalization(.none)
+                                        TextField("Overall Score", text: $OverallScore)
+                                            .keyboardType(.alphabet).autocapitalization(.none)
                                             .padding(15)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 10)
@@ -658,23 +882,12 @@ struct PreviousCourseDetailsView : View {
                                     }
                                     .padding(.bottom,5)
                                     
-                                    if fullNameGuardian.isEmpty || emailGuardian.isEmpty || occupationGuardian.isEmpty || designationGuardian.isEmpty || AnnualIncomeGuardian.isEmpty || phonenumberGuardian.isEmpty{
-                                        Text("All fields are Required")
-                                            .bold()
-                                            .padding(5)
-                                            .frame(maxWidth: .infinity)
-                                            .foregroundStyle(Color.white)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .fill(Color.yellow)
-                                            )
-                                        
-                                    }else{
+                                    
+                                   
                                         Button(action: {
-                                           // otp sent logic
-                                            isOTPSentGuardian.toggle()
+                                            // Add to entrance List Logic 
                                         }, label: {
-                                            Text("Send OTP")
+                                            Text("Add")
                                                 .padding()
                                                 .frame(maxWidth: .infinity)
                                                 .foregroundStyle(Color.white)
@@ -685,43 +898,10 @@ struct PreviousCourseDetailsView : View {
                                                 .padding()
                                             
                                         })
-                                    }
-                                    if isOTPSentGuardian && !isOTPVerifyGuardian{
-                                        HStack{
-                                            Text("*OTP. : ")
-                                                .bold()
-                                                .font(.title3)
-                                                .frame(width: .infinity , alignment: .leading)
-                                            TextField("OTP.", text: $otpGuardian)
-                                                .keyboardType(.phonePad).autocapitalization(.none)
-                                                .padding(15)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .stroke(Color("toolbar"))
-                                                )
-                                            Button(action: {
-                                                // Otp Verifiaction Logic
-                                                isOTPVerifyGuardian.toggle()
-                                                // is verified then hide the sent opt button and otp section
-                                            }, label: {
-                                                Text("Verify OTP")
-                                                    .padding()
-                                                    .frame(maxWidth: .infinity)
-                                                    .foregroundStyle(Color.white)
-                                                    .background(
-                                                        RoundedRectangle(cornerRadius: 10)
-                                                            .fill(Color.indigo)
-                                                    )
-                                                    .padding()
-                                                
-                                            })
-                                            
-                                        }
-                                        .padding(.bottom,5)
-                                    }
                                     
                                 }
-                            }
+                            
+                            Divider()
                         }
                     }
                 }

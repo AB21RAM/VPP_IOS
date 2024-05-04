@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
-
-struct UploadDocsView: View {
+import UIKit
+struct UploadDocumentView: View {
     @State var isNavigateMenu  = false
     let userDefaultsManager = UserDefaultsManager.shared
+    @State private var image: Image?
+    @State private var isShowingImagePicker = false
     var body: some View {
         NavigationStack{
             GeometryReader { geometry in
@@ -40,7 +42,15 @@ struct UploadDocsView: View {
                         .padding(.trailing,5)
                         .background(Color("toolbar"))
                         // main Content here
-                        
+                        VStack {
+                            Button("Select Image") {
+                                self.isShowingImagePicker.toggle()
+                            }
+                            image?.resizable().scaledToFit()
+                        }
+                        .sheet(isPresented: $isShowingImagePicker) {
+                            ImagePicker(image: self.$image)
+                        }
                     }
                 }
             }
@@ -50,5 +60,5 @@ struct UploadDocsView: View {
 }
 
 #Preview {
-    UploadDocsView()
+    UploadDocumentView()
 }

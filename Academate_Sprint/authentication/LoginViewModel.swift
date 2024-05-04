@@ -62,7 +62,7 @@ class LoginViewModel: ObservableObject {
                     self.loginDataModel.navigate = true
                     self.userDefaultsManager.setToken(response?.androidToken ?? "ok")
                     print(self.userDefaultsManager.getToken()!)
-                    self.userDefaultsManager.setUserType(4)
+                    self.userDefaultsManager.setUserType(10)
                     self.userDefaultsManager.setEmail(self.loginDataModel.userEmail)
                     self.userDefaultsManager.setIsLoggedIn(true)
                     UserDefaults.standard.synchronize()

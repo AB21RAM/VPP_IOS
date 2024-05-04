@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var showingSheet = false
-    @State private var isNavigateToHOD = false
+    @State private var isNavigateToAdmissionFormLogin = false
+    
     @State private var userType : String = String()
     var body: some View {
         NavigationStack{
@@ -96,31 +97,32 @@ struct LoginView: View {
                         }
                     }).padding(.leading,20)
                 }
-//                HStack{
-//                    Button(action: {
-////                        showingSheet.toggle()
-//                        isNavigateToHOD.toggle()
-//                        changeUserType(user: "HOD")
-//                    }, label: {
-//                        VStack {
-//                            Image("student")
-//                                .resizable()
-//                                .frame(width: 80, height: 80)
-//                                .background(.white)
-//                                .clipShape(.rect(cornerRadius: 15))
-//                            
-//                            Text("HOD")
-//                                .font(.headline)
-//                                .padding(.top,5)
-//                                .foregroundColor(.black)
-//                        }
-//                    }).padding(.leading,20)
-//                }
+                HStack{
+                    Button(action: {
+//                        showingSheet.toggle()
+                        isNavigateToAdmissionFormLogin.toggle()
+                        changeUserType(user: "Admission Form")
+                    }, label: {
+                        VStack {
+                            Image("admission")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(15)
+                                .background(.white)
+                                .clipShape(.rect(cornerRadius: 15))
+                            
+                            Text("Admission \nForm")
+                                .font(.headline)
+                                .padding(.top,5)
+                                .foregroundColor(.black)
+                        }
+                    }).padding(.leading,20)
+                }
                 Spacer()
             }
-//            .navigationDestination(isPresented: $isNavigateToHOD, destination: {
-//                HODMainScreen()
-//            })
+            .navigationDestination(isPresented: $isNavigateToAdmissionFormLogin, destination: {
+                AdmissionFormLoginView()
+            })
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
                 Color(UIColor(hex:0xEEEAF4, alpha: 1.0))                            .ignoresSafeArea()

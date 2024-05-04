@@ -27,7 +27,7 @@ struct AdmissionFormNavigation: View {
                         Label("Education Details",systemImage: "graduationcap")
                 }
                 NavigationLink {
-                    UploadDocsView()
+                    UploadDocumentView()
                 } label: {
                         Label("Upload Documents",systemImage: "doc.badge.arrow.up")
                 }
