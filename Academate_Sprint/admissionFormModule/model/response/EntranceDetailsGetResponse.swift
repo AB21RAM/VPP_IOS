@@ -12,6 +12,8 @@ struct EntranceDetailsGetResponse: Codable {
 
 // MARK: - Entrance
 struct EntranceNew: Codable {
+    
+    
     var entranceID, studID: Int
     var entranceName, rollNumber, appNumber, phyPer: String
     var chePer, mathsPer, overallPer: String

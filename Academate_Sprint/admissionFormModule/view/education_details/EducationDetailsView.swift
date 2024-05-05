@@ -60,6 +60,8 @@ struct EducationDetailsView: View {
                                 Divider()
                                 EntranceDetailsView()
                                 Divider()
+                                SemDetailsView()
+                                Divider()
                                 NavigationLink {
                                     UploadDocumentView()
                                 } label: {
@@ -741,7 +743,12 @@ struct EntranceDetailsView : View {
     @State var ChemistryScore : String = ""
     @State var MathsScore : String = ""
     @State var OverallScore : String = ""
-    
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     // Need to Add : Viewmodel Based List for the multiple entrance Examinations
     // Need to Add : validation that all the fields in the form is filled then go to next section
     var body: some View {
@@ -772,136 +779,249 @@ struct EntranceDetailsView : View {
                 if isExpanded{
                     VStack{
                         ScrollView(showsIndicators: false){
-                                VStack{
-                                    HStack{
-                                        Text("Entrance Exam Name : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Entrance Exam Name", text: $EntranceExamName)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Roll No : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Roll No", text: $RollNo)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Application Number : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Application Number", text: $ApplicationNumber)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    
-                                    Divider()
-                                    HStack{
-                                        Text("Physics Score :")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Physics Score", text: $PhysicsScore)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Chemistry Score : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Chemistry Score", text: $ChemistryScore)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    HStack{
-                                        Text("Maths Score : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Maths Score", text: $MathsScore)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    
-                                    HStack{
-                                        Text("Overall Score : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("Overall Score", text: $OverallScore)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
-                                    
-                                    
-                                   
-                                        Button(action: {
-                                            // Add to entrance List Logic 
-                                        }, label: {
-                                            Text("Add")
-                                                .padding()
-                                                .frame(maxWidth: .infinity)
-                                                .foregroundStyle(Color.white)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(Color.indigo)
-                                                )
-                                                .padding()
-                                            
-                                        })
+                            VStack{
+                                HStack{
+                                    Text("Entrance Exam Name : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Entrance Exam Name", text: $EntranceExamName)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
                                     
                                 }
-                            
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Roll No : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Roll No", text: $RollNo)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Application Number : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Application Number", text: $ApplicationNumber)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Physics Score :")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Physics Score", text: $PhysicsScore)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Chemistry Score : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Chemistry Score", text: $ChemistryScore)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Maths Score : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Maths Score", text: $MathsScore)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Overall Score : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Overall Score", text: $OverallScore)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                if EntranceExamName.isEmpty || RollNo.isEmpty || ApplicationNumber.isEmpty || PhysicsScore.isEmpty || ChemistryScore.isEmpty || MathsScore.isEmpty || OverallScore.isEmpty{
+                                    Text("All fields are Required")
+                                        .bold()
+                                        .padding(5)
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundStyle(Color.white)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.yellow)
+                                        )
+                                }else{
+                                    Button(action: {
+                                        // Add to entrance List Logic
+                                        viewmodel.entranceDataModel.entranceName = EntranceExamName
+                                        viewmodel.entranceDataModel.rollNumber = RollNo
+                                        viewmodel.entranceDataModel.appNumber = ApplicationNumber
+                                        viewmodel.entranceDataModel.phyPer = PhysicsScore
+                                        viewmodel.entranceDataModel.chePer = ChemistryScore
+                                        viewmodel.entranceDataModel.mathsPer = MathsScore
+                                        viewmodel.entranceDataModel.overallPer = OverallScore
+                                        viewmodel.entranceDataModel.uid = String(uid)
+                                        
+                                        viewmodel.postEntranceDetails()
+                                        viewmodel.getEntranceData()
+                                        EntranceExamName = ""
+                                        RollNo = ""
+                                        ApplicationNumber = ""
+                                        PhysicsScore = ""
+                                        ChemistryScore = ""
+                                        MathsScore = ""
+                                        OverallScore = ""
+                                    }, label: {
+                                        Text("Add")
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(Color.white)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.indigo)
+                                            )
+                                            .padding()
+                                        
+                                    })
+                                }
+                                Text("Entrance Data:")
+                                    .bold()
+                                    .font(.title2)
+                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                Divider()
+                                LazyVStack{
+                                    ForEach(viewmodel.entranceDataModel.EntranceDetailsList){data in
+                                        VStack{
+                                            HStack{
+                                                Text("Entrance Name:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.entranceName)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Roll Number:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.rollNumber)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Application Number:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.appNumber)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Physics Score:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.phyPer)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Chemistry Scoore:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.chePer)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Maths Scoore:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.mathsPer)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Overall Scoore:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.overallPer)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            .padding(.bottom, 10)
+                                        }
+                                        
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white)
+                                                .shadow(radius: 4)
+                                        )
+                                        .padding(10)
+                                    }
+                                }
+                                
+                            }
                             Divider()
+                            
                         }
                     }
                 }
@@ -909,7 +1029,284 @@ struct EntranceDetailsView : View {
         }
         .padding(10)
         .frame(maxHeight: .infinity, alignment: .topLeading)
-        
+        .task {
+            viewmodel.getEntranceData()
+        }
+    }
+}
+
+struct SemDetailsView : View {
+    @State var isAvailable : Bool = false
+    @State var isExpanded : Bool = false
+    
+    @State var SemNumber : String = ""
+    @State var SemGradeObtained : String = ""
+    @State var totalInternalKT : String = ""
+    @State var totalExternalKT : String = ""
+    @State var totalKT : String = ""
+    @State var agggScrore : String = ""
+    @State var OverallScore : String = ""
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
+    // Need to Add : Viewmodel Based List for the multiple entrance Examinations
+    // Need to Add : validation that all the fields in the form is filled then go to next section
+    var body: some View {
+        ScrollView(showsIndicators : false){
+            VStack{
+                HStack{
+                    Text("Sem Details")
+                        .bold()
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .font(.title)
+                    
+                    Button(action: {
+                        withAnimation{
+                            isExpanded.toggle()
+                        }
+                    }, label: {
+                        if isExpanded{
+                            Image(systemName: "arrow.down.forward.and.arrow.up.backward")
+                                .foregroundStyle(Color.black)
+                        }else{
+                            Image(systemName: "arrow.up.backward.and.arrow.down.forward")
+                                .foregroundStyle(Color.black)
+                        }
+                        
+                    })
+                    
+                }
+                if isExpanded{
+                    VStack{
+                        ScrollView(showsIndicators: false){
+                            VStack{
+                                HStack{
+                                    Text("Semester No. : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Semester No.", text: $SemNumber)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Semester Grade Obtained : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Semester Grade Obtained", text: $SemGradeObtained)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Total Internal KT : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Total Internal KT", text: $totalInternalKT)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Total External KT :")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Total External KT", text: $totalExternalKT)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Total Internal + Total External KT : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Chemistry Score", text: $totalKT)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Aggregate Score : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Aggregate Score", text: $agggScrore)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                if SemNumber.isEmpty || SemGradeObtained.isEmpty || totalInternalKT.isEmpty || totalExternalKT.isEmpty || totalKT.isEmpty || agggScrore.isEmpty {
+                                    Text("All fields are Required")
+                                        .bold()
+                                        .padding(5)
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundStyle(Color.white)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.yellow)
+                                        )
+                                }else{
+                                    Button(action: {
+                                        // Add to entrance List Logic
+                                        viewmodel.semDataModel.sem = SemNumber
+                                        viewmodel.semDataModel.grade = SemGradeObtained
+                                        viewmodel.semDataModel.internalKt = totalInternalKT
+                                        viewmodel.semDataModel.externalKt = totalExternalKT
+                                        viewmodel.semDataModel.totalKt = totalKT
+                                        viewmodel.semDataModel.aggregate = agggScrore
+                                        viewmodel.entranceDataModel.uid = String(uid)
+                                        
+                                        viewmodel.postSemDetails()
+                                        viewmodel.getSemData()
+                                        SemNumber = ""
+                                        SemGradeObtained = ""
+                                        totalInternalKT = ""
+                                        totalExternalKT = ""
+                                        totalKT = ""
+                                        agggScrore = ""
+                                    }, label: {
+                                        Text("Add")
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(Color.white)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.indigo)
+                                            )
+                                            .padding()
+                                        
+                                    })
+                                }
+//                                Text("Sem Data:")
+//                                    .bold()
+//                                    .font(.title2)
+//                                    .frame(maxWidth: .infinity,alignment: .leading)
+//                                Divider()
+                                LazyVStack{
+                                    ForEach(viewmodel.semDataModel.semDetailList){data in
+                                        VStack{
+                                            HStack{
+                                                Text("Semester :")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(String(data.semNumber))
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.top, 10)
+                                            HStack{
+                                                Text("Grade:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.gradeObtained)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            
+                                            HStack{
+                                                Text("Total Internal KT:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(String(data.internalKt))
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            
+                                            HStack{
+                                                Text("Total External KT:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(String(data.externalKt))
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            
+                                            HStack{
+                                                Text("Total KT:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(String(data.totalKt))
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            
+                                            HStack{
+                                                Text("Aggregate:")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                                Text(data.aggregatedScore)
+                                                    .frame(maxWidth: .infinity,alignment: .leading)
+                                            }
+                                            .padding(.leading , 10)
+                                            .padding(.trailing , 10)
+                                            .padding(.bottom, 10)
+                                        }
+                                        
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color.white)
+                                                .shadow(radius: 4)
+                                        )
+                                        .padding(10)
+                                    }
+                                }
+                                
+                            }
+                            Divider()
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .padding(10)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
+        .task {
+            viewmodel.getSemData()
+        }
     }
 }
 

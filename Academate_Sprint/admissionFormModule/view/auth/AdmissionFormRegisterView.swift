@@ -22,7 +22,7 @@ struct AdmissionFormRegisterView: View {
     let branchIDMap: [String: Int] = [
         "Computer Engineering": 1,
         "Artificial Intelligence And Data Science": 2,
-        "Information technology": 3
+        "Information technology": 4
     ]
 
     let programIDMap: [String: Int] = [

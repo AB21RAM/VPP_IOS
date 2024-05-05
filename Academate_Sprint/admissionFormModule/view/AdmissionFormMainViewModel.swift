@@ -71,19 +71,137 @@ struct AdmissionAddressDataModel{
 }
 struct AdmissionMainDataModel {
     var isFinalSubmit : Bool = Bool()
+    var programmID : Int = Int()
+    var presentCourseDetailsList : [DatumPresent] = []
+    var category : String = String()
 }
+
+struct AdmissionPreviousCourseDataModel {
+    // MARK: -SSC
+    var boardName: String = String()
+    var sscMarks: String = String()
+    var sscPass: String = String()
+    var sscPercentage: String = String()
+    var sscSeat: String = String()
+    var uid: String = String()
+    // MARK: -HSC
+    var bioMarks: String = String()
+    var cheMarks: String = String()
+    var hscBoardName: String = String()
+    var hscMarks: String = String()
+    var hscPass: String = String()
+    var hscPercentage: String = String()
+    var hscSeat: String = String()
+    var mathMarks: String = String()
+    var phyMarks: String = String()
+    var vocationalMarks: String = String()
+    var vocationalSubject: String = String()
+//    let uid: String
+    // MARK: -Diploma
+    var dipBoard: String = String()
+    var dipCgpi: String = String()
+    var dipCollegeName: String = String()
+    var dipMarks: String = String()
+    var dipPass: String = String()
+    var dipPercentage: String = String()
+    var dipSeat: String = String()
+//    let uid: String
+    
+    
+    var SSCcompleted : Bool = false
+    var HSCcompleted : Bool = false
+    var DiplomaCompleted : Bool = false
+    
+    var isDataAvailable : Bool = false
+    var error : Bool = false
+}
+struct AdmissionEntranceDataModel{
+    var appNumber: String = String()
+    var chePer: String = String()
+    var entranceName: String = String()
+    var mathsPer: String = String()
+    var overallPer: String = String()
+    var phyPer: String = String()
+    var rollNumber: String = String()
+    var uid: String = String()
+    
+    var EntranceDetailsAdded : Bool = false
+    var error : Bool = false
+    
+    var EntranceDetailsList : [EntranceDetailModel] = []
+}
+struct EntranceDetailModel : Identifiable {
+    var id = UUID()
+    var entranceID, studID: Int
+    var entranceName, rollNumber, appNumber, phyPer: String
+    var chePer, mathsPer, overallPer: String
+}
+struct AdmissionSemDataModel{
+    var aggregate: String = String()
+    var externalKt: String = String()
+    var grade: String = String()
+    var internalKt: String = String()
+    var sem: String = String()
+    var totalKt: String = String()
+    var uid: String = String()
+    
+    var semDataAdded : Bool = false
+    var error : Bool = false
+    
+    var semDetailList : [SemDetailModel] = []
+}
+struct SemDetailModel : Identifiable{
+    var id = UUID()
+    var aggregatedScore: String
+    var externalKt: Int
+    var gradeObtained: String
+    var internalKt: Int
+    var semId: Int
+    var semNumber: Int
+    var studId: Int
+    var totalKt: Int
+}
+
+struct AdmissionDashBoardDataModel{
+    var data :  [Datum] = []
+    var isEnt : Bool = Bool()
+    var isEdu : Bool = Bool()
+    var isAdd : Bool = Bool()
+    var isSem : Bool = Bool()
+    var isSubmmited : Bool = Bool()
+    
+}
+//struct AdmissionPresentCourseDataModel{
+//    
+//}
 class AdmissionFormMainViewModel : ObservableObject {
     @Published var personalDataModel = PersonalDataModel()
     @Published var parentDataModel = AdmissionParentDataModel()
     @Published var addressDataModel = AdmissionAddressDataModel()
     @Published var mainDataModel = AdmissionMainDataModel()
+    @Published var previousCourseDataModel = AdmissionPreviousCourseDataModel()
+    @Published var entranceDataModel = AdmissionEntranceDataModel()
+    @Published var semDataModel = AdmissionSemDataModel()
+    @Published var dashboardDataModel = AdmissionDashBoardDataModel()
+    
     private let apiResource = AdmissionFormApiResource()
     func getIsFinalSubmit(){
         apiResource.getIsSubmitted { result in
-            
+            DispatchQueue.main.async {
                 self.mainDataModel.isFinalSubmit = ((result?.isSubmmited) != nil)
-            
-           
+            }
+        }
+    }
+    func getStudentDashBoard() {
+        apiResource.getStudentDashboard { result in
+            DispatchQueue.main.async {
+                self.mainDataModel.programmID = result?.data.last?.programmID ?? 0
+                self.dashboardDataModel.data = result?.data ?? []
+                self.dashboardDataModel.isAdd = ((result?.isAdd) != nil)
+                self.dashboardDataModel.isEdu = ((result?.isEdu) != nil)
+                self.dashboardDataModel.isEnt = ((result?.isEnt) != nil)
+                self.dashboardDataModel.isSem = ((result?.isSem) != nil)
+            }
         }
     }
     func postPersonalDetails(){
@@ -161,7 +279,7 @@ class AdmissionFormMainViewModel : ObservableObject {
                 if result?.message == "Parent Details Are saved!" || result?.message == "Parent Details Are Updated!"{
                     self.parentDataModel.NavigateAddressDetails = true
                 }else{
-                    print("Submitting parent Details \(result?.message)")
+                    print("Submitting parent Details \(String(describing: result?.message))")
                     self.parentDataModel.error = true
                 }
             }
@@ -197,9 +315,9 @@ class AdmissionFormMainViewModel : ObservableObject {
             DispatchQueue.main.async {
                 if result?.message == "Address Details Are saved!"{
                     self.addressDataModel.NavigateEduDetails = true
-                    print("Address Message \(result?.message)")
+                    print("Address Message \(String(describing: result?.message))")
                 }else{
-                    print("Address Message \(result?.message)")
+                    print("Address Message \(String(describing: result?.message))")
                     self.addressDataModel.error = true
                 }
             }
@@ -219,6 +337,134 @@ class AdmissionFormMainViewModel : ObservableObject {
             }
         }
     }
+    // MARK: ---------------------
+    func getPreviousCourseDetails(completion: @escaping (_ result: DatumNew?) -> Void) {
+        apiResource.getPreviousCourseDetails{ result in
+            DispatchQueue.main.async {
+                if let result = result, !result.data.isEmpty {
+                    self.previousCourseDataModel.isDataAvailable = true
+//                    self.personalDataModel.NavigateParentDetails = true
+                    completion(result.data.last)
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
+    func postSSCDetails(){
+        let request = SCCFormDataResponse(boardName: previousCourseDataModel.boardName, sscMarks: previousCourseDataModel.sscMarks, sscPass: previousCourseDataModel.sscPass, sscPercentage: previousCourseDataModel.sscPercentage, sscSeat: previousCourseDataModel.sscSeat, uid: previousCourseDataModel.uid)
+        apiResource.postSSCDetails(request: request) { result in
+            DispatchQueue.main.async {
+                if result?.message == "SSC Details are updated!"{
+                    self.previousCourseDataModel.SSCcompleted = true
+                    print("SSC Message \(String(describing: result?.message))")
+                }else{
+                    print("SSC Message \(String(describing: result?.message))")
+                    self.previousCourseDataModel.error = true
+                }
+            }
+        }
+    }
+    func postHSCDetails(){
+        let request = HSCFormDataResponse(bioMarks: previousCourseDataModel.bioMarks, cheMarks: previousCourseDataModel.cheMarks, hscBoardName: previousCourseDataModel.hscBoardName, hscMarks: previousCourseDataModel.hscMarks, hscPass: previousCourseDataModel.hscPass, hscPercentage: previousCourseDataModel.hscPercentage, hscSeat: previousCourseDataModel.hscSeat, mathMarks: previousCourseDataModel.mathMarks, phyMarks: previousCourseDataModel.phyMarks, uid: previousCourseDataModel.uid, vocationalMarks: previousCourseDataModel.vocationalMarks, vocationalSubject: previousCourseDataModel.vocationalSubject)
+        apiResource.postHSCDetails(request: request) { result in
+            DispatchQueue.main.async {
+                if result?.message == "HSC Details are updated!"{
+                    self.previousCourseDataModel.HSCcompleted = true
+                    print("HSC Message \(String(describing: result?.message))")
+                }else{
+                    print("HSC Message \(String(describing: result?.message))")
+                    self.previousCourseDataModel.error = true
+                }
+            }
+        }
+    }
+    func postDiplomaDetails(){
+        let request = DiplomaFormDataResponse(dipBoard: previousCourseDataModel.dipBoard, dipCgpi: previousCourseDataModel.dipCgpi, dipCollegeName: previousCourseDataModel.dipCollegeName, dipMarks: previousCourseDataModel.dipMarks, dipPass: previousCourseDataModel.dipPass, dipPercentage: previousCourseDataModel.dipPercentage, dipSeat: previousCourseDataModel.dipSeat, uid: previousCourseDataModel.uid)
+        apiResource.postDiplomaDetails(request: request) { result in
+            DispatchQueue.main.async {
+                if result?.message == "Diploma Details are updated!"{
+                    self.previousCourseDataModel.DiplomaCompleted = true
+                    print("Diploma Message \(String(describing: result?.message))")
+                }else{
+                    print("Diploma Message \(String(describing: result?.message))")
+                    self.previousCourseDataModel.error = true
+                }
+            }
+        }
+    }
+    func postEntranceDetails(){
+        let request = EntranceFormDataResponse(appNumber: entranceDataModel.appNumber, chePer: entranceDataModel.chePer, entranceName: entranceDataModel.entranceName, mathsPer: entranceDataModel.mathsPer, overallPer: entranceDataModel.overallPer, phyPer: entranceDataModel.phyPer, rollNumber: entranceDataModel.rollNumber, uid: entranceDataModel.uid)
+        apiResource.postEntranceDetails(request: request) { result in
+            DispatchQueue.main.async {
+                if result?.message == "Entrance Details Added!, You can add more details or can go to next page."{
+                    self.entranceDataModel.EntranceDetailsAdded = true
+                    print("Entrance Message \(String(describing: result?.message))")
+                }else{
+                    print("Entrance Message \(String(describing: result?.message))")
+                    self.entranceDataModel.error = true
+                }
+            }
+        }
+    }
+    func getEntranceData(){
+        apiResource.getEntranceDetails { result in
+            DispatchQueue.main.async {
+                if let result = result, !result.entrance.isEmpty {
+                    self.entranceDataModel.EntranceDetailsList = result.entrance.map { data in
+                        EntranceDetailModel(
+                            entranceID: data.entranceID,
+                            studID: data.studID,
+                            entranceName: data.entranceName,
+                            rollNumber: data.rollNumber,
+                            appNumber: data.appNumber,
+                            phyPer: data.phyPer,
+                            chePer: data.chePer,
+                            mathsPer: data.mathsPer,
+                            overallPer: data.overallPer
+                        )
+                    }
+                }
+            }
+        }
+    }
+
     
+    func postSemDetails(){
+        let request = SemFormDataResponse(aggregate: semDataModel.aggregate, externalKt: semDataModel.externalKt, grade: semDataModel.grade, internalKt: semDataModel.internalKt, sem: semDataModel.sem, totalKt: semDataModel.totalKt, uid: semDataModel.uid)
+        apiResource.postSemDetails(request: request) { result in
+            DispatchQueue.main.async {
+                if result?.message == "Semester Details Added!, You can add more details or can go to next page."{
+                    self.semDataModel.semDataAdded = true
+                    print("sem Message \(String(describing: result?.message))")
+                }else{
+                    print("sem Message \(String(describing: result?.message))")
+                    self.semDataModel.error = true
+                }
+            }
+        }
+    }
+    func getSemData(){
+        apiResource.getSemDetails { result in
+            DispatchQueue.main.async {
+                if !(result?.entrance.isEmpty ?? false){
+                    self.semDataModel.semDetailList = result?.entrance.map({ data in
+                        SemDetailModel(aggregatedScore: data.aggregatedScore, externalKt: data.externalKt, gradeObtained: data.gradeObtained, internalKt: data.internalKt, semId: data.semId, semNumber: data.semNumber, studId: data.studId, totalKt: data.totalKt)
+                    }) ?? []
+                }
+            }
+        }
+    }
+    
+    func getPresentData(){
+        apiResource.getPresentCourseDetails { result in
+            DispatchQueue.main.async {
+                if !(result?.data.isEmpty ?? false){
+                    self.mainDataModel.presentCourseDetailsList = result?.data ?? []
+                    self.mainDataModel.category = result?.category ?? "NA"
+                }
+            }
+        }
+    }
     
 }
