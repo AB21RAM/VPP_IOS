@@ -8,17 +8,19 @@
 import Foundation
 struct PresentCourseDetailsGetResponse: Codable {
     var data: [DatumPresent]
-    var category: String
+    var category: String = ""
 }
 
 // MARK: - Datum
 struct DatumPresent: Codable {
-    var sid: Int
-    var studClgID: String
-    var uid, programmID: Int
-    var catID: Int?
-    var seatTypeID, branchID: Int
-    var grNumber: String
+    var sid: Int = 0
+    var studClgID: String = ""
+    var uid : Int = 0
+    var programmID: Int = 0
+    var catID: Int?  = 0
+    var seatTypeID : Int = 0
+    var branchID: Int = 0
+    var grNumber: String = ""
     var personalDetailsID, fatherID, motherID, guardianID: Int
     var physicallyHandicap, defenceStatus, receivedScholership, detailsOfPrize: JSONNull?
     var speacialTalent: JSONNull?

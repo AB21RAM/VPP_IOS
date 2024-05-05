@@ -10,6 +10,7 @@ import SwiftUI
 struct EducationDetailsView: View {
     @State var isNavigateMenu  = false
     let userDefaultsManager = UserDefaultsManager.shared
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     var body: some View {
         NavigationStack{
             GeometryReader { geometry in
@@ -58,9 +59,13 @@ struct EducationDetailsView: View {
                                 Divider()
                                 PreviousCourseDetailsView()
                                 Divider()
-                                EntranceDetailsView()
+                                if viewmodel.dashboardDataModel.data.last?.programmID ?? 0 == 1{
+                                    EntranceDetailsView()
+                                }else if viewmodel.dashboardDataModel.data.last?.programmID ?? 0 > 1{
+                                    SemDetailsView()
+                                }
                                 Divider()
-                                SemDetailsView()
+                                PresentCourseDetailsView()
                                 Divider()
                                 NavigationLink {
                                     UploadDocumentView()
@@ -75,6 +80,10 @@ struct EducationDetailsView: View {
             }
             
         }.navigationBarBackButtonHidden(true)
+            .task {
+                viewmodel.getStudentDashBoard()
+                print(" Programm ID \(String(viewmodel.dashboardDataModel.data.last?.programmID ?? 0))")
+            }
     }
 }
 
@@ -94,7 +103,7 @@ struct PreviousCourseDetailsView : View {
     @State var HSCChemistryMarks : String = ""
     @State var HSCBiologyMarks : String = ""
     @State var HSCMathsMarks : String = ""
-    @State var HSCPCMMarks : String = ""
+//    @State var HSCPCMMarks : String = ""
     @State var HSCVocationalMarks : String = ""
     @State var HSCVocationalName : String = ""
     let HSCVocationalSubjects = ["Computer Science" , "Information Technology" , "Electronics"]
@@ -114,6 +123,12 @@ struct PreviousCourseDetailsView : View {
     @State var isExpandedHSC : Bool = false
     @State var isExpandedDiploma : Bool = false
     
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
     // Need to Add : validation that all the fields in the form is filled then go to next section
     var body: some View {
         ScrollView(showsIndicators : false){
@@ -294,8 +309,14 @@ struct PreviousCourseDetailsView : View {
                                         
                                     }else{
                                         Button(action: {
-                                           // otp sent logic
-//                                            isOTPSentFather.toggle()
+                                            viewmodel.previousCourseDataModel.sscPass = SSCPassingYear
+                                            viewmodel.previousCourseDataModel.sscSeat = SSCSeatNo
+                                            viewmodel.previousCourseDataModel.boardName = SSCBoardName
+                                            viewmodel.previousCourseDataModel.sscMarks = SSCMarks
+                                            viewmodel.previousCourseDataModel.sscPercentage = SSCPercentage
+                                            viewmodel.previousCourseDataModel.uid = String(uid)
+                                            viewmodel.postSSCDetails()
+                                            isExpandedSSC.toggle()
                                         }, label: {
                                             Text("Submit & Next")
                                                 .padding()
@@ -517,23 +538,23 @@ struct PreviousCourseDetailsView : View {
                                         
                                     }
                                     .padding(.bottom,5)
-                                    HStack{
-                                        Text("PCM Percentage : ")
-                                            .bold()
-                                            .font(.title3)
-                                            .frame(width: .infinity , alignment: .leading)
-                                        TextField("PCM Percentage", text: $HSCPCMMarks)
-                                            .keyboardType(.alphabet).autocapitalization(.none)
-                                            .padding(15)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .stroke(Color("toolbar"))
-                                            )
-                                        
-                                    }
-                                    .padding(.bottom,5)
+//                                    HStack{
+//                                        Text("PCM Percentage : ")
+//                                            .bold()
+//                                            .font(.title3)
+//                                            .frame(width: .infinity , alignment: .leading)
+//                                        TextField("PCM Percentage", text: $HSCPCMMarks)
+//                                            .keyboardType(.alphabet).autocapitalization(.none)
+//                                            .padding(15)
+//                                            .overlay(
+//                                                RoundedRectangle(cornerRadius: 10)
+//                                                    .stroke(Color("toolbar"))
+//                                            )
+//                                        
+//                                    }
+//                                    .padding(.bottom,5)
                                     
-                                    if HSCMarks.isEmpty || HSCPercentage.isEmpty || HSCSeatNo.isEmpty || HSCBoardName.isEmpty || HSCPassingYear.isEmpty || HSCMathsMarks.isEmpty || HSCPhysicsMarks.isEmpty || HSCChemistryMarks.isEmpty || HSCBiologyMarks.isEmpty || HSCVocationalMarks.isEmpty || HSCPCMMarks.isEmpty{
+                                    if HSCMarks.isEmpty || HSCPercentage.isEmpty || HSCSeatNo.isEmpty || HSCBoardName.isEmpty || HSCPassingYear.isEmpty || HSCMathsMarks.isEmpty || HSCPhysicsMarks.isEmpty || HSCChemistryMarks.isEmpty || HSCBiologyMarks.isEmpty || HSCVocationalMarks.isEmpty {
                                         Text("All fields are Required")
                                             .bold()
                                             .padding(5)
@@ -546,8 +567,19 @@ struct PreviousCourseDetailsView : View {
                                         
                                     }else{
                                         Button(action: {
-                                           // Submit the HSC Logic
-//
+                                            viewmodel.previousCourseDataModel.hscPass = HSCPassingYear
+                                            viewmodel.previousCourseDataModel.hscSeat = HSCSeatNo
+                                            viewmodel.previousCourseDataModel.hscBoardName = HSCBoardName
+                                            viewmodel.previousCourseDataModel.hscMarks = HSCMarks
+                                            viewmodel.previousCourseDataModel.hscPercentage = HSCPercentage
+                                            viewmodel.previousCourseDataModel.phyMarks = HSCPhysicsMarks
+                                            viewmodel.previousCourseDataModel.cheMarks = HSCChemistryMarks
+                                            viewmodel.previousCourseDataModel.bioMarks = HSCBiologyMarks
+                                            viewmodel.previousCourseDataModel.mathMarks = HSCMathsMarks
+                                            viewmodel.previousCourseDataModel.vocationalMarks = HSCVocationalMarks
+                                            viewmodel.previousCourseDataModel.vocationalSubject = HSCVocationalName
+                                            viewmodel.previousCourseDataModel.uid = String(uid)
+                                            viewmodel.postHSCDetails()
                                             isExpandedHSC.toggle()
                                         }, label: {
                                             Text("Submit & Next")
@@ -705,8 +737,15 @@ struct PreviousCourseDetailsView : View {
                                         
                                     
                                         Button(action: {
-                                           // Submit the Diploma Logic
-//
+                                            viewmodel.previousCourseDataModel.dipPass = DiplomaPassingYear
+                                            viewmodel.previousCourseDataModel.dipSeat = DiplomaSeatNo
+                                            viewmodel.previousCourseDataModel.dipBoard = DiplomaBoardName
+                                            viewmodel.previousCourseDataModel.dipCollegeName = DiplomaCollegeName
+                                            viewmodel.previousCourseDataModel.dipMarks = DiplomaMarks
+                                            viewmodel.previousCourseDataModel.dipPercentage = DiplomaPercentage
+                                            viewmodel.previousCourseDataModel.dipCgpi = DiplomaCGPI
+                                            viewmodel.previousCourseDataModel.uid = String(uid)
+                                            viewmodel.postDiplomaDetails()
                                             isExpandedDiploma.toggle()
                                         }, label: {
                                             Text("Submit & Next")
@@ -730,7 +769,46 @@ struct PreviousCourseDetailsView : View {
         }
         .padding(10)
         .frame(maxHeight: .infinity, alignment: .topLeading)
-        
+        .task {
+            viewmodel.getPreviousCourseDetails { data in
+                if let data = data {
+                    // SSC Details
+                        SSCPassingYear = data.sscPassingYear
+                        SSCSeatNo = data.sscSeatNumber
+                        SSCBoardName = data.sscNameOfBoard
+                        SSCMarks = data.sscMarks
+                        SSCPercentage = data.sscPercentage
+                        
+                        // HSC Details
+                        HSCPassingYear = data.hscPassingYear
+                        HSCSeatNo = data.hscSeatYear
+                        HSCBoardName = data.hscNameOfBoard
+                        HSCMarks = data.hscMarks
+                        HSCPercentage = data.hscPercentage
+                        HSCPhysicsMarks = data.physicsScoreInHsc
+                        HSCChemistryMarks = data.chemistryScoreInHsc
+                        HSCBiologyMarks = data.bioMarks
+                        HSCMathsMarks = data.mathsScoreHsc
+                        
+                        // HSC Vocational Details
+                        HSCVocationalMarks = data.vocationalTotalScoreHsc
+                        HSCVocationalName = data.vocationalSubject
+                        
+                        // Diploma Details
+                        DiplomaPassingYear = data.depPassingYear ?? ""
+                        DiplomaSeatNo = data.depSeat ?? ""
+                        DiplomaBoardName = data.dipBoard ?? ""
+                        DiplomaCollegeName = data.depClgName ?? ""
+                        DiplomaMarks = data.depMarks ?? ""
+                        DiplomaPercentage = data.depPer ?? ""
+                        DiplomaCGPI = data.depCgpi ?? ""
+                }else {
+                    // Handle the case where data retrieval failed
+                    print("Failed to retrieve RaddNew object")
+                    // You might want to display an error message or take other actions
+                }
+            }
+        }
     }
 }
 struct EntranceDetailsView : View {
@@ -1034,7 +1112,6 @@ struct EntranceDetailsView : View {
         }
     }
 }
-
 struct SemDetailsView : View {
     @State var isAvailable : Bool = false
     @State var isExpanded : Bool = false
@@ -1045,7 +1122,6 @@ struct SemDetailsView : View {
     @State var totalExternalKT : String = ""
     @State var totalKT : String = ""
     @State var agggScrore : String = ""
-    @State var OverallScore : String = ""
     let userDefaultsManager = UserDefaultsManager.shared
     var uid: Int {
         print(userDefaultsManager.getUid() ?? "no uid found")
@@ -1215,85 +1291,87 @@ struct SemDetailsView : View {
                                         
                                     })
                                 }
-//                                Text("Sem Data:")
-//                                    .bold()
-//                                    .font(.title2)
-//                                    .frame(maxWidth: .infinity,alignment: .leading)
-//                                Divider()
-                                LazyVStack{
-                                    ForEach(viewmodel.semDataModel.semDetailList){data in
-                                        VStack{
-                                            HStack{
-                                                Text("Semester :")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(String(data.semNumber))
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
+
+                                if !viewmodel.semDataModel.semDetailList.isEmpty{
+                                    Text("Sem Data:")
+                                        .bold()
+                                        .font(.title2)
+                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                    Divider()
+                                    LazyVStack{
+                                        ForEach(viewmodel.semDataModel.semDetailList){data in
+                                            VStack{
+                                                HStack{
+                                                    Text("Semester :")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(String(data.semNumber))
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                .padding(.top, 10)
+                                                HStack{
+                                                    Text("Grade:")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(data.gradeObtained)
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                
+                                                HStack{
+                                                    Text("Total Internal KT:")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(String(data.internalKt))
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                
+                                                HStack{
+                                                    Text("Total External KT:")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(String(data.externalKt))
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                
+                                                HStack{
+                                                    Text("Total KT:")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(String(data.totalKt))
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                
+                                                HStack{
+                                                    Text("Aggregate:")
+                                                        .bold()
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                    Text(data.aggregatedScore)
+                                                        .frame(maxWidth: .infinity,alignment: .leading)
+                                                }
+                                                .padding(.leading , 10)
+                                                .padding(.trailing , 10)
+                                                .padding(.bottom, 10)
                                             }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
-                                            .padding(.top, 10)
-                                            HStack{
-                                                Text("Grade:")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(data.gradeObtained)
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                            }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
                                             
-                                            HStack{
-                                                Text("Total Internal KT:")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(String(data.internalKt))
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                            }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
-                                            
-                                            HStack{
-                                                Text("Total External KT:")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(String(data.externalKt))
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                            }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
-                                            
-                                            HStack{
-                                                Text("Total KT:")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(String(data.totalKt))
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                            }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
-                                            
-                                            HStack{
-                                                Text("Aggregate:")
-                                                    .bold()
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                                Text(data.aggregatedScore)
-                                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                            }
-                                            .padding(.leading , 10)
-                                            .padding(.trailing , 10)
-                                            .padding(.bottom, 10)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.white)
+                                                    .shadow(radius: 4)
+                                            )
+                                            .padding(10)
                                         }
-                                        
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color.white)
-                                                .shadow(radius: 4)
-                                        )
-                                        .padding(10)
                                     }
                                 }
-                                
                             }
                             Divider()
                             
@@ -1306,6 +1384,203 @@ struct SemDetailsView : View {
         .frame(maxHeight: .infinity, alignment: .topLeading)
         .task {
             viewmodel.getSemData()
+        }
+    }
+}
+struct PresentCourseDetailsView : View {
+    @State var isAvailable : Bool = false
+    @State var isExpanded : Bool = false
+    
+    @State var studentID : String = ""
+    @State var selectedProgram : String = ""
+    @State var selectedBranch : String = ""
+    @State var seatType : String = ""
+    @State var grNumber : String = ""
+    @State var category : String = ""
+    let userDefaultsManager = UserDefaultsManager.shared
+    var uid: Int {
+        print(userDefaultsManager.getUid() ?? "no uid found")
+        return userDefaultsManager.getUid() ?? 0
+    }
+    @StateObject var viewmodel = AdmissionFormMainViewModel()
+    let reverseBranchIDMap: [Int: String] = [
+        1: "Computer Engineering",
+        2: "Artificial Intelligence And Data Science",
+        4: "Information technology"
+    ]
+    let reverseProgramIDMap: [Int: String] = [
+        1: "First Year (F.Y B.E)",
+        2: "Direct Second Year (D.S.Y. B.E.)",
+        3: "Second Year (S.Y. B.E.)",
+        4: "Third Year (T.Y. B.E.)",
+        5: "Final Year (B.E. Final Year)"
+    ]
+    let reverseSeatIDMap: [Int: String] = [
+        1: "CAP",
+        2: "Institute Level",
+        3: "Against CAP"
+    ]
+    // Need to Add : Viewmodel Based List for the multiple entrance Examinations
+    // Need to Add : validation that all the fields in the form is filled then go to next section
+    var body: some View {
+        ScrollView(showsIndicators : false){
+            VStack{
+                HStack{
+                    Text("Present Course Details")
+                        .bold()
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                        .font(.title)
+                    
+                    Button(action: {
+                        withAnimation{
+                            isExpanded.toggle()
+                        }
+                    }, label: {
+                        if isExpanded{
+                            Image(systemName: "arrow.down.forward.and.arrow.up.backward")
+                                .foregroundStyle(Color.black)
+                        }else{
+                            Image(systemName: "arrow.up.backward.and.arrow.down.forward")
+                                .foregroundStyle(Color.black)
+                        }
+                        
+                    })
+                    
+                }
+                if isExpanded{
+                    VStack{
+                        ScrollView(showsIndicators: false){
+                            VStack{
+                                HStack{
+                                    Text("Student ID : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Student ID", text: $viewmodel.presentCourseDatamodel.studentID)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Selected Program : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Selected Program", text: $viewmodel.presentCourseDatamodel.selectedProgram)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Selected Branch : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Selected Branch", text: $viewmodel.presentCourseDatamodel.selectedBranch)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Seat Type :")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("Seat Type", text: $viewmodel.presentCourseDatamodel.seatType)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("GR Number : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("GR Number", text: $viewmodel.presentCourseDatamodel.grNumber)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                HStack{
+                                    Text("Category : ")
+                                        .bold()
+                                        .font(.title3)
+                                        .frame(width: .infinity , alignment: .leading)
+                                    TextField("category", text: $viewmodel.presentCourseDatamodel.category)
+                                        .keyboardType(.alphabet).autocapitalization(.none)
+                                        .bold()
+                                        .disabled(true)
+                                        .padding(15)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("toolbar"))
+                                        )
+                                    
+                                }
+                                .padding(.bottom,5)
+                                
+                               
+                                    Button(action: {
+                                        isExpanded.toggle()
+                                    }, label: {
+                                        Text("Confirm and Next")
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(Color.white)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .fill(Color.indigo)
+                                            )
+                                            .padding()
+                                        
+                                    })
+                            }
+                            Divider()
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .padding(10)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
+        .task {
+            viewmodel.getPresentData()
         }
     }
 }

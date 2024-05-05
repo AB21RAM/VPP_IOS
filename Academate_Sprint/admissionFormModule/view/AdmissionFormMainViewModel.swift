@@ -71,11 +71,18 @@ struct AdmissionAddressDataModel{
 }
 struct AdmissionMainDataModel {
     var isFinalSubmit : Bool = Bool()
-    var programmID : Int = Int()
+    var programmID : String = String()
     var presentCourseDetailsList : [DatumPresent] = []
     var category : String = String()
 }
-
+struct PresentCourseDataModel{
+    var studentID : String = String()
+    var selectedProgram : String = String()
+    var selectedBranch : String = String()
+    var seatType : String = String()
+    var grNumber : String = String()
+    var category : String = String()
+}
 struct AdmissionPreviousCourseDataModel {
     // MARK: -SSC
     var boardName: String = String()
@@ -183,6 +190,7 @@ class AdmissionFormMainViewModel : ObservableObject {
     @Published var entranceDataModel = AdmissionEntranceDataModel()
     @Published var semDataModel = AdmissionSemDataModel()
     @Published var dashboardDataModel = AdmissionDashBoardDataModel()
+    @Published var presentCourseDatamodel = PresentCourseDataModel()
     
     private let apiResource = AdmissionFormApiResource()
     func getIsFinalSubmit(){
@@ -195,7 +203,8 @@ class AdmissionFormMainViewModel : ObservableObject {
     func getStudentDashBoard() {
         apiResource.getStudentDashboard { result in
             DispatchQueue.main.async {
-                self.mainDataModel.programmID = result?.data.last?.programmID ?? 0
+                print("Programm id Viewmodel \(String(result?.data.last?.programmID ?? 0))")
+                self.mainDataModel.programmID = String(result?.data.last?.programmID ?? 0)
                 self.dashboardDataModel.data = result?.data ?? []
                 self.dashboardDataModel.isAdd = ((result?.isAdd) != nil)
                 self.dashboardDataModel.isEdu = ((result?.isEdu) != nil)
@@ -460,8 +469,37 @@ class AdmissionFormMainViewModel : ObservableObject {
         apiResource.getPresentCourseDetails { result in
             DispatchQueue.main.async {
                 if !(result?.data.isEmpty ?? false){
-                    self.mainDataModel.presentCourseDetailsList = result?.data ?? []
-                    self.mainDataModel.category = result?.category ?? "NA"
+                    print("Present Data is \(String(describing: result?.data))")
+                    let data = result?.data.last
+//                    var studentID : String = String()
+//                    var selectedProgram : String = String()
+//                    var selectedBranch : String = String()
+//                    var seatType : String = String()
+//                    var grNumber : String = String()
+//                    var category : String = String()
+                    let reverseBranchIDMap: [Int: String] = [
+                        1: "Computer Engineering",
+                        2: "Artificial Intelligence And Data Science",
+                        4: "Information technology"
+                    ]
+                    let reverseProgramIDMap: [Int: String] = [
+                        1: "First Year (F.Y B.E)",
+                        2: "Direct Second Year (D.S.Y. B.E.)",
+                        3: "Second Year (S.Y. B.E.)",
+                        4: "Third Year (T.Y. B.E.)",
+                        5: "Final Year (B.E. Final Year)"
+                    ]
+                    let reverseSeatIDMap: [Int: String] = [
+                        1: "CAP",
+                        2: "Institute Level",
+                        3: "Against CAP"
+                    ]
+                    self.presentCourseDatamodel.studentID = data?.studClgID ?? ""
+                    self.presentCourseDatamodel.selectedBranch = reverseBranchIDMap[data?.branchID ?? 0] ?? ""
+                    self.presentCourseDatamodel.selectedProgram = reverseProgramIDMap[data?.programmID ?? 0] ?? ""
+                    self.presentCourseDatamodel.seatType = reverseSeatIDMap[data?.seatTypeID ?? 0] ?? ""
+                    self.presentCourseDatamodel.grNumber = data?.grNumber ?? ""
+                    self.presentCourseDatamodel.category = result?.category ?? ""
                 }
             }
         }
